@@ -12,6 +12,21 @@
 
 ---
 
+## 2026-09-08 (3) — Real Shema logo
+
+User supplied the actual Shema logo artwork (people-holding-hands + cross +
+arrow mark, "SHEMA / GKI Gejayan" wordmark). Saved to `public/logo-shema.png`
+and swapped in everywhere the app previously used a placeholder (a plain
+colored circle with a Lucide `Users` icon, plus separate "Shema" / "GKI
+Gejayan" text): `AppShell.jsx`'s desktop sidebar header and mobile top bar,
+and the hero area on `Login.jsx` and `Register.jsx`. The separate text
+kicker/heading next to the placeholder icon was dropped at each of those
+spots since the real logo already bakes in the wordmark. Also now the
+favicon (`index.html`), replacing the old placeholder `favicon.svg`, which
+was deleted as it's no longer referenced anywhere.
+
+---
+
 ## 2026-09-08 (2) — Leader-panel corrections + new Coach role
 
 Five corrections/additions to the same-day Leader batch below, plus an

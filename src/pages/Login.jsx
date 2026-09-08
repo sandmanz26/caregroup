@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
-import { Users } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { demoUsers, roleLabels, journeyStages } from '../data/mockData'
 
@@ -31,12 +30,8 @@ export default function Login() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-ink-50 px-4">
       <div className="w-full max-w-sm">
-        <div className="mb-6 flex flex-col items-center gap-2 text-center">
-          <span className="flex size-12 items-center justify-center rounded-full bg-brand-500 text-white">
-            <Users size={22} />
-          </span>
-          <p className="text-xs font-medium uppercase tracking-wide text-ink-400">Shema</p>
-          <h1 className="text-xl font-semibold text-ink-900">GKI Gejayan</h1>
+        <div className="mb-6 flex flex-col items-center text-center">
+          <img src="/logo-shema.png" alt="Shema · GKI Gejayan" className="h-28 w-28 object-contain" />
         </div>
 
         <div className="rounded-lg border border-ink-200 bg-white p-5">

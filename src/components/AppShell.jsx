@@ -41,8 +41,7 @@ export default function AppShell() {
       {/* Desktop sidebar */}
       <aside className="hidden md:sticky md:top-0 md:flex md:h-screen md:w-60 md:flex-col md:border-r md:border-ink-200 md:px-4 md:py-6 md:shrink-0">
         <div className="px-2 pb-6">
-          <p className="text-[11px] uppercase tracking-wide text-ink-400">Shema</p>
-          <p className="text-lg font-semibold text-ink-900 leading-tight">GKI Gejayan</p>
+          <img src="/logo-shema.png" alt="Shema · GKI Gejayan" className="h-14 w-14 object-contain" />
         </div>
         <nav className="flex flex-1 flex-col gap-1">
           {navItems.map(({ to, label, icon: Icon }) => (
@@ -83,10 +82,7 @@ export default function AppShell() {
 
       {/* Mobile top bar */}
       <header className="flex items-center justify-between border-b border-ink-200 bg-ink-50 px-4 py-3 md:hidden">
-        <div>
-          <p className="text-[10px] uppercase tracking-wide text-ink-400">Shema</p>
-          <p className="text-base font-semibold text-ink-900 leading-tight">GKI Gejayan</p>
-        </div>
+        <img src="/logo-shema.png" alt="Shema · GKI Gejayan" className="h-10 w-10 object-contain" />
         <NavLink to="/profil" className="flex size-9 items-center justify-center rounded-full bg-brand-500 text-xs font-semibold text-white">
           {user.initials}
         </NavLink>

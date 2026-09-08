@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Users, CheckCircle2 } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 
 const inputClass = 'w-full rounded-md border border-ink-200 px-3 py-2 text-sm outline-none focus:border-brand-400'
@@ -27,10 +27,7 @@ export default function Register() {
     <div className="flex min-h-screen items-center justify-center bg-ink-50 px-4">
       <div className="w-full max-w-sm">
         <div className="mb-6 flex flex-col items-center gap-2 text-center">
-          <span className="flex size-12 items-center justify-center rounded-full bg-brand-500 text-white">
-            <Users size={22} />
-          </span>
-          <p className="text-xs font-medium uppercase tracking-wide text-ink-400">Shema</p>
+          <img src="/logo-shema.png" alt="Shema · GKI Gejayan" className="h-20 w-20 object-contain" />
           <h1 className="text-xl font-semibold text-ink-900">Daftar Akun Baru</h1>
           <p className="text-sm text-ink-500">Isi data singkat ini untuk mulai bergabung di GKI Gejayan.</p>
         </div>

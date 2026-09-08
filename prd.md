@@ -646,6 +646,13 @@ asked, what was decided, why.
     "Coaching" event category** rather than inventing a separate one (see
     §9 for the resulting mixing-with-First/Second-Coaching caveat this
     causes on the shared `/jadwal` page).
+17. **Real Shema logo artwork supplied and swapped in for the placeholder.**
+    The sidebar/top-bar/Login/Register "Shema" branding (Decision #10) had
+    been a plain colored circle + Lucide icon + separate text since no real
+    asset existed yet. The user provided the actual logo (`public/logo-shema.png`)
+    — used as-is everywhere that placeholder appeared, including the
+    favicon, with the redundant "Shema"/"GKI Gejayan" text dropped next to
+    it since the artwork already includes that wordmark.
 
 ## 8. Pages That Must Handle "No Care Group" Gracefully
 
