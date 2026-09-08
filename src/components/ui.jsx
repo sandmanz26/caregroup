@@ -20,6 +20,9 @@ const badgeColors = {
   good: 'bg-good-100 text-good-500',
   warn: 'bg-warn-100 text-ink-700',
   ink: 'bg-ink-200 text-ink-700',
+  coklat: 'bg-tier-coklat-100 text-tier-coklat',
+  merah: 'bg-tier-merah-100 text-tier-merah',
+  hijaumuda: 'bg-hijau-muda-100 text-hijau-muda',
 }
 
 export function Badge({ children, color = 'ink' }) {

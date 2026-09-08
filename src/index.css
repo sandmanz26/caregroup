@@ -28,6 +28,16 @@
   --color-warn-500: oklch(0.75 0.15 80);
   --color-warn-100: oklch(0.95 0.04 80);
 
+  /* Achievement tiers (Baca Alkitab, CG growth, Beranting) — "kuning" reuses warn, "hijau" reuses good */
+  --color-tier-coklat: oklch(0.42 0.06 55);
+  --color-tier-coklat-100: oklch(0.93 0.02 55);
+  --color-tier-merah: oklch(0.55 0.18 25);
+  --color-tier-merah-100: oklch(0.94 0.045 25);
+
+  /* Average CG attendance indicator: light green (50-80%) vs the existing darker good/green (>80%) */
+  --color-hijau-muda: oklch(0.78 0.09 145);
+  --color-hijau-muda-100: oklch(0.95 0.025 145);
+
   --font-sans: -apple-system, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
 }
 

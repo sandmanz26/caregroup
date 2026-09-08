@@ -1,15 +1,23 @@
 import { NavLink, Outlet } from 'react-router-dom'
-import { Home, Users, CalendarDays, HeartHandshake, CircleUser, ShieldCheck } from 'lucide-react'
+import { Home, Users, BookMarked, CalendarDays, HeartHandshake, HandHelping, CircleUser, ShieldCheck } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { roleLabels } from '../data/mockData'
 
 const BASE_NAV_ITEMS = [
   { to: '/', label: 'Home', icon: Home },
-  { to: '/komsel', label: 'Komsel', icon: Users },
+  { to: '/komsel', label: 'Program CG', icon: Users },
+  { to: '/baca-alkitab', label: 'Baca Alkitab', icon: BookMarked },
+  { to: '/presensi', label: 'Presensi', icon: HandHelping },
   { to: '/jadwal', label: 'Jadwal', icon: CalendarDays },
   { to: '/doa', label: 'Doa', icon: HeartHandshake },
   { to: '/profil', label: 'Profil', icon: CircleUser },
 ]
+
+// Hidden from the jemaat/member nav for now — see PRD decision log.
+const HIDDEN_FOR_MEMBER = ['/jadwal', '/doa']
+
+// Doa is hidden from Ketua Komsel (Leader) too, per explicit request — Super Admin keeps it.
+const HIDDEN_FOR_LEADER = ['/doa']
 
 const ADMIN_NAV_ITEM = { to: '/admin', label: 'Admin', icon: ShieldCheck }
 
@@ -19,15 +27,21 @@ function NavIcon({ Icon, active }) {
 
 export default function AppShell() {
   const { user } = useApp()
-  const isAdminRole = user.role === 'admin' || user.role === 'super_admin'
-  const navItems = isAdminRole ? [...BASE_NAV_ITEMS, ADMIN_NAV_ITEM] : BASE_NAV_ITEMS
+  let navItems
+  if (user.role === 'admin') {
+    navItems = [...BASE_NAV_ITEMS.filter((item) => !HIDDEN_FOR_LEADER.includes(item.to)), ADMIN_NAV_ITEM]
+  } else if (user.role === 'super_admin' || user.role === 'coach') {
+    navItems = [...BASE_NAV_ITEMS, ADMIN_NAV_ITEM]
+  } else {
+    navItems = BASE_NAV_ITEMS.filter((item) => !HIDDEN_FOR_MEMBER.includes(item.to))
+  }
 
   return (
     <div className="min-h-screen bg-ink-50 text-ink-800 md:flex">
       {/* Desktop sidebar */}
       <aside className="hidden md:sticky md:top-0 md:flex md:h-screen md:w-60 md:flex-col md:border-r md:border-ink-200 md:px-4 md:py-6 md:shrink-0">
         <div className="px-2 pb-6">
-          <p className="text-[11px] uppercase tracking-wide text-ink-400">Care Group</p>
+          <p className="text-[11px] uppercase tracking-wide text-ink-400">Shema</p>
           <p className="text-lg font-semibold text-ink-900 leading-tight">GKI Gejayan</p>
         </div>
         <nav className="flex flex-1 flex-col gap-1">
@@ -70,7 +84,7 @@ export default function AppShell() {
       {/* Mobile top bar */}
       <header className="flex items-center justify-between border-b border-ink-200 bg-ink-50 px-4 py-3 md:hidden">
         <div>
-          <p className="text-[10px] uppercase tracking-wide text-ink-400">Care Group</p>
+          <p className="text-[10px] uppercase tracking-wide text-ink-400">Shema</p>
           <p className="text-base font-semibold text-ink-900 leading-tight">GKI Gejayan</p>
         </div>
         <NavLink to="/profil" className="flex size-9 items-center justify-center rounded-full bg-brand-500 text-xs font-semibold text-white">
