@@ -9,6 +9,30 @@
         "dev"
       ],
       "port": 9500
+    },
+    {
+      "name": "full-design-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "serve",
+        "full_design",
+        "-l",
+        "9600"
+      ],
+      "port": 9600
+    },
+    {
+      "name": "full-design-v3-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "serve",
+        "full_design_v3",
+        "-l",
+        "9700"
+      ],
+      "port": 9700
     }
   ]
 }

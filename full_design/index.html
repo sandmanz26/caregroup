@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shema — Hi-Fi Design</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  .hub { max-width: 980px; margin: 0 auto; padding: 64px 24px 100px; }
+  .hub-hero { display: flex; align-items: center; gap: 20px; margin-bottom: 8px; }
+  .hub-hero img { width: 76px; height: 76px; }
+  .swatch { width: 100%; height: 56px; border-radius: var(--r-sm); margin-bottom: 6px; }
+  .group-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--brand-600); margin: 40px 0 14px; }
+  .link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .link-card { padding: 16px 18px; }
+  .link-card .row-sub { margin-top: 3px; }
+</style>
+</head>
+<body>
+<div class="hub">
+  <div class="hub-hero">
+    <img src="assets/logo-shema.png" alt="Shema" />
+    <div>
+      <p class="eyebrow">Design Craft — Hi-Fi Pass</p>
+      <h1 class="page-title" style="font-size:34px;">Shema Design System</h1>
+    </div>
+  </div>
+  <p class="text-sm muted" style="max-width:660px;">
+    Redesain hi-fi dari prototipe lo-fi/wireframe Shema (GKI Gejayan) — mempertahankan seluruh
+    arsitektur informasi dan konten yang sudah dibangun di <code>src/</code>, dengan bahasa visual
+    baru: <strong>hero cover berfoto</strong> di setiap halaman (bukan header teks polos), layout
+    <strong>bento asimetris</strong> untuk dashboard (bukan tumpukan kartu seragam), tipografi
+    editorial (Fraunces + Plus Jakarta Sans), palet terracotta hangat dengan kedalaman nyata, dan
+    motion sungguhan: scroll-reveal berjenjang, parallax pada foto hero, angka yang menghitung naik,
+    spotlight border yang mengikuti kursor, dan efek ripple saat tombol ditekan. File-file ini
+    statis (HTML/CSS/JS tanpa build step) — buka langsung di browser, tidak terhubung ke aplikasi
+    React yang sebenarnya.
+  </p>
+
+  <div class="card" style="margin-top:28px;">
+    <div class="section-title">Palet &amp; Tipografi</div>
+    <div class="grid-2" style="grid-template-columns:repeat(5,1fr);gap:10px;">
+      <div><div class="swatch" style="background:var(--brand-500);"></div><span class="text-sm">Brand 500</span></div>
+      <div><div class="swatch" style="background:var(--brand-700);"></div><span class="text-sm">Brand 700</span></div>
+      <div><div class="swatch" style="background:var(--ink-900);"></div><span class="text-sm">Ink 900</span></div>
+      <div><div class="swatch" style="background:var(--sand-300);"></div><span class="text-sm">Sand 300</span></div>
+      <div><div class="swatch" style="background:var(--cream-100);border:1px solid var(--sand-300);"></div><span class="text-sm">Cream 100</span></div>
+    </div>
+    <div class="flex items-end gap-4" style="margin-top:20px;flex-wrap:wrap;">
+      <p style="font-family:var(--font-display);font-size:34px;font-weight:600;">Bertumbuh dalam Firman</p>
+      <p style="font-family:var(--font-sans);font-size:14px;color:var(--taupe-600);">Plus Jakarta Sans — body &amp; UI text, 14–15px base</p>
+    </div>
+  </div>
+
+  <p class="group-title">Autentikasi</p>
+  <div class="link-grid">
+    <a href="login.html" class="card hoverable link-card"><p class="row-title">Login</p><p class="row-sub">Nomor WA + kata sandi, mode demo</p></a>
+    <a href="register.html" class="card hoverable link-card"><p class="row-title">Register</p><p class="row-sub">Pendaftaran akun baru</p></a>
+  </div>
+
+  <p class="group-title">Anggota (Jemaat)</p>
+  <div class="link-grid">
+    <a href="member-home.html" class="card hoverable link-card"><p class="row-title">Home</p><p class="row-sub">Dashboard anggota</p></a>
+    <a href="member-home-nogroup.html" class="card hoverable link-card"><p class="row-title">Home · Belum Bergabung CG</p><p class="row-sub">State newcomer</p></a>
+    <a href="program-cg.html" class="card hoverable link-card"><p class="row-title">Program Care Group</p><p class="row-sub">Info Umum / Anggota / Kehadiran / Pertumbuhanku / Materi</p></a>
+    <a href="baca-alkitab.html" class="card hoverable link-card"><p class="row-title">Baca Alkitab Harian</p><p class="row-sub">List + detail bottom sheet</p></a>
+    <a href="presensi.html" class="card hoverable link-card"><p class="row-title">Presensi Pelayanan</p><p class="row-sub">Check-in mandiri</p></a>
+    <a href="profil.html" class="card hoverable link-card"><p class="row-title">Profil</p><p class="row-sub">Shema Growth, info lengkap</p></a>
+    <a href="tentang.html" class="card hoverable link-card"><p class="row-title">Tentang &amp; Ajukan Pelayanan</p><p class="row-sub">Glosarium peran SDA</p></a>
+  </div>
+
+  <p class="group-title">Halaman Bersama Staff</p>
+  <div class="link-grid">
+    <a href="jadwal.html" class="card hoverable link-card"><p class="row-title">Jadwal</p><p class="row-sub">Agenda gereja, filter kategori</p></a>
+    <a href="doa.html" class="card hoverable link-card"><p class="row-title">Pokok Doa</p><p class="row-sub">Dinding doa jemaat</p></a>
+  </div>
+
+  <p class="group-title">Ketua Komsel (Leader)</p>
+  <div class="link-grid">
+    <a href="leader-home.html" class="card hoverable link-card"><p class="row-title">Home Leader</p><p class="row-sub">+ kartu pengingat kehadiran</p></a>
+    <a href="leader-admin.html" class="card hoverable link-card"><p class="row-title">Panel Ketua Komsel</p><p class="row-sub">8 tab — peserta, kehadiran, profil CG, statistik…</p></a>
+  </div>
+
+  <p class="group-title">Super Admin</p>
+  <div class="link-grid">
+    <a href="super-admin-home.html" class="card hoverable link-card"><p class="row-title">Home Super Admin</p><p class="row-sub">Statistik organisasi</p></a>
+    <a href="super-admin-admin.html" class="card hoverable link-card"><p class="row-title">Panel Super Admin</p><p class="row-sub">7 tab — renungan, komsel, peserta, data user…</p></a>
+  </div>
+
+  <p class="group-title">Coach</p>
+  <div class="link-grid">
+    <a href="coach-home.html" class="card hoverable link-card"><p class="row-title">Home Coach</p><p class="row-sub">State tanpa CG sendiri</p></a>
+    <a href="coach-admin.html" class="card hoverable link-card"><p class="row-title">Panel Coach</p><p class="row-sub">CG binaan, jadwal pembinaan, statistik gabungan</p></a>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pengaturan · Shema v3</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="assets/logo-shema.png" alt="Shema" />
+      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
+    </div>
+    <nav class="nav-list">
+      <a href="member-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
+      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
+      <a href="temu-firman.html" class="nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
+      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+      <a href="profil.html" class="nav-item active"><i data-lucide="circle-user"></i>Profil</a></nav>
+    <div class="sidebar-user">
+      <span class="avatar-square">CT</span>
+      <div><div class="name">Calvin Tanto</div><div class="role">Anggota</div></div>
+    </div>
+  </aside>
+  <header class="topbar">
+    <img src="assets/logo-shema.png" alt="Shema" />
+    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">CT</span>
+  </header>
+  <main class="main">
+    <div class="main-inner">
+
+      <div class="page-hero" data-reveal>
+        <div><p class="hero-eyebrow"><i data-lucide="settings" style="width:13px;height:13px;"></i>Pengaturan</p><h1>Atur akunmu</h1><p class="hero-sub">Ubah profil, kode sandi, dan ukuran font</p></div>
+        <a href="profil.html" class="hh-btn" aria-label="Kembali ke profil"><i data-lucide="x"></i></a>
+      </div>
+
+      <div class="card" data-reveal>
+        <div class="section-title">Ubah profil</div>
+        <div class="flex items-center gap-3" style="margin-bottom:16px;">
+          <span class="avatar avatar-lg avatar-brand" style="font-size:22px;">CT</span>
+          <button class="btn btn-ghost btn-sm"><i data-lucide="camera"></i>Ganti foto</button>
+        </div>
+        <div class="field-grid" style="margin-bottom:12px;">
+          <div class="field"><label>Nama</label><input class="input" value="Calvin Tanto" /></div>
+          <div class="field"><label>Tanggal lahir (BB-TT)</label><input class="input" value="08-25" /></div>
+        </div>
+        <div class="field-grid" style="margin-bottom:12px;">
+          <div class="field"><label>Alamat</label><input class="input" value="Jl. Kaliurang Km 6, Sleman" /></div>
+          <div class="field"><label>Universitas</label><input class="input" value="UAJY" /></div>
+        </div>
+        <div class="field" style="margin-bottom:14px;"><label>Nomor WA (dipakai untuk masuk)</label><input class="input" value="0812-1111-2222" disabled style="opacity:.6;" /><p class="hint">Untuk mengganti Nomor WA, sampaikan ke Leader CG-mu — Leader akan meneruskannya ke Admin.</p></div>
+        <button class="btn btn-primary" style="float:right;"><i data-lucide="save"></i>Simpan profil</button><div style="clear:both;"></div>
+      </div>
+
+      <div class="card" data-reveal>
+        <div class="section-title">Kode sandi</div>
+        <div class="flex-col gap-3">
+          <div class="field"><label>Kode sandi saat ini</label><input class="input" type="password" placeholder="••••••••" /></div>
+          <div class="field-grid"><div class="field"><label>Kode sandi baru</label><input class="input" type="password" /></div><div class="field"><label>Ulangi kode sandi baru</label><input class="input" type="password" /></div></div>
+          <button class="btn btn-primary" style="align-self:flex-end;"><i data-lucide="key-round"></i>Ubah kode sandi</button>
+        </div>
+      </div>
+
+      <div class="card" data-reveal>
+        <div class="section-title">Ukuran font</div>
+        <div class="seg" style="margin-bottom:16px;">
+          <button type="button" data-font-scale="0.9">Kecil</button>
+          <button type="button" data-font-scale="1" class="active">Normal</button>
+          <button type="button" data-font-scale="1.12">Besar</button>
+          <button type="button" data-font-scale="1.25">Sangat besar</button>
+        </div>
+        <div class="card" style="background:var(--cream-100);box-shadow:none;">
+          <p class="eyebrow">Pratinjau</p>
+          <p style="font-family:var(--font-display);font-size:19px;margin:6px 0;font-style:italic;">&ldquo;Siapa setia dalam perkara-perkara kecil, ia setia juga dalam perkara-perkara besar.&rdquo;</p>
+          <p class="text-sm muted">Lukas 16:10 — ukuran ini berlaku di seluruh halaman dan tersimpan di perangkatmu.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <nav class="bottom-nav"><div class="bottom-nav-list">
+        <a href="member-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
+        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
+        <a href="temu-firman.html" class="bottom-nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
+        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+        <a href="profil.html" class="bottom-nav-item active"><i data-lucide="circle-user"></i>Profil</a></div></nav>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

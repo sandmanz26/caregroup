@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shema — Desain Versi 3</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  .hub { max-width: 1000px; margin: 0 auto; padding: 56px 24px 100px; }
+  .hub-hero { display: flex; align-items: center; gap: 20px; margin-bottom: 10px; }
+  .hub-hero img { width: 76px; height: 76px; }
+  .group-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--brand-600); margin: 38px 0 14px; }
+  .link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+  .link-card { padding: 16px 18px; }
+  table.map { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.map th { text-align: left; color: var(--taupe-600); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; padding: 8px 10px; }
+  table.map td { padding: 12px 10px; border-top: 1px solid var(--cream-200); vertical-align: top; }
+  table.map td:first-child { width: 36px; color: var(--taupe-500); font-weight: 800; }
+  .q { padding: 12px 0; border-top: 1px solid var(--cream-200); font-size: 13.5px; }
+  .q:first-child { border-top: none; }
+</style>
+</head>
+<body>
+<div class="hub">
+  <div class="hub-hero">
+    <img src="assets/logo-shema.png" alt="Shema" />
+    <div>
+      <p class="eyebrow">Desain hi-fi · Versi 3</p>
+      <h1 class="page-title" style="font-size:34px;">Revisi penempatan sub menu</h1>
+    </div>
+  </div>
+  <p class="text-sm muted" style="max-width:680px;">
+    Versi 3 disusun dari berkas <strong>&ldquo;Revisi penempatan susunan sub menu di beranda Aplikasi&rdquo;</strong> (5 slide).
+    Folder ini berdiri sendiri — tidak bercampur dengan <code>full_design/</code> (versi 1 &amp; 2) maupun kode aplikasi di <code>src/</code>.
+    Statis (HTML/CSS/JS), tidak terhubung ke aplikasi React.
+  </p>
+
+  <div class="card" style="margin-top:26px;">
+    <div class="section-title">Yang berubah di v3 — dan di mana melihatnya</div>
+    <table class="map">
+      <thead><tr><th>#</th><th>Revisi dari PPTX</th><th>Lihat di</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Saat teduh digabung dengan baca Alkitab → <strong>Temu Firman (Word Encounter)</strong></td><td><a class="link-accent" href="temu-firman.html">Temu Firman</a> · menu navigasi</td></tr>
+        <tr><td>2</td><td>Temu Firman di beranda diletakkan <strong>sebelum</strong> info Care Group</td><td><a class="link-accent" href="member-home.html">Home Anggota</a> (kartu melayang di bawah header)</td></tr>
+        <tr><td>3</td><td>Tambah visual (gambar) di sub menu — ikon bulat berwarna &amp; ilustrasi</td><td>Grid ikon di semua Home &amp; <a class="link-accent" href="program-cg.html">Program CG</a></td></tr>
+        <tr><td>4</td><td>Sapaan di kiri atas; kanan atas: lonceng notifikasi + streak komsel dengan <strong>logo akar</strong></td><td><a class="link-accent" href="member-home.html">Home</a> (header)</td></tr>
+        <tr><td>5</td><td><strong>Ikon keluar</strong> di Home (keluar tanpa menghilangkan data)</td><td>Header Home → ikon paling kanan</td></tr>
+        <tr><td>6</td><td>Profil: <strong>ikon pengaturan</strong> → ubah profil, kode sandi, ukuran font</td><td><a class="link-accent" href="profil.html">Profil</a> → <a class="link-accent" href="pengaturan.html">Pengaturan</a> (ukuran font berfungsi)</td></tr>
+        <tr><td>7</td><td>Jobdesk peran ditambah <strong>Pengurus CG</strong>, diedit oleh Leader</td><td><a class="link-accent" href="program-cg.html">Program CG</a> → Jobdesk Peran · <a class="link-accent" href="leader-admin.html">Panel Leader → Profil CG</a></td></tr>
+        <tr><td>8</td><td>Pindah member CG: member → Leader → Admin</td><td><a class="link-accent" href="leader-admin.html">Panel Leader → Peserta</a> · <a class="link-accent" href="super-admin-admin.html">Panel Admin → Peserta</a></td></tr>
+        <tr><td>9</td><td><strong>Q&amp;A</strong> di bawah Contact Us (mengubah data, pindah member CG)</td><td>Bagian bawah <a class="link-accent" href="member-home.html">Home</a></td></tr>
+        <tr><td>10</td><td>Admin Utama: <strong>rekapitulasi pelayanan</strong> member (contoh Usher)</td><td><a class="link-accent" href="super-admin-admin.html">Panel Admin → Rekap Pelayanan</a> · <a class="link-accent" href="super-admin-home.html">Home Admin</a></td></tr>
+        <tr><td>11</td><td>Logo-logo di Home &amp; Care Group — penjelasan lengkap muncul setelah diklik</td><td>Ketuk ikon di <a class="link-accent" href="program-cg.html">Program CG</a>, ketuk gambar di Faithful Journey</td></tr>
+        <tr><td>12</td><td>Temu Firman: ayat &amp; renungan di bagian atas; tangga penghargaan → <strong>Faithful Journey</strong> bergambar (Rooted 🌱 · Branching 🌿 · Growing 🌳 · Fruitful 🍎)</td><td><a class="link-accent" href="temu-firman.html">Temu Firman</a></td></tr>
+        <tr><td>13</td><td>Presensi: daftar pelayanan baru (Ibadah KBU … Komisi Dewasa)</td><td><a class="link-accent" href="presensi.html">Presensi</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:18px;">
+    <div class="section-title">Hal yang perlu dikonfirmasi</div>
+    <div class="q"><strong>Logo akar di streak.</strong> Streak yang dimaksud adalah kehadiran komsel, tetapi &ldquo;akar&rdquo; di Faithful Journey berarti membaca Alkitab (Berakar). Di desain ini angkanya tetap streak kehadiran komsel dengan ikon akar. Kalau maksudnya streak Temu Firman, cukup ganti sumber angkanya.</div>
+    <div class="q"><strong>&ldquo;Ibadah Imersif&rdquo; muncul dua kali</strong> di slide 5 — dianggap salah ketik dan hanya ditampilkan sekali. Ejaan &ldquo;Inovativ&rdquo; ditulis &ldquo;Inovatif&rdquo;.</div>
+    <div class="q"><strong>Ajukan Pelayanan</strong> (peran SDA: Greeter, Catcher, dst.) tidak disebut di PPTX, jadi tidak diubah. Hanya Presensi yang memakai daftar pelayanan baru.</div>
+    <div class="q"><strong>Mengubah profil sendiri vs. Q&amp;A &ldquo;mengubah data&rdquo;.</strong> Di desain: nama, foto, alamat, universitas, tanggal lahir bisa diubah sendiri; Nomor WA (untuk masuk) tetap lewat Leader → Admin.</div>
+    <div class="q"><strong>&ldquo;Bertumbuh (care group dan baca firman)&rdquo;</strong> kini menggabungkan dua sumber; di desain ditampilkan sebagai kehadiran CG + Temu Firman, ambang tingkat lama dipertahankan.</div>
+    <div class="q"><strong>Jobdesk Pengurus CG &ldquo;diedit oleh Leader&rdquo;</strong> diartikan sebagai Leader mengedit isi jobdesk-nya (bukan menentukan siapa pengurusnya).</div>
+  </div>
+
+  <p class="group-title">Autentikasi</p>
+  <div class="link-grid">
+    <a href="login.html" class="card hoverable link-card"><p class="row-title">Login</p><p class="row-sub">Mode demo 4 peran</p></a>
+    <a href="register.html" class="card hoverable link-card"><p class="row-title">Register</p><p class="row-sub">Pendaftaran akun baru</p></a>
+  </div>
+
+  <p class="group-title">Anggota</p>
+  <div class="link-grid">
+    <a href="member-home.html" class="card hoverable link-card"><p class="row-title">Home</p><p class="row-sub">Header baru, Temu Firman, ikon, Faithful Journey, Q&amp;A</p></a>
+    <a href="member-home-nogroup.html" class="card hoverable link-card"><p class="row-title">Home · belum ada CG</p><p class="row-sub">State anggota baru</p></a>
+    <a href="program-cg.html" class="card hoverable link-card"><p class="row-title">Program Care Group</p><p class="row-sub">Ikon → penjelasan lengkap</p></a>
+    <a href="temu-firman.html" class="card hoverable link-card"><p class="row-title">Temu Firman</p><p class="row-sub">Ayat, renungan, Faithful Journey</p></a>
+    <a href="presensi.html" class="card hoverable link-card"><p class="row-title">Presensi Pelayanan</p><p class="row-sub">Daftar pelayanan baru</p></a>
+    <a href="profil.html" class="card hoverable link-card"><p class="row-title">Profil</p><p class="row-sub">Ikon pengaturan</p></a>
+    <a href="pengaturan.html" class="card hoverable link-card"><p class="row-title">Pengaturan</p><p class="row-sub">Profil, kode sandi, ukuran font</p></a>
+    <a href="tentang.html" class="card hoverable link-card"><p class="row-title">Tentang &amp; Ajukan Pelayanan</p><p class="row-sub">Tidak berubah</p></a>
+  </div>
+
+  <p class="group-title">Staf</p>
+  <div class="link-grid">
+    <a href="jadwal.html" class="card hoverable link-card"><p class="row-title">Jadwal</p></a>
+    <a href="doa.html" class="card hoverable link-card"><p class="row-title">Pokok Doa</p></a>
+    <a href="leader-home.html" class="card hoverable link-card"><p class="row-title">Home Leader</p><p class="row-sub">Notifikasi permintaan pindah</p></a>
+    <a href="leader-admin.html" class="card hoverable link-card"><p class="row-title">Panel Ketua Komsel</p><p class="row-sub">Jobdesk Pengurus, teruskan pindah CG</p></a>
+    <a href="super-admin-home.html" class="card hoverable link-card"><p class="row-title">Home Super Admin</p><p class="row-sub">Ringkasan rekap pelayanan</p></a>
+    <a href="super-admin-admin.html" class="card hoverable link-card"><p class="row-title">Panel Super Admin</p><p class="row-sub">Rekap Pelayanan, permintaan pindah</p></a>
+    <a href="coach-home.html" class="card hoverable link-card"><p class="row-title">Home Coach</p></a>
+    <a href="coach-admin.html" class="card hoverable link-card"><p class="row-title">Panel Coach</p></a>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

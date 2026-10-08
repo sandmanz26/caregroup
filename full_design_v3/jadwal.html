@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jadwal · Shema v3</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="assets/logo-shema.png" alt="Shema" />
+      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
+    </div>
+    <nav class="nav-list">
+      <a href="leader-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
+      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
+      <a href="temu-firman.html" class="nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
+      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+      <a href="jadwal.html" class="nav-item active"><i data-lucide="calendar-days"></i>Jadwal</a>
+      <a href="profil.html" class="nav-item"><i data-lucide="circle-user"></i>Profil</a>
+      <a href="leader-admin.html" class="nav-item"><i data-lucide="shield-check"></i>Admin</a></nav>
+    <div class="sidebar-user">
+      <span class="avatar-square">AW</span>
+      <div><div class="name">Andra Wijaya</div><div class="role">Ketua Komsel</div></div>
+    </div>
+  </aside>
+  <header class="topbar">
+    <img src="assets/logo-shema.png" alt="Shema" />
+    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">AW</span>
+  </header>
+  <main class="main">
+    <div class="main-inner">
+
+
+      <div class="page-hero" data-reveal>
+        <div>
+          <p class="hero-eyebrow"><i data-lucide="calendar-days" style="width:13px;height:13px;"></i>Agenda gereja</p>
+          <h1>Jadwal Gereja</h1>
+          <p class="hero-sub">Ibadah, Care Group, Coaching, dan Training</p>
+        </div>
+        
+      </div>
+      <div class="tab-bar" data-tabs="cat">
+        <button class="tab-btn active" data-tab-btn="semua">Semua</button>
+        <button class="tab-btn" data-tab-btn="ibadah">Ibadah</button>
+        <button class="tab-btn" data-tab-btn="cg">Care Group</button>
+      </div>
+      <div class="tab-panel active" data-tab-panel="semua" data-tabs-for="cat">
+        <div class="card" data-reveal><p class="eyebrow" style="margin-bottom:10px;">Rabu, 12 Agustus</p><ul class="row-list"><li class="row"><div class="flex-1"><p class="row-title">First Coaching</p><p class="row-sub">18:00 · Ruang 2, GKI Gejayan</p></div><span class="badge badge-warn">Coaching</span></li></ul></div>
+        <div class="card" data-reveal><p class="eyebrow" style="margin-bottom:10px;">Kamis, 13 Agustus</p><ul class="row-list"><li class="row"><div class="flex-1"><p class="row-title">Pertemuan CG "Kasih Setia"</p><p class="row-sub">19:00 · Rumah Kel. Santoso</p></div><span class="badge badge-good">Care Group</span></li></ul></div>
+        <div class="card" data-reveal><p class="eyebrow" style="margin-bottom:10px;">Minggu, 16 Agustus</p><ul class="row-list"><li class="row"><div class="flex-1"><p class="row-title">Ibadah Minggu Pagi</p><p class="row-sub">07:00 · Gedung Utama</p></div><span class="badge badge-brand">Ibadah</span></li><li class="row"><div class="flex-1"><p class="row-title">Ibadah Multikultural</p><p class="row-sub">09:30 · Youth Centre</p></div><span class="badge badge-brand">Ibadah</span></li></ul></div>
+      </div>
+      <div class="tab-panel" data-tab-panel="ibadah" data-tabs-for="cat"><div class="card" data-reveal><p class="row-title">Ibadah Minggu Pagi</p><p class="row-sub">16 Agu, 07:00 · Gedung Utama</p></div></div>
+      <div class="tab-panel" data-tab-panel="cg" data-tabs-for="cat"><div class="card" data-reveal><p class="row-title">Pertemuan CG "Kasih Setia"</p><p class="row-sub">13 Agu, 19:00</p></div></div>
+
+    </div>
+  </main>
+  <nav class="bottom-nav"><div class="bottom-nav-list">
+        <a href="leader-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
+        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
+        <a href="temu-firman.html" class="bottom-nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
+        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+        <a href="jadwal.html" class="bottom-nav-item active"><i data-lucide="calendar-days"></i>Jadwal</a>
+        <a href="profil.html" class="bottom-nav-item"><i data-lucide="circle-user"></i>Profil</a>
+        <a href="leader-admin.html" class="bottom-nav-item"><i data-lucide="shield-check"></i>Admin</a></div></nav>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -12,6 +12,141 @@
 
 ---
 
+## 2026-10-08 — Desain versi 3 (`full_design_v3/`) dari PPTX revisi sub menu
+
+Dari berkas "Revisi penempatan susunan sub menu di beranda Aplikasi" (5
+slide + 1 gambar referensi beranda aplikasi lain). Dibangun di folder
+**terpisah** `full_design_v3/` atas permintaan "jangan bercampur dengan versi
+lama": `full_design/` (v1/v2) dan `src/` tidak disentuh. Statis, tidak
+terhubung ke aplikasi React. Bentrokan dengan PRD dicatat di prd.md Decision
+Log #19 dan §5.12 (🚧 — belum ada di aplikasi).
+
+18 halaman + `index.html` (peta 13 butir revisi → halaman, plus daftar hal yang
+perlu dikonfirmasi). Ringkas:
+
+- **Home**: header gradien dengan ilustrasi siluet gereja; sapaan kiri atas;
+  kanan atas lonceng, streak komsel berlogo akar, dan ikon keluar (konfirmasi
+  "data tetap tersimpan"); kartu **Temu Firman** melayang tepat di bawah header
+  (sebelum info Care Group); grid ikon bulat bergradien; strip **Faithful
+  Journey**; banner pengumuman; **Q&A** di bawah Contact Us.
+- **Temu Firman** menggantikan Baca Alkitab + Saat Teduh: ayat dan renungan
+  di paling atas; Faithful Journey dengan ilustrasi SVG buatan sendiri
+  (`assets/journey-*.svg`) + tabel Indonesia/English/Kesan dari slide.
+- **Program CG**: tab diganti grid ikon, penjelasan lengkap muncul di bottom
+  sheet; **Jobdesk Peran** ditambah Pengurus CG (diedit Leader).
+- **Presensi**: pilihan pelayanan baru (chip, 3 kelompok).
+- **Profil → Pengaturan**: ubah profil, kode sandi, ukuran font (**berfungsi**:
+  tersimpan di `localStorage`, berlaku di semua halaman).
+- **Leader**: permintaan pindah CG → "Teruskan ke Admin"; editor Jobdesk
+  Pengurus CG di tab Profil CG. **Super Admin**: tab baru **Rekap Pelayanan**
+  (contoh Usher 3 anggota, bisa dibuka per bidang) + permintaan pindah dari
+  Leader. Notifikasi (lonceng) per peran.
+- Preview lokal: entri `full-design-v3-static` di `.claude/launch.json`
+  (port 9700).
+
+Diverifikasi di browser: seluruh ikon dan gambar ter-render di 19 halaman,
+tidak ada tautan lokal yang putus, ukuran font tersimpan, tampilan mobile.
+Catatan: animasi *scroll-reveal* tertahan saat panel preview sedang tidak
+terlihat (timer di-throttle browser) — bukan bug halaman.
+
+---
+
+## 2026-09-09 (2) — Hi-fi pass v2: hero imagery, bento layouts, real motion
+
+User reviewed the first `full_design/` pass and pushed back: it was still
+recolored lo-fi — cards and lists with a nicer palette, but the same flat
+structure, no real imagery, and no motion beyond a color-change hover. Asked
+for a full redo across all three axes at once (layout/depth, real imagery,
+motion), with creative direction left to me.
+
+Rebuilt `assets/styles.css` and regenerated all 17 pages (same one-off Node
+script approach as v1, not committed) with:
+
+- **Hero cover photos** on every page (`.hero-cover`) — a full-bleed
+  contextual photo (via `picsum.photos`, seeded per page so it's stable
+  across reloads) with a gradient scrim, page title overlaid in white, and
+  an **overlapping floating card** (`.hero-float`, negative-margin overlap)
+  carrying the page's key stat or CTA — replacing the old plain-text
+  "date + h1" header repeated identically on every screen.
+- **Asymmetric bento grids** (`.bento`, 6-column with `.b-2/.b-3/.b-4` span
+  helpers) on every Home page and the Ketua Komsel/Coach panel headers —
+  mixing a wide journey-stepper tile, dark/brand-tinted stat tiles, and a
+  photo-backed "next meeting" tile in one row, instead of uniform stacked
+  cards.
+- **Real photography throughout**: announcement thumbnails, renungan list
+  thumbnails (and the bottom-sheet detail image), "Kegiatan CG Terbaru"
+  gallery, CG directory thumbnails, Coach's CG-binaan cards — all real
+  `picsum.photos` images now, not gray placeholder tiles (the lo-fi app's
+  actual placeholder-tile pattern was intentional there; here it's
+  explicitly a mockup convention being upgraded per this request).
+- **Avatar stacks** (`.avatar-stack`, overlapping squircles + "+N" tile) for
+  "who's in this CG" at a glance on the Program CG hero.
+- **Real motion**, all in `assets/app.js`: scroll-triggered reveal
+  (IntersectionObserver, staggered by document order) on every card/section;
+  a `requestAnimationFrame`-throttled parallax on hero photos; a spotlight
+  border that tracks the cursor on `.spotlight` cards; count-up number
+  animation on every stat (streak, attendance %, totals); and a ripple
+  effect on button press.
+
+**Verification note**: while testing, programmatically scrolling via JS and
+then immediately screenshotting produced a ghosted "duplicate sidebar with a
+blank gap" artifact on desktop. Cross-checked with `document.elementFromPoint`
+at the exact pixel coordinates the screenshot showed as wrong — the DOM was
+correct at every point (single sidebar, right position). Reproduced only via
+programmatic scroll + instant screenshot, never on a fresh unscrolled load,
+and never on mobile (no sticky sidebar there). Concluded it's a compositing
+race in the automated screenshot tool between `position: sticky` and the
+scroll event, not a real defect — but hardened the parallax handler with
+`requestAnimationFrame` throttling regardless, since an unthrottled
+scroll-linked transform is worth fixing on its own merits.
+
+---
+
+## 2026-09-09 — Hi-fi design exploration (`full_design/`)
+
+User asked (via `/design-craft-toolkit:redesign-skill`) for a high-fidelity
+visual redesign of everything built so far, delivered as a **separate**
+folder rather than changes to the shipped app — see prd.md Decision Log #18
+for why this doesn't contradict the app's own documented lo-fi direction.
+
+Added `full_design/` at the project root: 18 static, dependency-free HTML
+pages (no React, no build step — open directly or serve statically) covering
+every screen/role already shipped in `src/`: Login, Register, Member Home
+(+ no-CG state), Program CG (all 5 tabs), Baca Alkitab Harian (incl. the
+bottom-sheet detail), Presensi Pelayanan, Profil, Tentang & Ajukan
+Pelayanan, Jadwal, Doa, Leader Home + full 8-tab Ketua Komsel panel, Super
+Admin Home + full 7-tab panel, and Coach Home + full 3-tab panel — plus an
+`index.html` hub linking all of them with a palette/type reference.
+
+Shared `full_design/assets/styles.css` defines the hi-fi design system:
+Fraunces (display serif) + Plus Jakarta Sans (UI sans) replacing the
+default stack; a deepened, warm-tinted terracotta + cream palette (still one
+accent, per the lo-fi build's original color decision) with real elevation
+(tinted shadows, not flat borders); squircle avatars; a dark warm sidebar;
+tab/stepper/ladder/badge components with hover, active, and focus states;
+a subtle grain overlay; and a mesh-gradient auth screen. `assets/app.js`
+handles tab-switching and bottom-sheet open/close with plain JS (no
+framework). Content mirrors the real seed data (`mockData.js`) — same
+names, dates, CGs — rather than lorem ipsum, so it reads as this app, not
+a generic template.
+
+Generated via a one-off Node script (not committed — the HTML output is the
+deliverable) to keep ~18 pages' shared shell (sidebar/topbar/bottom-nav
+markup) consistent; content was authored by hand per screen.
+
+Also added a `full-design-static` entry to `.claude/launch.json` (serves
+`full_design/` on port 9600 via `npx serve`) purely for local preview — it
+does not affect the real app's `npm run dev` config.
+
+**Bug caught and fixed during review**: `.app-shell` was `display:flex` with
+the default row direction unconditionally; at mobile widths the sidebar
+becomes `display:none` but `.topbar` remained a flex item, so it stretched
+to full page height and sat beside `.main` instead of stacking above it.
+Fixed by adding `flex-direction: column` to the same mobile media query
+that hides the sidebar.
+
+---
+
 ## 2026-09-08 (3) — Real Shema logo
 
 User supplied the actual Shema logo artwork (people-holding-hands + cross +

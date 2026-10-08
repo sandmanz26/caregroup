@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Panel Super Admin · Shema v3</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="assets/logo-shema.png" alt="Shema" />
+      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
+    </div>
+    <nav class="nav-list">
+      <a href="super-admin-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
+      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
+      <a href="temu-firman.html" class="nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
+      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+      <a href="jadwal.html" class="nav-item"><i data-lucide="calendar-days"></i>Jadwal</a>
+      <a href="doa.html" class="nav-item"><i data-lucide="heart-handshake"></i>Doa</a>
+      <a href="profil.html" class="nav-item"><i data-lucide="circle-user"></i>Profil</a>
+      <a href="super-admin-admin.html" class="nav-item active"><i data-lucide="shield-check"></i>Admin</a></nav>
+    <div class="sidebar-user">
+      <span class="avatar-square">BS</span>
+      <div><div class="name">Pdt. Budi Santoso</div><div class="role">Super Admin</div></div>
+    </div>
+  </aside>
+  <header class="topbar">
+    <img src="assets/logo-shema.png" alt="Shema" />
+    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">BS</span>
+  </header>
+  <main class="main">
+    <div class="main-inner wide">
+
+
+      <div class="page-hero" data-reveal>
+        <div>
+          <p class="hero-eyebrow"><i data-lucide="shield-check" style="width:13px;height:13px;"></i>Super Admin</p>
+          <h1>Panel Admin</h1>
+          <p class="hero-sub">Kelola seluruh Care Group, renungan, pelayanan, dan jemaat</p>
+        </div>
+        
+      </div>
+
+      <div class="tab-bar" data-tabs="sa">
+        <button class="tab-btn active" data-tab-btn="rekap">Rekap Pelayanan <span class="new-tag" style="margin-left:4px;">Baru</span></button>
+        <button class="tab-btn" data-tab-btn="renungan">Renungan</button>
+        <button class="tab-btn" data-tab-btn="komsel">Komsel</button>
+        <button class="tab-btn" data-tab-btn="peserta">Peserta <span class="badge-count" style="margin-left:4px;">1</span></button>
+        <button class="tab-btn" data-tab-btn="user">Data User <span class="badge-count" style="margin-left:4px;">2</span></button>
+        <button class="tab-btn" data-tab-btn="pengajuan">Pengajuan <span class="badge-count" style="margin-left:4px;">1</span></button>
+        <button class="tab-btn" data-tab-btn="event">Event</button>
+        <button class="tab-btn" data-tab-btn="coaching">Jadwal Coaching</button>
+      </div>
+
+      <div class="tab-panel active" data-tab-panel="rekap" data-tabs-for="sa">
+        <div class="bento">
+          <div class="bento-tile bg-brand b-3" data-reveal><div class="deco-ring"></div><p class="tabular" style="font-family:var(--font-display);font-size:34px;font-weight:600;"><span data-count="12">0</span></p><p class="text-sm muted">Member sedang melayani</p></div>
+          <div class="bento-tile b-3" data-reveal><p class="tabular" style="font-family:var(--font-display);font-size:34px;font-weight:600;"><span data-count="7">0</span></p><p class="text-sm muted">Bidang pelayanan aktif</p></div>
+        </div>
+        <div class="card" data-reveal>
+          <div class="flex items-center justify-between" style="flex-wrap:wrap;gap:10px;margin-bottom:6px;">
+            <div class="section-title" style="margin:0;">Rekap per pelayanan</div>
+            <select class="input" style="width:auto;"><option>Semua bidang</option><option>Usher</option><option>Tim Doa</option><option>Multimedia</option></select>
+          </div>
+          <p class="text-sm muted">Contoh: <strong>Usher</strong> dilayani 3 anggota — ketuk baris untuk melihat siapa saja.</p>
+
+          <div class="rekap-row" data-reveal>
+            <details>
+              <summary>
+                <div class="flex items-center gap-3">
+                  <span class="avatar avatar-md g-orange" style="color:#fff;"><i data-lucide="hand-helping" style="width:17px;height:17px;"></i></span>
+                  <div class="flex-1"><p class="row-title">Usher</p><p class="row-sub">Terakhir melayani 9 Agu</p></div>
+                  <span class="badge badge-brand" style="font-size:13px;">3 anggota</span>
+                </div>
+                <div class="bar-track" style="margin-top:10px;"><div class="bar-fill" style="width:100%"></div></div>
+              </summary>
+              <ul class="row-list" style="margin-top:12px;"><li class="row"><span class="avatar avatar-sm">CT</span><span class="row-title flex-1">Calvin Tanto</span></li><li class="row"><span class="avatar avatar-sm">DA</span><span class="row-title flex-1">Dinda Ayu</span></li><li class="row"><span class="avatar avatar-sm">ES</span><span class="row-title flex-1">Erik Susanto</span></li></ul>
+            </details>
+          </div>
+          <div class="rekap-row" data-reveal>
+            <details>
+              <summary>
+                <div class="flex items-center gap-3">
+                  <span class="avatar avatar-md g-blue" style="color:#fff;"><i data-lucide="hand-helping" style="width:17px;height:17px;"></i></span>
+                  <div class="flex-1"><p class="row-title">Multimedia</p><p class="row-sub">Terakhir melayani 9 Agu</p></div>
+                  <span class="badge badge-brand" style="font-size:13px;">2 anggota</span>
+                </div>
+                <div class="bar-track" style="margin-top:10px;"><div class="bar-fill" style="width:67%"></div></div>
+              </summary>
+              <ul class="row-list" style="margin-top:12px;"><li class="row"><span class="avatar avatar-sm">GP</span><span class="row-title flex-1">Gilbert Prakoso</span></li><li class="row"><span class="avatar avatar-sm">JA</span><span class="row-title flex-1">Joyce Aritonang</span></li></ul>
+            </details>
+          </div>
+          <div class="rekap-row" data-reveal>
+            <details>
+              <summary>
+                <div class="flex items-center gap-3">
+                  <span class="avatar avatar-md g-purple" style="color:#fff;"><i data-lucide="hand-helping" style="width:17px;height:17px;"></i></span>
+                  <div class="flex-1"><p class="row-title">Tim Doa</p><p class="row-sub">Terakhir melayani 2 Agu</p></div>
+                  <span class="badge badge-brand" style="font-size:13px;">2 anggota</span>
+                </div>
+                <div class="bar-track" style="margin-top:10px;"><div class="bar-fill" style="width:67%"></div></div>
+              </summary>
+              <ul class="row-list" style="margin-top:12px;"><li class="row"><span class="avatar avatar-sm">BL</span><span class="row-title flex-1">Bunga Lestari</span></li><li class="row"><span class="avatar avatar-sm">LW</span><span class="row-title flex-1">Lidya Wijaya</span></li></ul>
+            </details>
+          </div>
+          <div class="rekap-row" data-reveal>
+            <details>
+              <summary>
+                <div class="flex items-center gap-3">
+                  <span class="avatar avatar-md g-teal" style="color:#fff;"><i data-lucide="hand-helping" style="width:17px;height:17px;"></i></span>
+                  <div class="flex-1"><p class="row-title">Komisi Pemuda</p><p class="row-sub">Terakhir melayani 2 Agu</p></div>
+                  <span class="badge badge-brand" style="font-size:13px;">2 anggota</span>
+                </div>
+                <div class="bar-track" style="margin-top:10px;"><div class="bar-fill" style="width:67%"></div></div>
+              </summary>
+              <ul class="row-list" style="margin-top:12px;"><li class="row"><span class="avatar avatar-sm">IK</span><span class="row-title flex-1">Indra Kusuma</span></li><li class="row"><span class="avatar avatar-sm">FH</span><span class="row-title flex-1">Felicia Halim</span></li></ul>
+            </details>
+          </div>
+          <div class="rekap-row" data-reveal>
+            <details>
+              <summary>
+                <div class="flex items-center gap-3">
+                  <span class="avatar avatar-md g-green" style="color:#fff;"><i data-lucide="hand-helping" style="width:17px;height:17px;"></i></span>
+                  <div class="flex-1"><p class="row-title">Leksionari</p><p class="row-sub">Terakhir melayani 9 Agu</p></div>
+                  <span class="badge badge-brand" style="font-size:13px;">1 anggota</span>
+                </div>
+                <div class="bar-track" style="margin-top:10px;"><div class="bar-fill" style="width:33%"></div></div>
+              </summary>
+              <ul class="row-list" style="margin-top:12px;"><li class="row"><span class="avatar avatar-sm">AW</span><span class="row-title flex-1">Andra Wijaya</span></li></ul>
+            </details>
+          </div>
+          <div class="rekap-row" data-reveal>
+            <details>
+              <summary>
+                <div class="flex items-center gap-3">
+                  <span class="avatar avatar-md g-red" style="color:#fff;"><i data-lucide="hand-helping" style="width:17px;height:17px;"></i></span>
+                  <div class="flex-1"><p class="row-title">Tim Bunga</p><p class="row-sub">Terakhir melayani 26 Jul</p></div>
+                  <span class="badge badge-brand" style="font-size:13px;">1 anggota</span>
+                </div>
+                <div class="bar-track" style="margin-top:10px;"><div class="bar-fill" style="width:33%"></div></div>
+              </summary>
+              <ul class="row-list" style="margin-top:12px;"><li class="row"><span class="avatar avatar-sm">HP</span><span class="row-title flex-1">Hana Puspita</span></li></ul>
+            </details>
+          </div>
+          <div class="rekap-row" data-reveal>
+            <details>
+              <summary>
+                <div class="flex items-center gap-3">
+                  <span class="avatar avatar-md g-orange" style="color:#fff;"><i data-lucide="hand-helping" style="width:17px;height:17px;"></i></span>
+                  <div class="flex-1"><p class="row-title">Ibadah KBU</p><p class="row-sub">Terakhir melayani 9 Agu</p></div>
+                  <span class="badge badge-brand" style="font-size:13px;">1 anggota</span>
+                </div>
+                <div class="bar-track" style="margin-top:10px;"><div class="bar-fill" style="width:33%"></div></div>
+              </summary>
+              <ul class="row-list" style="margin-top:12px;"><li class="row"><span class="avatar avatar-sm">KH</span><span class="row-title flex-1">Kevin Halim</span></li></ul>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="renungan" data-tabs-for="sa">
+        <div class="card" data-reveal><div class="section-title">Tambah renungan</div><div class="field" style="margin-bottom:12px;"><label>Judul</label><input class="input" /></div><button class="btn btn-primary" style="float:right;"><i data-lucide="plus"></i>Tambah</button><div style="clear:both;"></div></div>
+        <div class="card" data-reveal><p class="row-sub">Minggu ke-1 Agustus</p><p class="row-title">Bertumbuh dalam Firman</p><p class="link-accent text-sm">Mazmur 1:2-3</p></div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="komsel" data-tabs-for="sa">
+        <div class="card" data-reveal>
+          <div class="flex items-center gap-3" style="margin-bottom:12px;"><img src="https://picsum.photos/seed/kasih-setia-thumb/80/80" style="width:48px;height:48px;border-radius:12px;object-fit:cover;" alt="" /><div class="flex-1"><p class="row-title">Care Group "Kasih Setia"</p><p class="row-sub">7 anggota · Rabu, 19:00</p></div></div>
+          <div class="flex items-center gap-2" style="margin-bottom:8px;"><label class="text-sm" style="font-weight:700;">Ketua Komsel</label><select class="input" style="width:auto;"><option>Andra Wijaya</option></select></div>
+          <div class="flex items-center gap-2"><label class="text-sm" style="font-weight:700;">Coach</label><select class="input" style="width:auto;"><option>Pdt. Yohanes Setiawan</option></select></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="peserta" data-tabs-for="sa">
+        <div class="card tinted" data-reveal>
+          <div class="flex items-center gap-2" style="margin-bottom:10px;"><div class="section-title" style="margin:0;">Permintaan pindah dari Leader</div><span class="new-tag">Baru</span></div>
+          <div class="flex items-center gap-3" style="margin-bottom:12px;"><span class="avatar avatar-md">CT</span><div class="flex-1"><p class="row-title">Calvin Tanto: "Kasih Setia" → "Sukacita"</p><p class="row-sub">Diteruskan oleh Andra Wijaya (Leader) · pindah rumah ke Jl. Sagan</p></div></div>
+          <div class="flow" style="margin-bottom:12px;"><span class="st done">Disampaikan ke Leader</span><i data-lucide="arrow-right"></i><span class="st done">Diteruskan ke Admin</span><i data-lucide="arrow-right"></i><span class="st on">Admin memindahkan</span></div>
+          <div class="flex gap-2"><button class="btn btn-primary btn-sm"><i data-lucide="repeat"></i>Pindahkan sekarang</button><button class="btn btn-ghost btn-sm">Tolak</button></div>
+        </div>
+        <div class="card" data-reveal><p class="text-sm muted">Total peserta di semua Care Group</p><p style="font-family:var(--font-display);font-size:28px;font-weight:600;" class="tabular"><span data-count="12">0</span></p></div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="user" data-tabs-for="sa">
+        <div class="card" data-reveal>
+          <div class="section-title">Pendaftar baru</div>
+          <ul class="row-list"><li class="row"><div class="flex-1"><p class="row-title">Rina Wijayanti</p><p class="row-sub">0812-7000-1122 · 11 Agu</p></div><span class="badge badge-warn">Pending</span></li></ul>
+          <div class="flex gap-2" style="margin-top:10px;"><button class="btn btn-primary btn-sm">Setujui</button><button class="btn btn-ghost btn-sm">Tolak</button></div>
+        </div>
+        <div class="card" data-reveal>
+          <div class="section-title">4 user terdaftar</div>
+          <ul class="row-list">
+            <li class="row"><span class="avatar avatar-sm">CT</span><span class="row-title flex-1">Calvin Tanto</span><span class="badge badge-ink">Anggota</span></li>
+            <li class="row"><span class="avatar avatar-sm">AW</span><span class="row-title flex-1">Andra Wijaya</span><span class="badge badge-good">Ketua Komsel</span></li>
+            <li class="row"><span class="avatar avatar-sm">YS</span><span class="row-title flex-1">Pdt. Yohanes Setiawan</span><span class="badge badge-warn">Coach</span></li>
+            <li class="row"><span class="avatar avatar-sm">BS</span><span class="row-title flex-1">Pdt. Budi Santoso</span><span class="badge badge-brand">Super Admin</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="pengajuan" data-tabs-for="sa">
+        <div class="card" data-reveal><div class="flex items-start justify-between"><div><p class="row-title">Felicia Halim</p><p class="row-sub">Mengajukan Greeter · Kasih Setia · 7 Agu</p></div><span class="badge badge-brand">Baru</span></div></div>
+      </div>
+      <div class="tab-panel" data-tab-panel="event" data-tabs-for="sa">
+        <div class="card" data-reveal><div class="flex items-center justify-between"><div><p class="row-title">Ibadah Minggu Pagi</p><p class="row-sub">16 Agu, 07:00 · Gedung Utama</p></div><span class="badge badge-ink">Ibadah</span></div></div>
+      </div>
+      <div class="tab-panel" data-tab-panel="coaching" data-tabs-for="sa">
+        <div class="card" data-reveal><div class="flex items-center justify-between"><div><p class="row-title">First Coaching</p><p class="row-sub">12 Agu, 18:00 · Ruang 2</p></div><span class="badge badge-ink">Coaching</span></div></div>
+      </div>
+
+    </div>
+  </main>
+  <nav class="bottom-nav"><div class="bottom-nav-list">
+        <a href="super-admin-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
+        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
+        <a href="temu-firman.html" class="bottom-nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
+        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+        <a href="jadwal.html" class="bottom-nav-item"><i data-lucide="calendar-days"></i>Jadwal</a>
+        <a href="doa.html" class="bottom-nav-item"><i data-lucide="heart-handshake"></i>Doa</a>
+        <a href="profil.html" class="bottom-nav-item"><i data-lucide="circle-user"></i>Profil</a>
+        <a href="super-admin-admin.html" class="bottom-nav-item active"><i data-lucide="shield-check"></i>Admin</a></div></nav>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

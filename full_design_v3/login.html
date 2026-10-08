@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="id"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Masuk · Shema v3</title><link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" /><script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  .split{min-height:100dvh;display:flex}
+  .split-art{flex:1.1;position:relative;overflow:hidden;display:none;color:#fff;
+    background:radial-gradient(520px 300px at 85% 0%,rgba(248,184,69,.5),transparent 62%),linear-gradient(150deg,#C1592F,#8A3B1D 55%,#3C2A1E)}
+  .split-art::after{content:'';position:absolute;inset:0;opacity:.2;background:url(assets/skyline.svg) center bottom/100% auto no-repeat}
+  .split-art .quote{position:absolute;left:44px;right:44px;top:50%;transform:translateY(-60%);z-index:2}
+  .split-art .j-strip{display:flex;gap:14px;margin-top:28px}
+  .split-art .j-strip img{width:84px;height:84px;border-radius:22px;box-shadow:0 14px 28px -12px rgba(0,0,0,.5)}
+  .split-form{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px;background:var(--cream-100)}
+  @media(min-width:900px){.split-art{display:block}}
+</style></head><body>
+<div class="split">
+  <div class="split-art">
+    <div class="quote">
+      <p class="pull-quote" style="color:#fff;border-color:#FFD9A8;font-size:26px;">&ldquo;1 orang, 1 Care Group, 1 pelayanan.&rdquo;</p>
+      <p class="text-sm" style="opacity:.8;margin-top:12px;">Tim Sumber Daya Aktifis · GKI Gejayan</p>
+      <div class="j-strip"><img src="assets/journey-rooted.svg" alt="Rooted Journey" /><img src="assets/journey-branching.svg" alt="Branching Journey" /><img src="assets/journey-growing.svg" alt="Growing Journey" /><img src="assets/journey-fruitful.svg" alt="Fruitful Journey" /></div>
+      <p class="text-sm" style="opacity:.75;margin-top:12px;">Faithful Journey — berakar, beranting, bertumbuh, berbuah.</p>
+    </div>
+  </div>
+  <div class="split-form">
+    <div class="auth-card" data-reveal>
+      <div class="auth-logo"><img src="assets/logo-shema.png" alt="Shema" /></div>
+      <div class="auth-panel">
+        <form class="flex-col gap-3">
+          <div class="field"><label>Nomor WA</label><input class="input" value="0812-3456-7890" /></div>
+          <div class="field"><label>Kata Sandi</label><input class="input" type="password" value="demo123" /></div>
+          <button class="btn btn-primary btn-block" style="margin-top:6px;" type="button">Masuk</button>
+        </form>
+        <p class="text-sm muted" style="text-align:center;margin-top:16px;">Baru pertama kali di sini? <a href="register.html" class="link-accent">Daftar akun</a></p>
+      </div>
+      <div style="margin-top:22px;">
+        <p class="text-sm muted" style="text-align:center;margin-bottom:10px;">Mode demo — coba tampilan sesuai peran</p>
+        <div class="flex-col gap-2">
+          <a href="member-home.html" class="card hoverable flex items-center justify-between" style="padding:14px 16px;"><span class="row-title">Calvin Tanto</span><span style="text-align:right;"><span class="text-sm" style="display:block;">Anggota</span><span class="muted" style="font-size:11.5px;">Member Care Group</span></span></a>
+          <a href="leader-home.html" class="card hoverable flex items-center justify-between" style="padding:14px 16px;"><span class="row-title">Andra Wijaya</span><span style="text-align:right;"><span class="text-sm" style="display:block;">Ketua Komsel</span><span class="muted" style="font-size:11.5px;">Training Leader</span></span></a>
+          <a href="super-admin-home.html" class="card hoverable flex items-center justify-between" style="padding:14px 16px;"><span class="row-title">Pdt. Budi Santoso</span><span style="text-align:right;"><span class="text-sm" style="display:block;">Super Admin</span><span class="muted" style="font-size:11.5px;">Training Coach</span></span></a>
+          <a href="coach-home.html" class="card hoverable flex items-center justify-between" style="padding:14px 16px;"><span class="row-title">Pdt. Yohanes Setiawan</span><span style="text-align:right;"><span class="text-sm" style="display:block;">Coach</span><span class="muted" style="font-size:11.5px;">Training Coach</span></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="assets/app.js"></script></body></html>

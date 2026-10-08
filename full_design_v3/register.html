@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="id"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Daftar Akun · Shema v3</title><link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" /><script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  .split{min-height:100dvh;display:flex}
+  .split-art{flex:1.1;position:relative;overflow:hidden;display:none;color:#fff;
+    background:radial-gradient(520px 300px at 85% 0%,rgba(248,184,69,.5),transparent 62%),linear-gradient(150deg,#C1592F,#8A3B1D 55%,#3C2A1E)}
+  .split-art::after{content:'';position:absolute;inset:0;opacity:.2;background:url(assets/skyline.svg) center bottom/100% auto no-repeat}
+  .split-art .quote{position:absolute;left:44px;right:44px;top:50%;transform:translateY(-60%);z-index:2}
+  .split-art .j-strip{display:flex;gap:14px;margin-top:28px}
+  .split-art .j-strip img{width:84px;height:84px;border-radius:22px;box-shadow:0 14px 28px -12px rgba(0,0,0,.5)}
+  .split-form{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px;background:var(--cream-100)}
+  @media(min-width:900px){.split-art{display:block}}
+</style></head><body>
+<div class="auth-shell">
+  <div class="auth-card" data-reveal>
+    <div class="auth-logo"><img src="assets/logo-shema.png" alt="Shema" style="width:84px;height:84px;" /><h1 style="font-size:22px;margin-top:6px;">Daftar Akun Baru</h1><p class="text-sm muted">Isi data singkat ini untuk mulai bergabung di GKI Gejayan.</p></div>
+    <div class="auth-panel">
+      <form class="flex-col gap-3">
+        <div class="field"><label>Nama Lengkap</label><input class="input" placeholder="Nama sesuai KTP" /></div>
+        <div class="field"><label>Nomor WA</label><input class="input" placeholder="0812-3456-7890" /><p class="hint">Admin akan menghubungi nomor ini untuk mengaktifkan akunmu.</p></div>
+        <button class="btn btn-primary btn-block" style="margin-top:6px;" type="button">Daftar</button>
+      </form>
+      <p class="text-sm muted" style="text-align:center;margin-top:16px;">Sudah punya akun? <a href="login.html" class="link-accent">Masuk</a></p>
+    </div>
+  </div>
+</div>
+<script src="assets/app.js"></script></body></html>

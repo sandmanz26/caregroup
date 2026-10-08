@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Presensi Pelayanan · Shema</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="assets/logo-shema.png" alt="Shema" />
+      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
+    </div>
+    <nav class="nav-list">
+      <a href="member-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
+      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
+      <a href="baca-alkitab.html" class="nav-item"><i data-lucide="book-marked"></i>Baca Alkitab</a>
+      <a href="presensi.html" class="nav-item active"><i data-lucide="hand-helping"></i>Presensi</a>
+      <a href="profil.html" class="nav-item"><i data-lucide="circle-user"></i>Profil</a></nav>
+    <div class="sidebar-user">
+      <span class="avatar-square">CT</span>
+      <div><div class="name">Calvin Tanto</div><div class="role">Anggota</div></div>
+    </div>
+  </aside>
+
+  <header class="topbar">
+    <img src="assets/logo-shema.png" alt="Shema" />
+    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">CT</span>
+  </header>
+
+  <main class="main">
+    <div class="main-inner">
+
+
+      <div class="hero-cover" data-reveal>
+        <img class="hero-img" src="https://picsum.photos/seed/greeter-serving/1200/700" alt="" />
+        <div class="hero-scrim"></div>
+        <div class="hero-content">
+          <p class="hero-eyebrow"><i data-lucide="hand-helping" style="width:13px;height:13px;"></i>Sub Menu 1</p>
+          <h1>Presensi Pelayanan</h1>
+          <p class="hero-sub">Catat sendiri setiap kali kamu melayani</p>
+        </div>
+      </div>
+      
+
+      <div class="card spotlight" data-reveal>
+        <div class="section-title">Catat Pelayanan</div>
+        <div class="flex-col gap-3">
+          <div class="field"><label>Peran Pelayanan</label><select class="input"><option>Greeter</option><option>Catcher</option><option>Pengurus Care Group</option></select></div>
+          <div class="field-grid"><div class="field"><label>Tanggal</label><input class="input" type="date" value="2026-08-13" /></div><div class="field"><label>Catatan (opsional)</label><input class="input" placeholder="Ibadah pagi pukul 07.00" /></div></div>
+          <button class="btn btn-primary" style="align-self:flex-end;"><i data-lucide="plus"></i>Simpan</button>
+        </div>
+      </div>
+
+      <div class="card flush" data-reveal>
+        <div style="padding:20px 20px 0;" class="section-title">Riwayat</div>
+        <ul class="row-list" style="padding:0 20px 20px;">
+          <li class="row"><span class="avatar avatar-sm avatar-brand"><i data-lucide="hand-helping" style="width:14px;height:14px;"></i></span><div class="flex-1"><p class="row-title">Greeter</p><p class="row-sub">9 Agustus 2026 · Ibadah pagi</p></div><span class="badge badge-good">Hadir</span></li>
+          <li class="row"><span class="avatar avatar-sm avatar-brand"><i data-lucide="hand-helping" style="width:14px;height:14px;"></i></span><div class="flex-1"><p class="row-title">Catcher</p><p class="row-sub">2 Agustus 2026 · Ibadah Multikultural</p></div><span class="badge badge-good">Hadir</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <nav class="bottom-nav"><div class="bottom-nav-list">
+        <a href="member-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
+        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
+        <a href="baca-alkitab.html" class="bottom-nav-item"><i data-lucide="book-marked"></i>Baca Alkitab</a>
+        <a href="presensi.html" class="bottom-nav-item active"><i data-lucide="hand-helping"></i>Presensi</a>
+        <a href="profil.html" class="bottom-nav-item"><i data-lucide="circle-user"></i>Profil</a></div></nav>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

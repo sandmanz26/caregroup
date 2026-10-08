@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Panel Ketua Komsel · Shema v3</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="assets/logo-shema.png" alt="Shema" />
+      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
+    </div>
+    <nav class="nav-list">
+      <a href="leader-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
+      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
+      <a href="temu-firman.html" class="nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
+      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+      <a href="jadwal.html" class="nav-item"><i data-lucide="calendar-days"></i>Jadwal</a>
+      <a href="profil.html" class="nav-item"><i data-lucide="circle-user"></i>Profil</a>
+      <a href="leader-admin.html" class="nav-item active"><i data-lucide="shield-check"></i>Admin</a></nav>
+    <div class="sidebar-user">
+      <span class="avatar-square">AW</span>
+      <div><div class="name">Andra Wijaya</div><div class="role">Ketua Komsel</div></div>
+    </div>
+  </aside>
+  <header class="topbar">
+    <img src="assets/logo-shema.png" alt="Shema" />
+    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">AW</span>
+  </header>
+  <main class="main">
+    <div class="main-inner wide">
+
+
+      <div class="page-hero" data-reveal>
+        <div>
+          <p class="hero-eyebrow"><i data-lucide="shield-check" style="width:13px;height:13px;"></i>Ketua Komsel</p>
+          <h1>Care Group "Kasih Setia"</h1>
+          <p class="hero-sub">Kelola anggota, kehadiran, dan pelayanan CG-mu</p>
+        </div>
+        <div style="text-align:right;"><p style="font-family:var(--font-display);font-size:32px;font-weight:600;color:#fff;" class="tabular"><span data-count="7">0</span></p><p class="hero-sub" style="margin:0;">anggota · 81% hadir</p></div>
+      </div>
+
+      <div class="tab-bar" data-tabs="admin">
+        <button class="tab-btn active" data-tab-btn="peserta">Peserta Komsel</button>
+        <button class="tab-btn" data-tab-btn="kehadiran">Kehadiran</button>
+        <button class="tab-btn" data-tab-btn="profil">Profil CG</button>
+        <button class="tab-btn" data-tab-btn="statistik">Statistik</button>
+        <button class="tab-btn" data-tab-btn="pengajuan">Pengajuan <span class="badge-count" style="margin-left:4px;">1</span></button>
+        <button class="tab-btn" data-tab-btn="jadwal">Jadwal Komsel</button>
+      </div>
+
+      <div class="tab-panel active" data-tab-panel="peserta" data-tabs-for="admin">
+        <div class="card tinted" data-reveal>
+          <div class="flex items-center gap-2" style="margin-bottom:10px;"><div class="section-title" style="margin:0;">Permintaan pindah CG</div><span class="new-tag">Baru</span></div>
+          <div class="flex items-center gap-3" style="margin-bottom:12px;"><span class="avatar avatar-md">CT</span><div class="flex-1"><p class="row-title">Calvin Tanto → Care Group "Sukacita"</p><p class="row-sub">Alasan: pindah rumah ke Jl. Sagan · disampaikan langsung ke Leader</p></div></div>
+          <div class="flow" style="margin-bottom:12px;"><span class="st done">Disampaikan ke Leader</span><i data-lucide="arrow-right"></i><span class="st on">Diteruskan ke Admin</span><i data-lucide="arrow-right"></i><span class="st">Admin memindahkan</span></div>
+          <div class="flex gap-2"><button class="btn btn-primary btn-sm"><i data-lucide="send"></i>Teruskan ke Admin</button><button class="btn btn-ghost btn-sm">Tolak</button></div>
+        </div>
+        <div class="card" data-reveal>
+          <div class="section-title">Tambah peserta</div>
+          <div class="field-grid" style="margin-bottom:12px;"><div class="field"><label>Nama</label><input class="input" /></div><div class="field"><label>No. HP</label><input class="input" /></div></div>
+          <button class="btn btn-primary" style="float:right;"><i data-lucide="plus"></i>Tambah</button><div style="clear:both;"></div>
+        </div>
+        <div class="card" data-reveal>
+          <div class="section-title">7 anggota</div>
+          <ul class="row-list">
+            <li class="row"><span class="avatar avatar-sm">AW</span><span class="row-title flex-1">Andra Wijaya</span><span class="badge badge-brand">Leader</span></li>
+            <li class="row"><span class="avatar avatar-sm">BL</span><span class="row-title flex-1">Bunga Lestari</span><span class="badge badge-good">Pengurus CG</span><button class="btn btn-ghost btn-sm" style="margin-left:8px;"><i data-lucide="arrow-up-circle"></i>Naikkan</button></li>
+            <li class="row"><span class="avatar avatar-sm">CT</span><span class="row-title flex-1">Calvin Tanto</span><span class="badge badge-ink">Anggota</span><button class="btn btn-ghost btn-sm" style="margin-left:8px;"><i data-lucide="arrow-up-circle"></i>Naikkan</button></li>
+            <li class="row"><span class="avatar avatar-sm">GP</span><span class="row-title flex-1">Gilbert Prakoso</span><span class="badge badge-ink">Anggota Baru</span><button class="btn btn-ghost btn-sm" style="margin-left:8px;"><i data-lucide="arrow-up-circle"></i>Naikkan</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="kehadiran" data-tabs-for="admin">
+        <div class="card" data-reveal><div class="flex items-center justify-between"><div><p class="row-title">Bertumbuh dalam Firman</p><p class="row-sub">Kamis, 13 Agustus 2026</p></div><span class="badge badge-ink">0/7 hadir</span></div>
+          <ul class="row-list" style="margin-top:10px;"><li class="row row-clickable"><span class="avatar avatar-sm">AW</span><span class="row-title flex-1">Andra Wijaya</span><span class="badge badge-brand">Leader</span><span class="badge badge-ink" style="margin-left:8px;">Tidak hadir</span></li></ul>
+          <input class="input" style="margin-top:8px;font-size:12px;" placeholder="Keterangan (opsional, misal: Sakit)" />
+        </div>
+        <div class="card" data-reveal><div class="flex items-center justify-between"><div><p class="row-title">Bersekutu dalam Kasih</p><p class="row-sub">Kamis, 16 Juli 2026</p></div><span class="badge badge-ink">6/7 hadir <i data-lucide="lock" style="width:11px;height:11px;"></i></span></div></div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="profil" data-tabs-for="admin">
+        <div class="card" data-reveal><div class="section-title">Deskripsi Care Group</div><textarea class="input" rows="3">Kami adalah CG yang hangat dan terbuka untuk siapa saja yang ingin bertumbuh bersama.</textarea></div>
+        <div class="card" data-reveal>
+          <div class="flex items-center gap-2" style="margin-bottom:6px;"><div class="section-title" style="margin:0;">Jobdesk Pengurus CG</div><span class="new-tag">Baru</span></div>
+          <p class="text-sm muted" style="margin-bottom:10px;">Tampil untuk semua anggota di Program CG → Jobdesk Peran. Hanya Leader yang bisa mengedit.</p>
+          <textarea class="input" rows="4">Menyiapkan tempat dan konsumsi pertemuan
+Mengingatkan jadwal &amp; menyambut anggota baru
+Membantu mencatat kehadiran bersama Leader</textarea>
+          <button class="btn btn-primary" style="float:right;margin-top:12px;"><i data-lucide="save"></i>Simpan</button><div style="clear:both;"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="statistik" data-tabs-for="admin">
+        <div class="bento">
+          <div class="bento-tile bg-dark b-2" data-reveal><div class="deco-ring"></div><p class="tabular" style="font-family:var(--font-display);font-size:28px;font-weight:600;"><span data-count="7">0</span></p><p class="text-sm muted">Anggota</p></div>
+          <div class="bento-tile bg-brand b-2" data-reveal><div class="deco-ring"></div><p class="tabular" style="font-family:var(--font-display);font-size:28px;font-weight:600;"><span data-count="81" data-suffix="%">0</span></p><p class="text-sm muted">Kehadiran</p></div>
+          <div class="bento-tile b-2" data-reveal><p class="tabular" style="font-family:var(--font-display);font-size:28px;font-weight:600;"><span data-count="2">0</span></p><p class="text-sm muted">Beranting</p></div>
+        </div>
+        <div class="card" data-reveal><div class="section-title">Faithful Journey CG</div><p class="text-sm"><strong>5</strong> dari 7 anggota sudah mencapai minimal satu tingkat Bertumbuh.</p><div class="flex gap-2" style="margin-top:8px;"><span class="badge badge-coklat">Mulai Bertumbuh: 3</span><span class="badge badge-kuning">Bertumbuh: 2</span></div></div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="pengajuan" data-tabs-for="admin">
+        <div class="card" data-reveal><div class="flex items-start justify-between gap-3"><div><p class="row-title">Felicia Halim</p><p class="row-sub">Mengajukan Greeter · 7 Agustus 2026</p></div><span class="badge badge-brand">Baru</span></div><button class="btn btn-ghost btn-sm" style="margin-top:12px;">Tandai sudah ditinjau</button></div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="jadwal" data-tabs-for="admin">
+        <div class="card" data-reveal><div class="section-title">Buat jadwal pertemuan komsel</div><div class="field-grid" style="margin-bottom:12px;"><div class="field"><label>Tanggal</label><input class="input" type="date" /></div><div class="field"><label>Topik</label><input class="input" /></div></div><button class="btn btn-primary" style="float:right;"><i data-lucide="plus"></i>Tambah</button><div style="clear:both;"></div></div>
+        <div class="card" data-reveal><div class="flex items-start justify-between"><div><p class="row-title">Bertumbuh dalam Firman</p><p class="row-sub">13 Agustus 2026</p></div><button class="btn btn-ghost btn-sm"><i data-lucide="pencil"></i>Edit</button></div></div>
+      </div>
+
+    </div>
+  </main>
+  <nav class="bottom-nav"><div class="bottom-nav-list">
+        <a href="leader-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
+        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
+        <a href="temu-firman.html" class="bottom-nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
+        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+        <a href="jadwal.html" class="bottom-nav-item"><i data-lucide="calendar-days"></i>Jadwal</a>
+        <a href="profil.html" class="bottom-nav-item"><i data-lucide="circle-user"></i>Profil</a>
+        <a href="leader-admin.html" class="bottom-nav-item active"><i data-lucide="shield-check"></i>Admin</a></div></nav>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

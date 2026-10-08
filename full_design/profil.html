@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Profil · Shema</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="assets/logo-shema.png" alt="Shema" />
+      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
+    </div>
+    <nav class="nav-list">
+      <a href="member-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
+      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
+      <a href="baca-alkitab.html" class="nav-item"><i data-lucide="book-marked"></i>Baca Alkitab</a>
+      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+      <a href="profil.html" class="nav-item active"><i data-lucide="circle-user"></i>Profil</a></nav>
+    <div class="sidebar-user">
+      <span class="avatar-square">CT</span>
+      <div><div class="name">Calvin Tanto</div><div class="role">Anggota</div></div>
+    </div>
+  </aside>
+
+  <header class="topbar">
+    <img src="assets/logo-shema.png" alt="Shema" />
+    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">CT</span>
+  </header>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <div class="hero-cover" data-reveal style="height:150px;">
+        <img class="hero-img" src="https://picsum.photos/seed/profile-cover-warm/1200/500" alt="" />
+        <div class="hero-scrim"></div>
+      </div>
+      <div class="hero-float" data-reveal style="flex-direction:column;text-align:center;align-items:center;padding-top:0;margin-top:-70px;">
+        <span class="avatar avatar-lg avatar-brand" style="font-size:22px;border:4px solid var(--cream-50);margin-top:-40px;box-shadow:var(--shadow-md);">CT</span>
+        <h2 style="font-size:19px;margin-top:10px;">Calvin Tanto</h2>
+        <p class="text-sm muted">Anggota · Care Group "Kasih Setia"</p>
+        <button class="icon-btn" style="position:absolute;top:16px;right:16px;"><i data-lucide="eye"></i></button>
+      </div>
+
+      
+        <div class="bento-tile b-4" data-reveal>
+          <div class="section-title" style="margin-bottom:16px;">Perjalanan Pelayananmu</div>
+          <div class="stepper">
+            <div class="step done"><div class="step-dot"><i data-lucide="check" style="width:12px;height:12px;"></i></div><div class="step-label">New Comer</div></div>
+            <div class="step done"><div class="step-dot"><i data-lucide="check" style="width:12px;height:12px;"></i></div><div class="step-label">First Coaching</div></div>
+            <div class="step done"><div class="step-dot"><i data-lucide="check" style="width:12px;height:12px;"></i></div><div class="step-label">Second Coaching</div></div>
+            <div class="step active"><div class="step-dot">4</div><div class="step-label">Member Care Group</div></div>
+            <div class="step "><div class="step-dot">5</div><div class="step-label">Training Leader</div></div>
+            <div class="step "><div class="step-dot">6</div><div class="step-label">Training Coach</div></div></div>
+          <p class="text-sm muted" style="margin-top:16px;">Tahap saat ini: <strong style="color:var(--ink-900);">Member Care Group</strong></p>
+        </div>
+
+      <div class="card" data-reveal>
+        <div class="section-title">Shema Growth</div>
+        <ul class="row-list">
+          <li class="row"><div class="flex-1"><p class="row-title">First Coaching</p></div><span class="badge badge-good">Selesai 10 Mei 2025</span></li>
+          <li class="row"><div class="flex-1"><p class="row-title">Second Coaching</p></div><span class="badge badge-good">Selesai 22 Jul 2025</span></li>
+          <li class="row"><div class="flex-1"><p class="row-title">Third Coaching</p></div><span class="badge badge-ink">Belum ada jadwal</span></li>
+        </ul>
+      </div>
+
+      <div class="flex-col gap-2">
+        <a href="tentang.html" class="card hoverable spotlight flex items-center justify-between" data-reveal><span class="row-title">Tentang &amp; Ajukan Pelayanan</span><i data-lucide="chevron-right" style="width:16px;height:16px;color:var(--taupe-500);"></i></a>
+        <button class="card hoverable flex items-center justify-between" data-reveal style="border:none;width:100%;text-align:left;color:var(--danger-500);"><span class="row-title" style="color:var(--danger-500);">Keluar</span><i data-lucide="log-out" style="width:16px;height:16px;"></i></button>
+      </div>
+      <p class="text-sm muted" style="text-align:center;">Shema App · v0.1 (prototype)</p>
+
+    </div>
+  </main>
+
+  <nav class="bottom-nav"><div class="bottom-nav-list">
+        <a href="member-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
+        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
+        <a href="baca-alkitab.html" class="bottom-nav-item"><i data-lucide="book-marked"></i>Baca Alkitab</a>
+        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+        <a href="profil.html" class="bottom-nav-item active"><i data-lucide="circle-user"></i>Profil</a></div></nav>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

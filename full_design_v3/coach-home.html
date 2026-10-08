@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home · Shema v3</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="assets/logo-shema.png" alt="Shema" />
+      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
+    </div>
+    <nav class="nav-list">
+      <a href="coach-home.html" class="nav-item active"><i data-lucide="home"></i>Home</a>
+      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
+      <a href="temu-firman.html" class="nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
+      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+      <a href="jadwal.html" class="nav-item"><i data-lucide="calendar-days"></i>Jadwal</a>
+      <a href="doa.html" class="nav-item"><i data-lucide="heart-handshake"></i>Doa</a>
+      <a href="profil.html" class="nav-item"><i data-lucide="circle-user"></i>Profil</a>
+      <a href="coach-admin.html" class="nav-item"><i data-lucide="shield-check"></i>Admin</a></nav>
+    <div class="sidebar-user">
+      <span class="avatar-square">YS</span>
+      <div><div class="name">Pdt. Yohanes Setiawan</div><div class="role">Coach</div></div>
+    </div>
+  </aside>
+  <header class="topbar">
+    <img src="assets/logo-shema.png" alt="Shema" />
+    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">YS</span>
+  </header>
+  <main class="main">
+    <div class="main-inner">
+
+
+      <div class="home-header" data-reveal>
+        <div class="hh-top">
+          <div class="hh-greet">
+            <small>Selamat pagi</small>
+            <strong>Yohanes</strong>
+            <span class="hh-meta">Kamis, 13 Agustus 2026</span>
+          </div>
+          <div class="hh-actions">
+            <button class="hh-btn" data-open-sheet="sheet-notif" aria-label="Notifikasi"><i data-lucide="bell"></i><span class="dot"></span></button>
+            
+            <button class="hh-btn" data-open-sheet="sheet-exit" aria-label="Keluar aplikasi"><i data-lucide="log-out"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="float-card" data-reveal>
+        <div class="tf-body">
+          <div class="tf-label"><i data-lucide="sprout" style="width:14px;height:14px;"></i>Temu Firman · Word Encounter</div>
+          <p class="verse">&ldquo;Siapa setia dalam perkara-perkara kecil, ia setia juga dalam perkara-perkara besar.&rdquo;</p>
+          <p class="ref">Lukas 16:10 &middot; Setia dalam Perkara Kecil</p>
+        </div>
+        <div class="tf-cta">
+          <a href="temu-firman.html" class="btn btn-primary btn-sm">Baca renungan</a>
+          <small>Belum selesai hari ini</small>
+        </div>
+      </div>
+      <div class="card" data-reveal>
+        <div class="shortcuts cols-3">
+          <a class="shortcut" href="coach-admin.html"><span class="sc-ico g-purple"><i data-lucide="shield-check"></i></span>Panel Pembinaan</a>
+          <a class="shortcut" href="program-cg.html"><span class="sc-ico g-blue"><i data-lucide="users"></i></span>Care Group</a>
+          <a class="shortcut" href="jadwal.html"><span class="sc-ico g-teal"><i data-lucide="calendar-days"></i></span>Jadwal</a>
+        </div>
+      </div>
+      <div class="card tinted" data-reveal><p class="row-title">Membina 2 Care Group</p><p class="text-sm muted" style="margin-top:6px;">Buka Panel Pembinaan untuk melihat CG binaan, jadwal pembinaan, dan statistik gabungan.</p></div>
+
+      <div class="card" data-reveal>
+        <div class="section-title">Pengumuman</div>
+        <ul class="row-list">
+          <li class="row row-clickable" data-open-sheet="sheet-announce-1">
+            <img src="https://picsum.photos/seed/poster-training-coach/80/80" style="width:44px;height:44px;border-radius:12px;object-fit:cover;flex-shrink:0;" alt="" />
+            <div class="flex-1"><div class="flex items-center justify-between gap-2"><p class="row-title">Pendaftaran Coach baru dibuka</p><span class="badge badge-brand">10 Agu</span></div><p class="row-sub" style="margin-top:2px;">Bagi Leader Care Group yang sudah aktif minimal 6 bulan...</p></div>
+          </li>
+          <li class="row row-clickable">
+            <img src="https://picsum.photos/seed/sosialisasi-cg/80/80" style="width:44px;height:44px;border-radius:12px;object-fit:cover;flex-shrink:0;" alt="" />
+            <div class="flex-1"><div class="flex items-center justify-between gap-2"><p class="row-title">Target 20 Care Group di 2027</p><span class="badge badge-brand">5 Agu</span></div><p class="row-sub" style="margin-top:2px;">Tim SDA mengajak seluruh jemaat untuk ambil bagian.</p></div>
+          </li>
+          <li class="row row-clickable">
+            <img src="https://picsum.photos/seed/modul-second-coaching/80/80" style="width:44px;height:44px;border-radius:12px;object-fit:cover;flex-shrink:0;" alt="" />
+            <div class="flex-1"><div class="flex items-center justify-between gap-2"><p class="row-title">Modul Second Coaching tersedia</p><span class="badge badge-brand">28 Jul</span></div><p class="row-sub" style="margin-top:2px;">Diambil di sekretariat atau diunduh lewat aplikasi.</p></div>
+          </li>
+        </ul>
+      </div>
+
+      <div id="sheet-announce-1" class="sheet-overlay" style="display:none;">
+        <div class="sheet">
+          <div class="sheet-handle"></div>
+          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+          
+          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Pendaftaran Coach baru dibuka</h3>
+
+          <p class="page-date" style="margin:-8px 0 14px;">Senin, 10 Agustus 2026</p>
+          <img src="https://picsum.photos/seed/poster-training-coach/900/500" style="width:100%;border-radius:16px;margin-bottom:14px;" alt="Poster pendaftaran Training Coach" />
+          <p class="text-sm">Bagi Leader Care Group yang sudah aktif minimal 6 bulan, pendaftaran Training Coach dibuka sampai akhir Agustus. Daftar lewat admin CG masing-masing atau langsung ke sekretariat.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <nav class="bottom-nav"><div class="bottom-nav-list">
+        <a href="coach-home.html" class="bottom-nav-item active"><i data-lucide="home"></i>Home</a>
+        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
+        <a href="temu-firman.html" class="bottom-nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
+        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+        <a href="jadwal.html" class="bottom-nav-item"><i data-lucide="calendar-days"></i>Jadwal</a>
+        <a href="doa.html" class="bottom-nav-item"><i data-lucide="heart-handshake"></i>Doa</a>
+        <a href="profil.html" class="bottom-nav-item"><i data-lucide="circle-user"></i>Profil</a>
+        <a href="coach-admin.html" class="bottom-nav-item"><i data-lucide="shield-check"></i>Admin</a></div></nav>
+</div>
+
+      <div id="sheet-notif" class="sheet-overlay" style="display:none;">
+        <div class="sheet">
+          <div class="sheet-handle"></div>
+          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+          <p class="eyebrow">Terbaru</p>
+          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Notifikasi</h3>
+
+          <div class="notif">
+            <span class="n-ico g-teal"><i data-lucide="calendar-days"></i></span>
+            <div class="flex-1"><p class="n-title">First Coaching · 19 Agustus</p><p class="n-sub">Ruang 2, GKI Gejayan</p></div>
+            <span class="unread"></span>
+          </div>
+          <div class="notif">
+            <span class="n-ico g-blue"><i data-lucide="users"></i></span>
+            <div class="flex-1"><p class="n-title">Statistik CG binaan diperbarui</p><p class="n-sub">Kasih Setia 81% kehadiran</p></div>
+            
+          </div>
+        </div>
+      </div>
+      <div id="sheet-exit" class="sheet-overlay" style="display:none;">
+        <div class="sheet">
+          <div class="sheet-handle"></div>
+          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+          
+          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Keluar dari aplikasi?</h3>
+
+          <p class="text-sm" style="margin-bottom:16px;">Kamu hanya keluar dari sesi ini. <strong>Data dan progresmu tetap tersimpan</strong> — masuk lagi kapan saja dengan Nomor WA dan kata sandimu.</p>
+          <div class="flex gap-2">
+            <button class="btn btn-ghost" style="flex:1;" data-close-sheet>Batal</button>
+            <a href="login.html" class="btn btn-primary" style="flex:1;"><i data-lucide="log-out"></i>Keluar</a>
+          </div>
+        </div>
+      </div>
+<script src="assets/app.js"></script>
+</body>
+</html>

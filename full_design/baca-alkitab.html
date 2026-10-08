@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Baca Alkitab Harian · Shema</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="assets/logo-shema.png" alt="Shema" />
+      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
+    </div>
+    <nav class="nav-list">
+      <a href="member-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
+      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
+      <a href="baca-alkitab.html" class="nav-item active"><i data-lucide="book-marked"></i>Baca Alkitab</a>
+      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+      <a href="profil.html" class="nav-item"><i data-lucide="circle-user"></i>Profil</a></nav>
+    <div class="sidebar-user">
+      <span class="avatar-square">CT</span>
+      <div><div class="name">Calvin Tanto</div><div class="role">Anggota</div></div>
+    </div>
+  </aside>
+
+  <header class="topbar">
+    <img src="assets/logo-shema.png" alt="Shema" />
+    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">CT</span>
+  </header>
+
+  <main class="main">
+    <div class="main-inner">
+
+
+      <div class="hero-cover" data-reveal>
+        <img class="hero-img" src="https://picsum.photos/seed/quiet-time-bible/1200/700" alt="" />
+        <div class="hero-scrim"></div>
+        <div class="hero-content">
+          <p class="hero-eyebrow"><i data-lucide="book-marked" style="width:13px;height:13px;"></i>Sub Menu 2</p>
+          <h1>Baca Alkitab Harian</h1>
+          <p class="hero-sub">Renungan pribadi, tidak tergantung Care Group</p>
+        </div>
+      </div>
+      <div class="hero-float" data-reveal><div class="flex-1"><p style="font-family:var(--font-display);font-size:24px;font-weight:600;" class="tabular"><span data-count="5">0</span> <span style="font-family:var(--font-sans);font-size:13px;color:var(--taupe-600);">hari terbaca</span></p><p class="text-sm muted">Total sepanjang waktu</p></div><span class="badge badge-coklat">Mulai Berakar</span></div>
+
+      <div class="card" data-reveal>
+        <div class="section-title">Tangga Berakar</div>
+        <div class="ladder-track">
+          <div class="ladder-item current"><p class="row-title">Mulai Berakar</p><p class="row-sub">25× dalam 1 bulan — 5/25</p></div>
+          <div class="ladder-item"><p class="row-title">Berakar</p><p class="row-sub">75–90× dalam 3 bulan</p></div>
+        </div>
+      </div>
+
+      <ul class="row-list" style="gap:0;">
+        <li data-reveal class="card hoverable spotlight row-clickable" style="margin-bottom:12px;padding:0;overflow:hidden;display:flex;" data-open-sheet="sheet-rh1">
+          <img src="https://picsum.photos/seed/renungan-setia-kecil/200/200" style="width:96px;height:96px;object-fit:cover;flex-shrink:0;" alt="" />
+          <div style="padding:14px 16px;flex:1;">
+            <div class="flex items-center justify-between gap-2"><p class="row-title">Setia dalam Perkara Kecil</p><span class="badge badge-good">Hari ini</span></div>
+            <p class="row-sub">Lukas 16:10</p>
+            <div class="flex gap-3 text-sm muted" style="margin-top:6px;"><span class="flex items-center gap-1"><i data-lucide="heart" style="width:13px;height:13px;"></i>8</span><span class="flex items-center gap-1"><i data-lucide="message-circle" style="width:13px;height:13px;"></i>1</span></div>
+          </div>
+        </li>
+        <li data-reveal class="card hoverable spotlight row-clickable" style="margin-bottom:12px;padding:0;overflow:hidden;display:flex;">
+          <img src="https://picsum.photos/seed/renungan-damai/200/200" style="width:96px;height:96px;object-fit:cover;flex-shrink:0;" alt="" />
+          <div style="padding:14px 16px;flex:1;"><p class="row-title">Damai yang Melampaui Akal</p><p class="row-sub">Filipi 4:7 · 12 Agustus</p></div>
+        </li>
+        <li data-reveal class="card hoverable spotlight row-clickable" style="padding:0;overflow:hidden;display:flex;">
+          <img src="https://picsum.photos/seed/renungan-firman/200/200" style="width:96px;height:96px;object-fit:cover;flex-shrink:0;" alt="" />
+          <div style="padding:14px 16px;flex:1;"><p class="row-title">Kekuatan dari Firman</p><p class="row-sub">Mazmur 119:105 · 11 Agustus</p></div>
+        </li>
+      </ul>
+
+      <div id="sheet-rh1" class="sheet-overlay" style="display:none;">
+        <div class="sheet">
+          <div class="sheet-handle"></div>
+          <button class="icon-btn sheet-close" data-close-sheet><i data-lucide="x"></i></button>
+          <p class="eyebrow">13 Agustus 2026</p>
+          <h3 style="font-size:22px;margin:4px 0 2px;">Setia dalam Perkara Kecil</h3>
+          <p class="link-accent" style="margin-bottom:14px;">Lukas 16:10</p>
+          <img src="https://picsum.photos/seed/renungan-setia-kecil/900/500" style="width:100%;border-radius:16px;margin-bottom:16px;" alt="" />
+          <p class="text-sm" style="margin-bottom:12px;">Seorang petani muda pernah bertanya kepada gurunya, mengapa ia harus repot-repot mencabuti rumput liar di sudut ladang yang paling kecil. &ldquo;Toh tidak ada yang melihat,&rdquo; katanya.</p>
+          <p class="text-sm" style="margin-bottom:16px;">Yesus mengajarkan prinsip yang sama dalam Lukas 16:10 — kesetiaan bukan soal besar-kecilnya tanggung jawab, melainkan soal konsistensi hati.</p>
+          <div class="notice notice-good" style="margin-bottom:16px;"><i data-lucide="hand-heart"></i><span>Bapa, ajar aku setia dalam hal-hal kecil hari ini. Amin.</span></div>
+          <button class="btn btn-primary btn-block"><i data-lucide="check-circle-2"></i>Tandai Selesai Saat Teduh</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <nav class="bottom-nav"><div class="bottom-nav-list">
+        <a href="member-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
+        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
+        <a href="baca-alkitab.html" class="bottom-nav-item active"><i data-lucide="book-marked"></i>Baca Alkitab</a>
+        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
+        <a href="profil.html" class="bottom-nav-item"><i data-lucide="circle-user"></i>Profil</a></div></nav>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

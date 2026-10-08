@@ -9,7 +9,7 @@
 > Companion file: [changes.md](changes.md) logs *what shipped* per request.
 > This file describes *what the product currently is and is meant to be*.
 
-Last updated: 2026-09-08 (Coach role + Leader-panel corrections batch)
+Last updated: 2026-10-08 (revisi v3 dicatat — §5.12, Decision Log #19)
 
 ---
 
@@ -47,7 +47,10 @@ serves in one ministry role.
 
 Design direction: intentionally lo-fi/wireframe — warm neutral palette + one
 terracotta accent, minimal decoration, functional over polished. Responsive:
-sidebar nav on desktop, bottom tab bar + top bar on mobile.
+sidebar nav on desktop, bottom tab bar + top bar on mobile. (A separate,
+static hi-fi visual exploration of every screen below exists in
+`full_design/` — Decision Log #18 — but the app itself, described
+throughout the rest of this document, stays lo-fi.)
 
 ## 2. Roles
 
@@ -461,6 +464,37 @@ sekaligus tapi bukan anggota dari CG manapun yang dibinanya. Per slide sumber
   (§5.9): Bertumbuh &amp; Beranting jujur untuk semua anggota, Berakar hanya
   untuk anggota yang punya akun login.
 
+### 5.12 Revisi v3 — susunan sub menu (🚧 permintaan, belum ada di `src/`)
+
+Sumber: PPTX "Revisi penempatan susunan sub menu di beranda Aplikasi" (5 slide).
+Sudah didesain di `full_design_v3/` (lihat `index.html` di folder itu untuk
+peta butir → halaman). **Belum dibangun di aplikasi sebenarnya.** Bentrokan
+dengan keputusan lama: Decision Log #19.
+
+- **Temu Firman (Word Encounter)** 🚧 — "Saat teduh" digabung dengan "Baca
+  Alkitab" dan diganti nama. Di Home, kartu Temu Firman diletakkan **sebelum**
+  info Care Group. Di halamannya, bagian atas langsung ayat dan renungan.
+- **Faithful Journey** 🚧 — menggantikan istilah "tangga penghargaan", tiap
+  perjalanan diberi gambar: 🌱 Rooted/Berakar (baca Alkitab), 🌿 Branching/
+  Beranting (membawa orang lain), 🌳 Growing/Bertumbuh (Care Group dan baca
+  firman), 🍎 Fruitful/Berbuah (menjadi leader).
+- **Header Home** 🚧 — sapaan di kiri atas; kanan atas lonceng notifikasi,
+  streak kehadiran komsel dengan logo akar, dan ikon keluar (keluar dari
+  sesi tanpa menghilangkan data).
+- **Logo/ikon yang menjelaskan saat diklik** 🚧 — di Home dan Care Group,
+  penjelasan lengkap baru muncul setelah ikon diketuk; ditambah visual
+  (gambar) di sub menu.
+- **Profil → ikon pengaturan** 🚧 — ubah profil, kode sandi, ukuran font.
+- **Jobdesk Peran** 🚧 — ditambah **Pengurus CG**, isinya diedit oleh Leader.
+- **Pindah member CG / ubah data** 🚧 — disampaikan ke Leader, Leader
+  meneruskan ke Admin, Admin yang mengubah. **Q&A** ditambahkan di bawah
+  Contact Us (mengubah data, pindah member CG).
+- **Presensi — daftar pelayanan baru** 🚧 — Ibadah KBU, Ekspresif, Inovatif,
+  Impresif, Imersif; Leksionari, Usher, Tim Doa, Tim Bunga, Multimedia,
+  E-ministry; Komisi Anak, Remaja, Pemuda, Dewasa Muda, Dewasa.
+- **Rekap pelayanan di Admin Utama** 🚧 — siapa saja yang melayani di tiap
+  bidang (mis. Usher) dan jumlah anggotanya.
+
 ## 6. Data Model Summary
 
 All mock/seed data lives in `src/data/mockData.js`; all mutable app state
@@ -653,6 +687,58 @@ asked, what was decided, why.
     — used as-is everywhere that placeholder appeared, including the
     favicon, with the redundant "Shema"/"GKI Gejayan" text dropped next to
     it since the artwork already includes that wordmark.
+18. **Hi-fi design exploration added as a separate, parallel deliverable —
+    the shipped app's lo-fi direction (§1) is unchanged.** The user asked
+    for a high-fidelity redesign of every screen built so far, explicitly
+    scoped to a new folder (`full_design/`) rather than "make the app itself
+    hi-fi." This resolves what would otherwise be a direct conflict with
+    §1's "Design direction: intentionally lo-fi/wireframe" — that line still
+    accurately describes `src/`, which was not touched. `full_design/`
+    is a static HTML/CSS/JS mockup set (see changes.md 2026-09-09), useful
+    as a visual reference for a possible future "make it real" pass, but it
+    is **not wired to the React app's state, routes, or data** — it's a
+    design artifact, not a build target. If a future request asks to bring
+    this visual language into the actual app, that's a new, larger decision
+    (likely a full Tailwind theme + component pass) and should be raised
+    explicitly rather than assumed. **Revised same day (v2)**: the user
+    reviewed the first pass and judged it still read as recolored lo-fi —
+    same flat card/list structure, no real imagery, no motion beyond a
+    hover color change. Asked for a full redo across layout depth, real
+    imagery, and motion together, with visual direction left to my
+    judgment. Rebuilt around hero cover photos, asymmetric bento grids,
+    real (seeded placeholder) photography throughout, and actual motion —
+    scroll reveal, parallax, cursor-tracking spotlight borders, count-up
+    numerals, button ripple (see changes.md 2026-09-09 (2)). Same
+    non-conflict logic as above still holds: still `full_design/` only,
+    still not wired to `src/`.
+19. **Revisi susunan sub menu (PPTX "Revisi penempatan susunan sub menu di
+    beranda Aplikasi") didesain sebagai versi 3 di `full_design_v3/` — kode
+    aplikasi (`src/`) dan `full_design/` (v1/v2) tidak diubah.** Permintaan
+    ini tercatat di §5.12 dengan status 🚧. Beberapa butir **bertabrakan
+    dengan keputusan lama**, ditandai di sini supaya tidak diam-diam menimpa:
+    (a) *Ikon pengaturan di Profil untuk mengubah profil/kode sandi/ukuran
+    font* **membalik sebagian Decision #9** ("Profil read-only; edit lewat
+    admin") — di desain v3, nama/foto/alamat/universitas/tanggal lahir bisa
+    diubah sendiri, tetapi Nomor WA (identitas login) dan penempatan CG tetap
+    lewat Leader → Admin, sejalan dengan Q&A di slide 2. (b) *Daftar
+    pelayanan di Presensi* (Ibadah KBU … Komisi Dewasa) memakai taksonomi
+    **bidang pelayanan gereja**, berbeda dari `pelayananRoles` yang sekarang
+    (peran SDA: Greeter, Catcher, dst.); "Ajukan Pelayanan" tidak disebut di
+    slide sehingga dianggap tidak berubah — dua daftar itu kini berbeda dan
+    perlu keputusan. (c) *Saat Teduh + Baca Alkitab → Temu Firman* mengganti
+    nama menu & kartu Home (§5.1, §5.3) dan menghapus kartu "Saat Teduh" yang
+    terpisah. (d) *"Tangga penghargaan" → Faithful Journey* menambah satu
+    perjalanan baru, **Berbuah (menjadi leader)**, dan mendefinisikan ulang
+    **Bertumbuh = kehadiran CG + baca firman** (sebelumnya hanya kehadiran CG;
+    baca firman = Berakar). Ambang tingkat lama (mis. Mulai Berakar 25×/bulan)
+    dianggap tetap sampai ada keputusan. (e) *Streak diganti logo akar* —
+    "akar" di Faithful Journey berarti baca Alkitab, padahal streak yang
+    dimaksud adalah kehadiran komsel; desain mempertahankan angka streak
+    kehadiran dengan ikon akar, **perlu dikonfirmasi**. (f) *Pindah member
+    CG lewat Leader → Admin* berbeda dari alur sekarang di mana hanya Super
+    Admin yang bisa memindahkan (§5.10); desain menambah langkah "permintaan
+    dari Leader" sebelum Admin memindahkan. (g) Slide 5 menulis "Ibadah
+    Imersif" dua kali — dianggap salah ketik.
 
 ## 8. Pages That Must Handle "No Care Group" Gracefully
 
@@ -686,6 +772,12 @@ jalan satu arah, ke atas.
 daftar Leader CG sebagai halaman terpisah, data calon peserta Second
 Coaching, kirim piagam kelulusan (kemungkinan di luar cakupan mockup ini),
 dan tempat mengelola renungan harian + Warta Jemaat.
+
+**Menunggu keputusan untuk revisi v3 (§5.12, Decision Log #19):** streak
+berlogo akar — kehadiran komsel atau Temu Firman?; daftar pelayanan Presensi
+vs. "Ajukan Pelayanan" (dua taksonomi berbeda); definisi Bertumbuh baru dan
+ambang tingkat Berbuah; sejauh mana profil boleh diubah sendiri (membalik
+Decision #9); apakah jobdesk Pengurus CG yang diedit Leader berlaku per CG.
 
 **Menunggu Coach (§5.11):** kategori jadwal terpisah untuk "Jadwal
 Pembinaan" — saat ini memakai kategori "Coaching" yang sama dengan First/
