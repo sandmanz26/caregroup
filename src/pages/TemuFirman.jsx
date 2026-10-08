@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
-import { Volume2, Heart, MessageCircle, Share2, CheckCircle2, Flame, ChevronRight, Image as ImageIcon, Lock } from 'lucide-react'
+import { Volume2, Heart, MessageCircle, Share2, CheckCircle2, ChevronRight, Image as ImageIcon, Lock } from 'lucide-react'
 import { useApp } from '../context/AppContext'
-import { Badge } from '../components/ui'
+import { Badge, Card } from '../components/ui'
 import BottomSheet from '../components/BottomSheet'
-import { TierStatusCard, TierLadderCard } from '../components/TierProgress'
-import { readingTiers } from '../data/mockData'
+import FaithfulJourneyGrid from '../components/FaithfulJourney'
+import { faithfulJourneys } from '../data/mockData'
 import { formatLongDate } from '../utils/date'
-import { computeReadingStats } from '../utils/reading'
 
 const SCROLL_END_THRESHOLD = 24
 
@@ -41,7 +40,18 @@ function RenunganListRow({ item, onOpen }) {
   )
 }
 
-function RenunganDetailContent({ item, isToday, reachedEnd }) {
+// Ayat Alkitab ditampilkan paling atas, lalu renungan.
+function VerseBlock({ item }) {
+  return (
+    <div className="rounded-lg bg-brand-100/50 p-4">
+      <p className="text-xs font-semibold uppercase tracking-wide text-brand-600">Ayat</p>
+      {item.verseText && <p className="mt-1.5 text-base italic text-ink-800">&ldquo;{item.verseText}&rdquo;</p>}
+      <p className="mt-1.5 text-sm font-medium text-brand-700">{item.verse}</p>
+    </div>
+  )
+}
+
+function RenunganDetailContent({ item, isToday, reachedEnd, endRef }) {
   const { user, toggleRenunganLike, addRenunganComment, renunganLikedIds, markSaatTeduhDone, bibleReadingCheckins } = useApp()
   const [playing, setPlaying] = useState(false)
   const [commentText, setCommentText] = useState('')
@@ -58,7 +68,7 @@ function RenunganDetailContent({ item, isToday, reachedEnd }) {
   }
 
   function handleShare() {
-    const url = `${window.location.origin}/baca-alkitab`
+    const url = `${window.location.origin}/temu-firman`
     if (navigator.clipboard) navigator.clipboard.writeText(url).catch(() => {})
   }
 
@@ -66,12 +76,12 @@ function RenunganDetailContent({ item, isToday, reachedEnd }) {
     <>
       <p className="mb-3 text-xs text-ink-400">{formatLongDate(item.date)}</p>
 
-      <div className="mb-3 flex h-40 w-full flex-col items-center justify-center gap-2 rounded-lg bg-ink-200 text-ink-500">
+      <VerseBlock item={item} />
+
+      <div className="mt-3 flex h-40 w-full flex-col items-center justify-center gap-2 rounded-lg bg-ink-200 text-ink-500">
         <ImageIcon size={28} />
         <span className="text-xs">{item.image?.caption || 'Ilustrasi renungan'}</span>
       </div>
-
-      <p className="text-xs text-brand-600">{item.verse}</p>
 
       <button
         onClick={() => setPlaying((v) => !v)}
@@ -86,6 +96,7 @@ function RenunganDetailContent({ item, isToday, reachedEnd }) {
           <p key={i}>{paragraph}</p>
         ))}
       </div>
+      <div ref={endRef} />
 
       <div className="mt-3 rounded-md bg-ink-100 p-3">
         <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">Penuntun Doa</p>
@@ -155,13 +166,14 @@ function RenunganDetailContent({ item, isToday, reachedEnd }) {
   )
 }
 
-export default function ProgramBacaAlkitab() {
-  const { user, renunganList, bibleReadingCheckins } = useApp()
-  const stats = computeReadingStats(bibleReadingCheckins, user.id)
+export default function TemuFirman() {
+  const { renunganList } = useApp()
   const [todayItem, ...pastItems] = renunganList
   const [selectedId, setSelectedId] = useState(null)
   const [reachedEnd, setReachedEnd] = useState(false)
+  const [todayReachedEnd, setTodayReachedEnd] = useState(false)
   const contentRef = useRef(null)
+  const todayEndRef = useRef(null)
   const selected = renunganList.find((r) => r.id === selectedId) || null
 
   useEffect(() => {
@@ -174,6 +186,17 @@ export default function ProgramBacaAlkitab() {
     return () => cancelAnimationFrame(raf)
   }, [selectedId])
 
+  // Renungan hari ini tampil langsung di halaman: dianggap selesai dibaca saat bagian akhir teks terlihat.
+  useEffect(() => {
+    const el = todayEndRef.current
+    if (!el) return
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setTodayReachedEnd(true)
+    })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [todayItem?.id])
+
   function handleScroll(e) {
     if (isScrolledToEnd(e.currentTarget)) setReachedEnd(true)
   }
@@ -181,27 +204,27 @@ export default function ProgramBacaAlkitab() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <p className="text-xs font-medium uppercase tracking-wide text-brand-600">Daily Shema</p>
-        <h1 className="mt-1 text-2xl font-semibold text-ink-900">Program Baca Alkitab Harian</h1>
+        <p className="text-xs font-medium uppercase tracking-wide text-brand-600">Word Encounter</p>
+        <h1 className="mt-1 text-2xl font-semibold text-ink-900">Temu Firman</h1>
       </div>
 
-      <TierStatusCard
-        icon={Flame}
-        total={stats.totalAllTime}
-        unitLabel="hari dibaca"
-        caption="Total saat teduh yang sudah kamu tandai selesai"
-        stats={stats}
-        tierUnit=" hari"
-      />
-
-      <TierLadderCard title="Tangga Penghargaan" tiers={readingTiers} stats={stats} unit=" hari" />
-
       {todayItem && (
-        <div>
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-ink-500">Renungan Hari Ini</p>
-          <RenunganListRow item={todayItem} onOpen={() => setSelectedId(todayItem.id)} />
-        </div>
+        <Card>
+          <div className="mb-3 flex items-center justify-between gap-2">
+            <p className="text-sm font-semibold uppercase tracking-wide text-ink-500">Hari ini</p>
+            <h2 className="truncate text-base font-semibold text-ink-900">{todayItem.title}</h2>
+          </div>
+          <RenunganDetailContent item={todayItem} isToday reachedEnd={todayReachedEnd} endRef={todayEndRef} />
+        </Card>
       )}
+
+      <div>
+        <p className="mb-1 text-sm font-semibold uppercase tracking-wide text-ink-500">Faithful Journey</p>
+        <p className="mb-3 text-xs text-ink-400">
+          Empat perjalanan imanmu: {faithfulJourneys.map((j) => `${j.emoji} ${j.en}`).join(' · ')}. Ketuk gambar untuk melihat tangganya.
+        </p>
+        <FaithfulJourneyGrid />
+      </div>
 
       {pastItems.length > 0 && (
         <div>
@@ -222,7 +245,7 @@ export default function ProgramBacaAlkitab() {
         contentRef={contentRef}
       >
         {selected && (
-          <RenunganDetailContent item={selected} isToday={selected.id === todayItem?.id} reachedEnd={reachedEnd} />
+          <RenunganDetailContent item={selected} isToday={false} reachedEnd={reachedEnd} />
         )}
       </BottomSheet>
     </div>

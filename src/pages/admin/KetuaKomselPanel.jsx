@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { Check, X, Plus, MapPin, Phone, GraduationCap, ArrowUpCircle, Lock, TrendingUp, UserPlus, BookMarked, Cake, Pencil, Save } from 'lucide-react'
 import { useApp } from '../../context/AppContext'
 import { Card, SectionTitle, Badge, Avatar, EmptyState } from '../../components/ui'
-import { nextPromotionRole, cgGrowthTiers, invitationTiers, readingTiers } from '../../data/mockData'
+import { nextPromotionRole, cgGrowthTiers, invitationTiers, readingTiers, defaultPengurusJobdesk } from '../../data/mockData'
 import {
   formatLongDate,
   formatShortDate,
@@ -42,6 +42,84 @@ function roleBadgeColor(role) {
   if (role === 'Calon Leader') return 'warn'
   if (role === 'Pengurus CG') return 'good'
   return 'ink'
+}
+
+const TRANSFER_BADGE = { menunggu: 'warn', dipindahkan: 'good', ditolak: 'ink' }
+
+// Member menyampaikan ke Leader → Leader meneruskan ke Admin Utama → Admin yang memindahkan.
+function TransferRequestCard({ group }) {
+  const { careGroups, transferRequests, requestMemberTransfer } = useApp()
+  const [memberId, setMemberId] = useState('')
+  const [toGroupId, setToGroupId] = useState('')
+  const [reason, setReason] = useState('')
+  const [message, setMessage] = useState(null)
+  const mine = transferRequests.filter((r) => r.fromGroupId === group.id)
+  const movable = group.members.filter((m) => m.role !== 'Leader')
+  const targets = careGroups.filter((g) => g.id !== group.id)
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    const result = requestMemberTransfer({ memberId, toGroupId, reason })
+    if (result.ok) {
+      setMemberId('')
+      setToGroupId('')
+      setReason('')
+      setMessage({ ok: true, text: 'Permintaan diteruskan ke Admin Utama.' })
+    } else {
+      setMessage({ ok: false, text: result.error })
+    }
+  }
+
+  return (
+    <Card>
+      <SectionTitle>Permintaan Pindah CG</SectionTitle>
+      <p className="mb-3 text-sm text-ink-500">
+        Kalau anggota ingin pindah Care Group, teruskan ke Admin Utama — Admin yang memindahkannya.
+      </p>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <FormField label="Anggota">
+            <select value={memberId} onChange={(e) => { setMemberId(e.target.value); setMessage(null) }} required className={inputClass}>
+              <option value="" disabled>Pilih anggota…</option>
+              {movable.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
+            </select>
+          </FormField>
+          <FormField label="Pindah ke">
+            <select value={toGroupId} onChange={(e) => { setToGroupId(e.target.value); setMessage(null) }} required className={inputClass}>
+              <option value="" disabled>Pilih Care Group…</option>
+              {targets.map((g) => <option key={g.id} value={g.id}>{g.name}</option>)}
+            </select>
+          </FormField>
+        </div>
+        <FormField label="Alasan (opsional)">
+          <input value={reason} onChange={(e) => setReason(e.target.value)} placeholder="Pindah rumah, jadwal bentrok, dst." className={inputClass} />
+        </FormField>
+        <div className="flex items-center justify-between gap-3">
+          {message ? (
+            <span className={`text-sm font-medium ${message.ok ? 'text-good-500' : 'text-red-600'}`}>{message.text}</span>
+          ) : (
+            <span />
+          )}
+          <button type="submit" className="shrink-0 rounded-md bg-brand-500 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">
+            Teruskan ke Admin
+          </button>
+        </div>
+      </form>
+      {mine.length > 0 && (
+        <ul className="mt-4 flex flex-col divide-y divide-ink-100 border-t border-ink-100 pt-3">
+          {mine.map((r) => (
+            <li key={r.id} className="flex items-center justify-between gap-2 py-2.5 first:pt-0 last:pb-0">
+              <div>
+                <p className="text-sm font-medium text-ink-900">{r.memberName} → {r.toGroupName}</p>
+                <p className="text-xs text-ink-400">{formatShortDate(r.date)}{r.reason ? ` · ${r.reason}` : ''}</p>
+              </div>
+              <Badge color={TRANSFER_BADGE[r.status]}>{r.status === 'menunggu' ? 'Menunggu Admin' : r.status}</Badge>
+            </li>
+          ))}
+        </ul>
+      )}
+    </Card>
+  )
 }
 
 function PesertaTab({ group }) {
@@ -94,6 +172,8 @@ function PesertaTab({ group }) {
           </div>
         </Card>
       )}
+
+      <TransferRequestCard group={group} />
 
       <Card>
         <SectionTitle>Tambah Peserta</SectionTitle>
@@ -542,6 +622,36 @@ function JadwalKhususTab() {
   )
 }
 
+// Jobdesk Pengurus CG: hanya Leader yang mengedit; tampil untuk semua anggota di Program CG → Jobdesk Peran.
+function PengurusJobdeskCard({ group }) {
+  const { setPengurusJobdesk } = useApp()
+  const [text, setText] = useState((group.pengurusJobdesk ?? defaultPengurusJobdesk).join('\n'))
+  const [saved, setSaved] = useState(false)
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setPengurusJobdesk(group.id, text)
+    setSaved(true)
+    setTimeout(() => setSaved(false), 2500)
+  }
+
+  return (
+    <Card>
+      <SectionTitle>Jobdesk Pengurus CG</SectionTitle>
+      <p className="mb-3 text-sm text-ink-500">
+        Satu butir per baris. Tampil untuk semua anggota di Program CG → Jobdesk Peran.
+      </p>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <textarea value={text} onChange={(e) => setText(e.target.value)} rows={5} className={inputClass} />
+        <button type="submit" className="flex items-center gap-1.5 self-end rounded-md bg-brand-500 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">
+          <Save size={16} /> Simpan
+        </button>
+        {saved && <p className="text-right text-xs font-medium text-good-500">Tersimpan.</p>}
+      </form>
+    </Card>
+  )
+}
+
 function ProfilCgTab({ group }) {
   const { setCgDescription } = useApp()
   const [description, setDescription] = useState(group.description || '')
@@ -555,6 +665,7 @@ function ProfilCgTab({ group }) {
   }
 
   return (
+    <div className="flex flex-col gap-4">
     <Card>
       <SectionTitle>Deskripsi Care Group</SectionTitle>
       <p className="mb-3 text-sm text-ink-500">
@@ -574,6 +685,8 @@ function ProfilCgTab({ group }) {
         {saved && <p className="text-right text-xs font-medium text-good-500">Tersimpan.</p>}
       </form>
     </Card>
+    <PengurusJobdeskCard group={group} />
+    </div>
   )
 }
 

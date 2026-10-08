@@ -416,6 +416,30 @@ export const sdaRoles = [
 // Roles a member can express interest in via the "Ajukan Pelayanan" form.
 export const pelayananRoles = sdaRoles.filter((r) => r.id !== 'caregroup')
 
+// Bidang pelayanan untuk Presensi Pelayanan (revisi v3, slide 5). Beda dari pelayananRoles di atas
+// (peran SDA untuk "Ajukan Pelayanan"). "Ibadah Imersif" di slide tertulis dua kali — dipakai sekali.
+export const presensiPelayananGroups = [
+  { group: 'Ibadah', items: ['Ibadah KBU', 'Ibadah Ekspresif', 'Ibadah Inovatif', 'Ibadah Impresif', 'Ibadah Imersif'] },
+  { group: 'Tim Pelayanan', items: ['Leksionari', 'Usher', 'Tim Doa', 'Tim Bunga', 'Multimedia', 'E-ministry'] },
+  { group: 'Komisi', items: ['Komisi Anak', 'Komisi Remaja', 'Komisi Pemuda', 'Komisi Dewasa Muda', 'Komisi Dewasa'] },
+]
+export const presensiPelayananList = presensiPelayananGroups.flatMap((g) => g.items)
+
+// Faithful Journey (revisi v3, slide 4) — menggantikan istilah "tangga penghargaan".
+export const faithfulJourneys = [
+  { id: 'rooted', emoji: '🌱', name: 'Perjalanan Berakar', en: 'Rooted Journey', kesan: 'kuat, kokoh, berakar dalam Kristus', source: 'Dihitung dari Temu Firman (baca Alkitab) setiap hari.' },
+  { id: 'branching', emoji: '🌿', name: 'Perjalanan Beranting', en: 'Branching Journey', kesan: 'berkembang dan membawa orang lain', source: 'Dihitung dari orang yang kamu ajak bergabung ke Care Group.' },
+  { id: 'growing', emoji: '🌳', name: 'Perjalanan Bertumbuh', en: 'Growing Journey', kesan: 'proses pertumbuhan pribadi', source: 'Dihitung dari kehadiran Care Group (dan Temu Firman).' },
+  { id: 'fruitful', emoji: '🍎', name: 'Perjalanan Berbuah', en: 'Fruitful Journey', kesan: 'menghasilkan buah nyata', source: 'Terjadi saat kamu bertumbuh menjadi Leader.' },
+]
+
+// Jobdesk Pengurus CG bawaan — Leader bisa menggantinya per Care Group (careGroup.pengurusJobdesk).
+export const defaultPengurusJobdesk = [
+  'Membantu Leader menghidupkan Care Group dengan berbagai kegiatannya.',
+  'Menyiapkan tempat dan konsumsi pertemuan.',
+  'Mengingatkan jadwal dan menyambut anggota baru.',
+]
+
 export const serviceApplicationSeed = [
   {
     id: 'sa1',
@@ -443,28 +467,20 @@ export const serviceApplicationSeed = [
   },
 ]
 
-// Self check-ins members log when they actually serve in a pelayanan role.
+// Self check-ins members log when they actually serve in a pelayanan (bidang dari presensiPelayananGroups).
 export const pelayananCheckinSeed = [
-  {
-    id: 'pc1',
-    memberId: 'm6',
-    memberName: 'Felicia Halim',
-    careGroupId: 'cg1',
-    careGroupName: 'Care Group "Kasih Setia"',
-    roleName: 'Greeter',
-    date: '2026-08-09',
-    note: 'Ibadah pagi pukul 07.00',
-  },
-  {
-    id: 'pc2',
-    memberId: 'm9',
-    memberName: 'Indra Kusuma',
-    careGroupId: 'cg2',
-    careGroupName: 'Care Group "Sukacita"',
-    roleName: 'Catcher',
-    date: '2026-08-02',
-    note: 'Ibadah Multikultural',
-  },
+  { id: 'pc1', memberId: 'm6', memberName: 'Felicia Halim', careGroupId: 'cg1', careGroupName: 'Care Group "Kasih Setia"', roleName: 'Komisi Pemuda', date: '2026-08-02', note: 'Ibadah Imersif' },
+  { id: 'pc2', memberId: 'm9', memberName: 'Indra Kusuma', careGroupId: 'cg2', careGroupName: 'Care Group "Sukacita"', roleName: 'Komisi Pemuda', date: '2026-08-02', note: 'Ibadah Multikultural' },
+  { id: 'pc3', memberId: 'm3', memberName: 'Calvin Tanto', careGroupId: 'cg1', careGroupName: 'Care Group "Kasih Setia"', roleName: 'Usher', date: '2026-08-09', note: 'Ibadah KBU pukul 07.00' },
+  { id: 'pc4', memberId: 'm4', memberName: 'Dinda Ayu', careGroupId: 'cg1', careGroupName: 'Care Group "Kasih Setia"', roleName: 'Usher', date: '2026-08-09', note: 'Ibadah KBU pukul 07.00' },
+  { id: 'pc5', memberId: 'm5', memberName: 'Erik Susanto', careGroupId: 'cg1', careGroupName: 'Care Group "Kasih Setia"', roleName: 'Usher', date: '2026-08-02' },
+  { id: 'pc6', memberId: 'm7', memberName: 'Gilbert Prakoso', careGroupId: 'cg1', careGroupName: 'Care Group "Kasih Setia"', roleName: 'Multimedia', date: '2026-08-09', note: 'Siaran ibadah' },
+  { id: 'pc7', memberId: 'm10', memberName: 'Joyce Aritonang', careGroupId: 'cg2', careGroupName: 'Care Group "Sukacita"', roleName: 'Multimedia', date: '2026-08-09' },
+  { id: 'pc8', memberId: 'm2', memberName: 'Bunga Lestari', careGroupId: 'cg1', careGroupName: 'Care Group "Kasih Setia"', roleName: 'Tim Doa', date: '2026-08-02' },
+  { id: 'pc9', memberId: 'm12', memberName: 'Lidya Wijaya', careGroupId: 'cg3', careGroupName: 'Care Group "Damai Sejahtera"', roleName: 'Tim Doa', date: '2026-08-02' },
+  { id: 'pc10', memberId: 'm1', memberName: 'Andra Wijaya', careGroupId: 'cg1', careGroupName: 'Care Group "Kasih Setia"', roleName: 'Leksionari', date: '2026-08-09', note: 'Pembacaan Alkitab' },
+  { id: 'pc11', memberId: 'm8', memberName: 'Hana Puspita', careGroupId: 'cg2', careGroupName: 'Care Group "Sukacita"', roleName: 'Tim Bunga', date: '2026-07-26' },
+  { id: 'pc12', memberId: 'm11', memberName: 'Kevin Halim', careGroupId: 'cg3', careGroupName: 'Care Group "Damai Sejahtera"', roleName: 'Ibadah KBU', date: '2026-08-09' },
 ]
 
 // --- Program Baca Alkitab Harian (Daily Shema) ---
@@ -475,6 +491,7 @@ export const renunganHarianSeed = [
     date: '2026-08-13',
     title: 'Setia dalam Perkara Kecil',
     verse: 'Lukas 16:10',
+    verseText: 'Siapa setia dalam perkara-perkara kecil, ia setia juga dalam perkara-perkara besar.',
     image: { caption: 'Ilustrasi renungan hari ini' },
     text: [
       'Seorang petani muda pernah bertanya kepada gurunya, mengapa ia harus repot-repot mencabuti rumput liar di sudut ladang yang paling kecil dan jarang dilewati orang. "Toh tidak ada yang melihat," katanya. Sang guru menjawab, "Bukan ladangnya yang sedang diuji, tapi hatimu — apakah kamu bekerja untuk dilihat orang, atau karena kamu mengasihi pekerjaanmu."',
@@ -494,6 +511,7 @@ export const renunganHarianSeed = [
     date: '2026-08-12',
     title: 'Damai yang Melampaui Akal',
     verse: 'Filipi 4:7',
+    verseText: 'Damai sejahtera Allah, yang melampaui segala akal, akan memelihara hati dan pikiranmu dalam Kristus Yesus.',
     image: { caption: 'Ilustrasi renungan' },
     text: [
       'Beberapa waktu lalu, seorang jemaat bercerita bagaimana ia menghabiskan hampir semalam suntuk mencemaskan hasil pemeriksaan kesehatan yang akan keluar esok harinya. Ia berdoa, tapi terus memikirkan segala kemungkinan terburuk. Baru menjelang subuh ia menyadari, ia sudah membawa kekuatirannya dalam doa berkali-kali, tapi belum pernah benar-benar melepaskannya.',
@@ -511,6 +529,7 @@ export const renunganHarianSeed = [
     date: '2026-08-11',
     title: 'Kekuatan dari Firman',
     verse: 'Mazmur 119:105',
+    verseText: 'Firman-Mu itu pelita bagi kakiku dan terang bagi jalanku.',
     image: { caption: 'Ilustrasi renungan' },
     text: [
       'Sebelum ada lampu senter, orang-orang berjalan malam hari dengan pelita kecil yang diikat di kaki atau dibawa di tangan. Cahayanya tidak jauh — hanya cukup untuk melihat beberapa langkah di depan, tidak sampai ke ujung jalan. Untuk sampai ke tujuan, orang harus terus melangkah, percaya bahwa cahaya berikutnya akan muncul begitu langkah berikutnya diambil.',

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ChevronRight, Phone, LogOut, Camera, Check, HandHelping, Eye, EyeOff } from 'lucide-react'
+import { ChevronRight, Phone, LogOut, Camera, Check, HandHelping, Eye, EyeOff, Settings } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { Card, SectionTitle } from '../components/ui'
 import JourneyStepper from '../components/JourneyStepper'
@@ -61,7 +61,7 @@ function FullInfoPanel({ user, myCareGroup }) {
           </li>
         ))}
       </ul>
-      <p className="mt-3 text-xs text-ink-400">Ingin mengubah data di atas? Hubungi admin/Ketua Komsel.</p>
+      <p className="mt-3 text-xs text-ink-400">Ubah nama, alamat, universitas, dan tanggal lahir lewat ikon pengaturan. Nomor WA & penempatan Care Group diubah lewat Leader → Admin.</p>
     </Card>
   )
 }
@@ -153,15 +153,24 @@ export default function Profil() {
               </p>
             </div>
           </div>
-          <button
-            type="button"
-            onClick={() => setShowFullInfo((v) => !v)}
-            aria-pressed={showFullInfo}
-            aria-label="Lihat informasi lengkap"
-            className="flex size-9 shrink-0 items-center justify-center rounded-full border border-ink-200 text-ink-500 hover:bg-ink-100"
-          >
-            {showFullInfo ? <EyeOff size={16} /> : <Eye size={16} />}
-          </button>
+          <div className="flex shrink-0 items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setShowFullInfo((v) => !v)}
+              aria-pressed={showFullInfo}
+              aria-label="Lihat informasi lengkap"
+              className="flex size-9 items-center justify-center rounded-full border border-ink-200 text-ink-500 hover:bg-ink-100"
+            >
+              {showFullInfo ? <EyeOff size={16} /> : <Eye size={16} />}
+            </button>
+            <Link
+              to="/pengaturan"
+              aria-label="Pengaturan"
+              className="flex size-9 items-center justify-center rounded-full border border-ink-200 text-ink-500 hover:bg-ink-100"
+            >
+              <Settings size={16} />
+            </Link>
+          </div>
         </div>
         <p className="mt-2 text-xs text-ink-400">Foto pratinjau untuk sesi ini saja.</p>
       </div>
@@ -222,7 +231,7 @@ export default function Profil() {
 
       <Card className="text-sm text-ink-400">
         <p>GKI Gejayan &middot; Tim Sumber Daya Aktifis (SDA)</p>
-        <p className="mt-0.5">Shema App &middot; v0.1 (prototype)</p>
+        <p className="mt-0.5">Shema App &middot; v0.3 (prototype)</p>
       </Card>
     </div>
   )

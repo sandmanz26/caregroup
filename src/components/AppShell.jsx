@@ -1,12 +1,12 @@
 import { NavLink, Outlet } from 'react-router-dom'
-import { Home, Users, BookMarked, CalendarDays, HeartHandshake, HandHelping, CircleUser, ShieldCheck } from 'lucide-react'
+import { Home, Users, BookOpenText, CalendarDays, HeartHandshake, HandHelping, CircleUser, ShieldCheck } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { roleLabels } from '../data/mockData'
 
 const BASE_NAV_ITEMS = [
   { to: '/', label: 'Home', icon: Home },
   { to: '/komsel', label: 'Program CG', icon: Users },
-  { to: '/baca-alkitab', label: 'Baca Alkitab', icon: BookMarked },
+  { to: '/temu-firman', label: 'Temu Firman', icon: BookOpenText },
   { to: '/presensi', label: 'Presensi', icon: HandHelping },
   { to: '/jadwal', label: 'Jadwal', icon: CalendarDays },
   { to: '/doa', label: 'Doa', icon: HeartHandshake },

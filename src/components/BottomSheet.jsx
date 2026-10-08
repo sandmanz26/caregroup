@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { X } from 'lucide-react'
 
-export default function BottomSheet({ open, onClose, title, children, onScroll, contentRef }) {
+export default function BottomSheet({ open, onClose, title, children, onScroll, contentRef, size = 'md' }) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function BottomSheet({ open, onClose, title, children, onScroll, 
         onClick={onClose}
       />
       <div
-        className={`relative z-10 flex max-h-[85vh] w-full max-w-md flex-col rounded-t-2xl bg-white shadow-xl transition-transform duration-200 ${
+        className={`relative z-10 flex max-h-[85vh] w-full ${size === 'lg' ? 'max-w-2xl' : 'max-w-md'} flex-col rounded-t-2xl bg-white shadow-xl transition-transform duration-200 ${
           visible ? 'translate-y-0' : 'translate-y-full'
         }`}
       >

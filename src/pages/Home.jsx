@@ -1,13 +1,22 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CalendarDays, MapPin, BookMarked, ChevronRight, Users, ShieldCheck, Flame, Lock, LockOpen, CheckCircle2, Newspaper, Phone, Image as ImageIcon, ClipboardList } from 'lucide-react'
+import {
+  CalendarDays, MapPin, BookOpenText, ChevronRight, Users, ShieldCheck, Lock, LockOpen, CheckCircle2,
+  Newspaper, Phone, Image as ImageIcon, ClipboardList, HandHelping, HeartHandshake, CircleUser,
+  Settings, CircleHelp, Info,
+} from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { Card, SectionTitle, Badge } from '../components/ui'
 import JourneyStepper from '../components/JourneyStepper'
 import BottomSheet from '../components/BottomSheet'
+import HomeHeader from '../components/HomeHeader'
+import ShortcutGrid from '../components/ShortcutGrid'
+import QASection from '../components/QASection'
+import FaithfulJourneyGrid from '../components/FaithfulJourney'
 import { announcements, journeyStages, MEMBERSHIP_ATTENDANCE_THRESHOLD, churchContacts } from '../data/mockData'
-import { formatLongDate, formatShortDate, greetingForHour, isAttendanceLocked, attendanceEditDeadline, TODAY } from '../utils/date'
+import { formatLongDate, formatShortDate, isAttendanceLocked, attendanceEditDeadline, TODAY } from '../utils/date'
 import { computeAttendanceStats } from '../utils/attendance'
+import { computeServiceRecap } from '../utils/pelayanan'
 
 function AnnouncementGallery({ images }) {
   if (!images || images.length === 0) return null
@@ -66,66 +75,54 @@ function AnnouncementsCard() {
   )
 }
 
-function SuperAdminHome({ user }) {
-  const { careGroups, events } = useApp()
-  const totalMembers = careGroups.reduce((sum, g) => sum + g.members.length, 0)
-  const upcoming = events.filter((e) => e.date >= TODAY).length
-  const today = new Date(`${TODAY}T09:00:00`)
+// Temu Firman (gabungan Saat Teduh + Baca Alkitab) — ditaruh sebelum info Care Group.
+function TemuFirmanCard() {
+  const { user, renunganList, bibleReadingCheckins } = useApp()
+  const today = renunganList[0]
+  if (!today) return null
+  const done = bibleReadingCheckins.some((c) => c.userId === user.id && c.date === today.date)
 
   return (
-    <div className="flex flex-col gap-6">
-      <div>
-        <p className="text-sm text-ink-400">{formatLongDate(today.toISOString())}</p>
-        <h1 className="mt-1 text-2xl font-semibold text-ink-900">
-          {greetingForHour(today.getHours())}, {user.name.split(' ')[0]}
-        </h1>
-      </div>
-
-      <div className="grid grid-cols-3 gap-3">
-        <Card className="text-center">
-          <p className="text-2xl font-semibold text-ink-900">{careGroups.length}</p>
-          <p className="text-xs text-ink-400">Care Group</p>
-        </Card>
-        <Card className="text-center">
-          <p className="text-2xl font-semibold text-ink-900">{totalMembers}</p>
-          <p className="text-xs text-ink-400">Peserta</p>
-        </Card>
-        <Card className="text-center">
-          <p className="text-2xl font-semibold text-ink-900">{upcoming}</p>
-          <p className="text-xs text-ink-400">Agenda</p>
-        </Card>
-      </div>
-
-      <Link to="/admin" className="flex items-center justify-between rounded-lg border border-ink-200 bg-white p-4 hover:bg-ink-100">
-        <div className="flex items-center gap-3">
-          <span className="flex size-9 items-center justify-center rounded-full bg-brand-100 text-brand-700">
-            <ShieldCheck size={18} />
-          </span>
-          <span className="text-sm font-medium text-ink-800">Buka Panel Admin</span>
+    <Card>
+      <SectionTitle
+        action={
+          <Link to="/temu-firman" className="flex items-center gap-1 text-xs font-medium text-brand-600">
+            Buka <ChevronRight size={14} />
+          </Link>
+        }
+      >
+        Temu Firman · Word Encounter
+      </SectionTitle>
+      <div className="flex items-start gap-3">
+        <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700">
+          <BookOpenText size={18} />
+        </span>
+        <div className="flex-1">
+          <p className="font-medium text-ink-900">{today.title}</p>
+          <p className="text-xs text-brand-600">{today.verse}</p>
+          {today.verseText && <p className="mt-1.5 text-sm italic text-ink-600">&ldquo;{today.verseText}&rdquo;</p>}
+          {done ? (
+            <p className="mt-2 flex items-center gap-1.5 text-sm font-medium text-good-500">
+              <CheckCircle2 size={14} /> Sudah selesai hari ini
+            </p>
+          ) : (
+            <p className="mt-2 text-sm text-ink-500">Ketuk untuk membaca ayat &amp; renungan, lalu tandai selesai.</p>
+          )}
         </div>
-        <ChevronRight size={18} className="text-ink-400" />
-      </Link>
+      </div>
+    </Card>
+  )
+}
 
-      <Card>
-        <SectionTitle>Semua Care Group</SectionTitle>
-        <ul className="flex flex-col divide-y divide-ink-100">
-          {careGroups.map((g) => (
-            <li key={g.id} className="flex items-center gap-3 py-3 first:pt-0 last:pb-0">
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-ink-200 text-ink-600">
-                <Users size={16} />
-              </span>
-              <div className="flex-1">
-                <p className="text-sm font-medium text-ink-900">{g.name}</p>
-                <p className="text-xs text-ink-400">Ketua: {g.leaderName}</p>
-              </div>
-              <Badge color="ink">{g.members.length} orang</Badge>
-            </li>
-          ))}
-        </ul>
-      </Card>
+function scrollToQA() {
+  document.getElementById('qa')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
-      <AnnouncementsCard />
-    </div>
+function Shortcuts({ items, cols }) {
+  return (
+    <Card>
+      <ShortcutGrid items={items} cols={cols} />
+    </Card>
   )
 }
 
@@ -175,43 +172,6 @@ function MembershipCard({ user, stats }) {
   )
 }
 
-function SaatTeduhCard() {
-  const { user, renunganList, bibleReadingCheckins } = useApp()
-  const todayRenungan = renunganList[0]
-  if (!todayRenungan) return null
-  const done = bibleReadingCheckins.some((c) => c.userId === user.id && c.date === todayRenungan.date)
-
-  return (
-    <Card>
-      <SectionTitle
-        action={
-          <Link to="/baca-alkitab" className="flex items-center gap-1 text-xs font-medium text-brand-600">
-            Buka <ChevronRight size={14} />
-          </Link>
-        }
-      >
-        Saat Teduh Hari Ini
-      </SectionTitle>
-      <div className="flex items-start gap-3">
-        <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700">
-          <BookMarked size={18} />
-        </span>
-        <div className="flex-1">
-          <p className="font-medium text-ink-900">{todayRenungan.title}</p>
-          <p className="text-xs text-ink-400">{todayRenungan.verse}</p>
-          {done ? (
-            <p className="mt-1 flex items-center gap-1.5 text-sm font-medium text-good-500">
-              <CheckCircle2 size={14} /> Sudah selesai saat teduh hari ini
-            </p>
-          ) : (
-            <p className="mt-1 text-sm text-ink-500">Ketuk untuk membaca dan menandai selesai saat teduh.</p>
-          )}
-        </div>
-      </div>
-    </Card>
-  )
-}
-
 function AttendanceReminderCard() {
   const { myCareGroup } = useApp()
   if (!myCareGroup) return null
@@ -246,6 +206,7 @@ function AttendanceReminderCard() {
   )
 }
 
+// Warta Jemaat → Contact Us → Q&A (di bawah Contact Us) → Kegiatan CG Terbaru.
 function ChurchInfoSection() {
   const { myCareGroup } = useApp()
   const leader = myCareGroup?.members.find((m) => m.role === 'Leader')
@@ -270,7 +231,7 @@ function ChurchInfoSection() {
             <li className="flex items-center justify-between gap-2 py-2.5 first:pt-0 last:pb-0">
               <div>
                 <p className="text-sm font-medium text-ink-900">{leader.name}</p>
-                <p className="text-xs text-ink-400">Admin Care Group Kamu</p>
+                <p className="text-xs text-ink-400">Leader Care Group Kamu</p>
               </div>
               <a href={`tel:${leader.phone}`} className="flex items-center gap-1.5 text-sm font-medium text-brand-600">
                 <Phone size={14} /> {leader.phone}
@@ -290,6 +251,8 @@ function ChurchInfoSection() {
           ))}
         </ul>
       </Card>
+
+      <QASection />
 
       {photos.length > 0 && (
         <Card>
@@ -312,27 +275,145 @@ function ChurchInfoSection() {
   )
 }
 
+function SuperAdminHome() {
+  const { careGroups, events, pelayananCheckins, transferRequests, pendingRegistrations } = useApp()
+  const totalMembers = careGroups.reduce((sum, g) => sum + g.members.length, 0)
+  const upcoming = events.filter((e) => e.date >= TODAY).length
+  const recap = computeServiceRecap(pelayananCheckins)
+  const waiting = transferRequests.filter((r) => r.status === 'menunggu').length
+
+  return (
+    <div className="flex flex-col gap-6">
+      <HomeHeader />
+      <TemuFirmanCard />
+
+      <Shortcuts
+        items={[
+          { label: 'Panel Admin', icon: ShieldCheck, to: '/admin' },
+          { label: 'Care Group', icon: Users, to: '/komsel' },
+          { label: 'Temu Firman', icon: BookOpenText, to: '/temu-firman' },
+          { label: 'Jadwal', icon: CalendarDays, to: '/jadwal' },
+          { label: 'Doa', icon: HeartHandshake, to: '/doa' },
+          { label: 'Profil', icon: CircleUser, to: '/profil' },
+          { label: 'Pengaturan', icon: Settings, to: '/pengaturan' },
+        ]}
+      />
+
+      <div className="grid grid-cols-3 gap-3">
+        <Card className="text-center">
+          <p className="text-2xl font-semibold text-ink-900">{careGroups.length}</p>
+          <p className="text-xs text-ink-400">Care Group</p>
+        </Card>
+        <Card className="text-center">
+          <p className="text-2xl font-semibold text-ink-900">{totalMembers}</p>
+          <p className="text-xs text-ink-400">Peserta</p>
+        </Card>
+        <Card className="text-center">
+          <p className="text-2xl font-semibold text-ink-900">{upcoming}</p>
+          <p className="text-xs text-ink-400">Agenda</p>
+        </Card>
+      </div>
+
+      {(waiting > 0 || pendingRegistrations.length > 0) && (
+        <Link to="/admin" className="flex items-center justify-between rounded-lg border border-brand-200 bg-brand-100/40 p-4 hover:bg-brand-100/70">
+          <div>
+            <p className="text-sm font-medium text-ink-900">Perlu tindakan</p>
+            <p className="text-xs text-ink-500">
+              {pendingRegistrations.length} pendaftar baru &middot; {waiting} permintaan pindah CG
+            </p>
+          </div>
+          <ChevronRight size={18} className="text-ink-400" />
+        </Link>
+      )}
+
+      <Card>
+        <SectionTitle
+          action={<Link to="/admin?tab=rekap" className="flex items-center gap-1 text-xs font-medium text-brand-600">Rekap lengkap <ChevronRight size={14} /></Link>}
+        >
+          Rekap Pelayanan Member
+        </SectionTitle>
+        {recap.length === 0 ? (
+          <p className="text-sm text-ink-400">Belum ada presensi pelayanan.</p>
+        ) : (
+          <ul className="flex flex-col divide-y divide-ink-100">
+            {recap.slice(0, 4).map((r) => (
+              <li key={r.roleName} className="flex items-center justify-between gap-2 py-2.5 first:pt-0 last:pb-0">
+                <span className="text-sm font-medium text-ink-900">{r.roleName}</span>
+                <Badge color="brand">{r.memberCount} anggota</Badge>
+              </li>
+            ))}
+          </ul>
+        )}
+      </Card>
+
+      <Card>
+        <SectionTitle>Semua Care Group</SectionTitle>
+        <ul className="flex flex-col divide-y divide-ink-100">
+          {careGroups.map((g) => (
+            <li key={g.id} className="flex items-center gap-3 py-3 first:pt-0 last:pb-0">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-ink-200 text-ink-600">
+                <Users size={16} />
+              </span>
+              <div className="flex-1">
+                <p className="text-sm font-medium text-ink-900">{g.name}</p>
+                <p className="text-xs text-ink-400">Ketua: {g.leaderName}</p>
+              </div>
+              <Badge color="ink">{g.members.length} orang</Badge>
+            </li>
+          ))}
+        </ul>
+      </Card>
+
+      <AnnouncementsCard />
+    </div>
+  )
+}
+
+function CoachHome() {
+  const { myCoachedGroups } = useApp()
+
+  return (
+    <div className="flex flex-col gap-6">
+      <HomeHeader />
+      <TemuFirmanCard />
+
+      <Shortcuts
+        items={[
+          { label: 'Panel Pembinaan', icon: ShieldCheck, to: '/admin' },
+          { label: 'Care Group', icon: Users, to: '/komsel' },
+          { label: 'Temu Firman', icon: BookOpenText, to: '/temu-firman' },
+          { label: 'Jadwal', icon: CalendarDays, to: '/jadwal' },
+          { label: 'Doa', icon: HeartHandshake, to: '/doa' },
+          { label: 'Profil', icon: CircleUser, to: '/profil' },
+          { label: 'Pengaturan', icon: Settings, to: '/pengaturan' },
+        ]}
+      />
+
+      <Card>
+        <p className="font-medium text-ink-900">
+          {myCoachedGroups.length === 0 ? 'Belum ada Care Group yang ditugaskan' : `Kamu membina ${myCoachedGroups.length} Care Group`}
+        </p>
+        <p className="mt-1 text-sm text-ink-500">
+          Buka Panel Pembinaan untuk melihat CG binaan, jadwal pembinaan, dan statistik gabungan.
+        </p>
+      </Card>
+
+      <AnnouncementsCard />
+    </div>
+  )
+}
+
 export default function Home() {
   const { user, myCareGroup } = useApp()
 
-  if (user.role === 'super_admin') return <SuperAdminHome user={user} />
-
-  const today = new Date(`${TODAY}T09:00:00`)
+  if (user.role === 'super_admin') return <SuperAdminHome />
+  if (user.role === 'coach') return <CoachHome />
 
   if (!myCareGroup) {
     return (
       <div className="flex flex-col gap-6">
-        <div>
-          <p className="text-sm text-ink-400">{formatLongDate(today.toISOString())}</p>
-          <h1 className="mt-1 text-2xl font-semibold text-ink-900">
-            {greetingForHour(today.getHours())}, {user.name.split(' ')[0]}
-          </h1>
-        </div>
-
-        <Card>
-          <SectionTitle>Perjalanan Pelayananmu</SectionTitle>
-          <JourneyStepper currentStageId={user.journeyStageId} />
-        </Card>
+        <HomeHeader />
+        <TemuFirmanCard />
 
         <Card>
           <p className="font-medium text-ink-900">Selamat datang di GKI Gejayan!</p>
@@ -342,7 +423,24 @@ export default function Home() {
           </p>
         </Card>
 
-        <SaatTeduhCard />
+        <Shortcuts
+          cols={3}
+          items={[
+            { label: 'Temu Firman', icon: BookOpenText, to: '/temu-firman' },
+            { label: 'Tentang SDA', icon: Info, to: '/tentang' },
+            { label: 'Pengaturan', icon: Settings, to: '/pengaturan' },
+          ]}
+        />
+
+        <div>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-ink-500">Faithful Journey</p>
+          <FaithfulJourneyGrid />
+        </div>
+
+        <Card>
+          <SectionTitle>Perjalanan Pelayananmu</SectionTitle>
+          <JourneyStepper currentStageId={user.journeyStageId} />
+        </Card>
 
         <AnnouncementsCard />
       </div>
@@ -352,19 +450,41 @@ export default function Home() {
   const nextMeeting = myCareGroup.meetings.find((m) => m.date >= TODAY) ?? myCareGroup.meetings[0]
   const stageLabel = journeyStages.find((s) => s.id === user.journeyStageId)?.label
   const stats = computeAttendanceStats(myCareGroup.meetings, user.memberId)
-  // Jadwal & Doa are hidden from the jemaat nav for now — keep their Home shortcuts staff-only too.
-  const isStaffRole = user.role === 'admin'
+  const isLeader = user.role === 'admin'
+
+  const shortcutItems = [
+    { label: 'Temu Firman', icon: BookOpenText, to: '/temu-firman' },
+    { label: 'Care Group', icon: Users, to: '/komsel' },
+    { label: 'Presensi', icon: HandHelping, to: '/presensi' },
+    isLeader
+      ? { label: 'Jadwal', icon: CalendarDays, to: '/jadwal' }
+      : { label: 'Pelayanan', icon: HeartHandshake, to: '/tentang' },
+    isLeader
+      ? { label: 'Panel Admin', icon: ShieldCheck, to: '/admin' }
+      : { label: 'Profil', icon: CircleUser, to: '/profil' },
+    { label: 'Q&A', icon: CircleHelp, onClick: scrollToQA },
+    { label: 'Pengaturan', icon: Settings, to: '/pengaturan' },
+    isLeader
+      ? { label: 'Profil', icon: CircleUser, to: '/profil' }
+      : { label: 'Tentang SDA', icon: Info, to: '/tentang' },
+  ]
 
   return (
     <div className="flex flex-col gap-6">
-      <div>
-        <p className="text-sm text-ink-400">{formatLongDate(today.toISOString())}</p>
-        <h1 className="mt-1 text-2xl font-semibold text-ink-900">
-          {greetingForHour(today.getHours())}, {user.name.split(' ')[0]}
-        </h1>
-      </div>
+      <HomeHeader streak={stats.streak} streakDetail={`${stats.totalHadir} dari ${stats.totalPertemuan} pertemuan terakhir`} />
 
-      {isStaffRole && <AttendanceReminderCard />}
+      {isLeader && <AttendanceReminderCard />}
+
+      <TemuFirmanCard />
+
+      <Shortcuts items={shortcutItems} />
+
+      <div>
+        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-ink-500">
+          Faithful Journey <span className="font-normal normal-case tracking-normal text-ink-400">· ketuk untuk penjelasan</span>
+        </p>
+        <FaithfulJourneyGrid />
+      </div>
 
       <Card>
         <SectionTitle>Perjalanan Pelayananmu</SectionTitle>
@@ -374,33 +494,15 @@ export default function Home() {
         </p>
       </Card>
 
-      <Card>
-        <div className="flex items-center gap-4">
-          <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-600">
-            <Flame size={22} />
-          </span>
-          <div>
-            <p className="text-2xl font-semibold text-ink-900">
-              {stats.streak} <span className="text-sm font-normal text-ink-400">kali berturut-turut</span>
-            </p>
-            <p className="text-sm text-ink-500">
-              Streak kehadiran komsel &middot; {stats.totalHadir} dari {stats.totalPertemuan} pertemuan terakhir
-            </p>
-          </div>
-        </div>
-      </Card>
-
       <MembershipCard user={user} stats={stats} />
 
       {nextMeeting && (
         <Card>
           <SectionTitle
             action={
-              isStaffRole && (
-                <Link to="/jadwal" className="flex items-center gap-1 text-xs font-medium text-brand-600">
-                  Lihat jadwal <ChevronRight size={14} />
-                </Link>
-              )
+              <Link to="/komsel" className="flex items-center gap-1 text-xs font-medium text-brand-600">
+                Care Group <ChevronRight size={14} />
+              </Link>
             }
           >
             Pertemuan Berikutnya
@@ -420,22 +522,10 @@ export default function Home() {
         </Card>
       )}
 
-      <SaatTeduhCard />
-
-      <div className="grid grid-cols-2 gap-3">
-        <Link to="/baca-alkitab" className="flex items-center gap-2 rounded-lg border border-ink-200 bg-white p-4 hover:bg-ink-100">
-          <BookMarked size={18} className="text-brand-500" />
-          <span className="text-sm font-medium text-ink-800">Baca Alkitab</span>
-        </Link>
-        <Link to="/komsel" className="flex items-center gap-2 rounded-lg border border-ink-200 bg-white p-4 hover:bg-ink-100">
-          <CalendarDays size={18} className="text-brand-500" />
-          <span className="text-sm font-medium text-ink-800">Komsel Saya</span>
-        </Link>
-      </div>
-
       <AnnouncementsCard />
 
       <ChurchInfoSection />
     </div>
   )
 }
+

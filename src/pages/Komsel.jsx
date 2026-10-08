@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Check, X, MapPin, CalendarDays, Users, Cake, UserPlus, TrendingUp, Lock } from 'lucide-react'
+import { Check, X, MapPin, CalendarDays, Users, Cake, UserPlus, TrendingUp, Lock, Info, ClipboardList, CalendarCheck, BookOpen, Pencil } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { Card, SectionTitle, Badge, Avatar, EmptyState } from '../components/ui'
-import { TierStatusCard, TierLadderCard } from '../components/TierProgress'
+import BottomSheet from '../components/BottomSheet'
+import ShortcutGrid from '../components/ShortcutGrid'
+import FaithfulJourneyGrid from '../components/FaithfulJourney'
 import {
   cgGeneralInfo,
   cgRoleJobdesk,
   CG_MIN_MEMBERS,
   CG_MAX_MEMBERS,
-  cgGrowthTiers,
-  invitationTiers,
   roleProgressionStages,
   cgRoleToStageId,
+  defaultPengurusJobdesk,
 } from '../data/mockData'
 import {
   formatLongDate,
@@ -21,16 +22,16 @@ import {
   isAttendanceLocked,
   attendanceEditDeadline,
   daysUntilBirthday,
-  TODAY,
 } from '../utils/date'
-import { computeTierStats } from '../utils/tiers'
 
-const TABS = [
-  { id: 'info', label: 'Info Umum' },
-  { id: 'anggota', label: 'Anggota' },
-  { id: 'kehadiran', label: 'Kehadiran' },
-  { id: 'pertumbuhan', label: 'Pertumbuhanku' },
-  { id: 'materi', label: 'Materi' },
+// Dulu berupa tab; kini ikon yang membuka penjelasan lengkap (revisi v3).
+const SECTIONS = [
+  { id: 'info', label: 'Info Umum', icon: Info },
+  { id: 'jobdesk', label: 'Jobdesk Peran', icon: ClipboardList },
+  { id: 'anggota', label: 'Anggota', icon: Users },
+  { id: 'kehadiran', label: 'Kehadiran', icon: CalendarCheck },
+  { id: 'pertumbuhan', label: 'Pertumbuhanku', icon: TrendingUp },
+  { id: 'materi', label: 'Materi', icon: BookOpen },
 ]
 
 function roleBadgeColor(role) {
@@ -86,18 +87,6 @@ function InfoUmumTab({ careGroups }) {
       </Card>
 
       <Card>
-        <SectionTitle>Jobdesk Peran</SectionTitle>
-        <ul className="flex flex-col divide-y divide-ink-100">
-          {cgRoleJobdesk.map((r) => (
-            <li key={r.role} className="flex flex-col gap-1 py-2.5 first:pt-0 last:pb-0">
-              <span className="text-sm font-medium text-ink-900">{r.role}</span>
-              <span className="text-sm text-ink-500">{r.desc}</span>
-            </li>
-          ))}
-        </ul>
-      </Card>
-
-      <Card>
         <SectionTitle>Daftar Care Group</SectionTitle>
         <ul className="flex flex-col divide-y divide-ink-100">
           {careGroups.map((g) => {
@@ -115,6 +104,40 @@ function InfoUmumTab({ careGroups }) {
         </ul>
       </Card>
     </div>
+  )
+}
+
+function JobdeskTab({ careGroup }) {
+  const pengurusItems = careGroup?.pengurusJobdesk ?? defaultPengurusJobdesk
+  const rows = [
+    cgRoleJobdesk.find((r) => r.role === 'Anggota'),
+    { role: 'Pengurus CG', items: pengurusItems, editedByLeader: true },
+    ...cgRoleJobdesk.filter((r) => r.role !== 'Anggota'),
+  ]
+
+  return (
+    <Card>
+      <ul className="flex flex-col divide-y divide-ink-100">
+        {rows.map((r) => (
+          <li key={r.role} className="flex flex-col gap-1 py-2.5 first:pt-0 last:pb-0">
+            <span className="flex flex-wrap items-center gap-2 text-sm font-medium text-ink-900">
+              {r.role}
+              {r.editedByLeader && (
+                <Badge color="good"><Pencil size={11} className="mr-1" /> Diatur Leader</Badge>
+              )}
+            </span>
+            {r.items ? (
+              <ul className="ml-4 flex list-disc flex-col gap-1 text-sm text-ink-500">
+                {r.items.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            ) : (
+              <span className="text-sm text-ink-500">{r.desc}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 text-xs text-ink-400">Jobdesk Pengurus CG disusun dan diedit oleh Leader CG-mu.</p>
+    </Card>
   )
 }
 
@@ -290,11 +313,7 @@ function PertumbuhanTab({ careGroup, user }) {
   const { invitations, addInvitation } = useApp()
   const [inviteName, setInviteName] = useState('')
 
-  const attendedDates = careGroup.meetings.filter((m) => m.attendance[user.memberId]).map((m) => m.date)
-  const growthStats = computeTierStats(attendedDates, cgGrowthTiers, TODAY)
-
   const myInvitations = invitations.filter((i) => i.memberId === user.memberId)
-  const inviteStats = computeTierStats(myInvitations.map((i) => i.date), invitationTiers, TODAY)
 
   const myRole = careGroup.members.find((m) => m.id === user.memberId)?.role
   const myStageId = cgRoleToStageId[myRole] || 'member'
@@ -310,62 +329,38 @@ function PertumbuhanTab({ careGroup, user }) {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-ink-500">Status Pertumbuhan</p>
-        <div className="flex flex-col gap-4">
-          <TierStatusCard
-            icon={TrendingUp}
-            total={growthStats.totalAllTime}
-            unitLabel="kali hadir"
-            caption="Total kehadiranmu di Care Group ini"
-            stats={growthStats}
-            tierUnit="x"
-          />
-          <TierLadderCard title="Tangga Pertumbuhan" tiers={cgGrowthTiers} stats={growthStats} unit="x" />
-        </div>
+        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-ink-500">Faithful Journey</p>
+        <FaithfulJourneyGrid />
       </div>
 
-      <div>
-        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-ink-500">Beranting</p>
-        <div className="flex flex-col gap-4">
-          <Card>
-            <SectionTitle>Ajak Orang Baru</SectionTitle>
-            <p className="mb-3 text-sm text-ink-500">Catat setiap orang yang berhasil kamu ajak bergabung ke Care Group.</p>
-            <form onSubmit={handleInvite} className="flex gap-2">
-              <input
-                value={inviteName}
-                onChange={(e) => setInviteName(e.target.value)}
-                placeholder="Nama orang yang diajak"
-                className="flex-1 rounded-md border border-ink-200 px-3 py-2 text-sm outline-none focus:border-brand-400"
-              />
-              <button
-                type="submit"
-                className="flex items-center gap-1.5 rounded-md bg-brand-500 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600"
-              >
-                <UserPlus size={16} /> Tambah
-              </button>
-            </form>
-            {myInvitations.length > 0 && (
-              <ul className="mt-3 flex flex-col divide-y divide-ink-100">
-                {myInvitations.map((i) => (
-                  <li key={i.id} className="flex items-center justify-between py-2 text-sm first:pt-0">
-                    <span className="text-ink-800">{i.invitedName}</span>
-                    <span className="text-xs text-ink-400">{formatShortDate(i.date)}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </Card>
-          <TierStatusCard
-            icon={UserPlus}
-            total={inviteStats.totalAllTime}
-            unitLabel="orang diajak"
-            caption="Total orang yang sudah kamu ajak ikut Care Group"
-            stats={inviteStats}
-            tierUnit=" orang"
+      <Card>
+        <SectionTitle>Ajak Orang Baru</SectionTitle>
+        <p className="mb-3 text-sm text-ink-500">Catat setiap orang yang berhasil kamu ajak bergabung ke Care Group.</p>
+        <form onSubmit={handleInvite} className="flex gap-2">
+          <input
+            value={inviteName}
+            onChange={(e) => setInviteName(e.target.value)}
+            placeholder="Nama orang yang diajak"
+            className="flex-1 rounded-md border border-ink-200 px-3 py-2 text-sm outline-none focus:border-brand-400"
           />
-          <TierLadderCard title="Tangga Beranting" tiers={invitationTiers} stats={inviteStats} unit=" orang" />
-        </div>
-      </div>
+          <button
+            type="submit"
+            className="flex items-center gap-1.5 rounded-md bg-brand-500 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600"
+          >
+            <UserPlus size={16} /> Tambah
+          </button>
+        </form>
+        {myInvitations.length > 0 && (
+          <ul className="mt-3 flex flex-col divide-y divide-ink-100">
+            {myInvitations.map((i) => (
+              <li key={i.id} className="flex items-center justify-between py-2 text-sm first:pt-0">
+                <span className="text-ink-800">{i.invitedName}</span>
+                <span className="text-xs text-ink-400">{formatShortDate(i.date)}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </Card>
 
       <Card>
         <SectionTitle>Peningkatan Peran</SectionTitle>
@@ -437,8 +432,16 @@ function MateriTab({ materi }) {
 export default function Komsel() {
   const { myCareGroup, careGroups, user, toggleAttendance, materi } = useApp()
   const [params, setParams] = useSearchParams()
-  const tab = TABS.some((t) => t.id === params.get('tab')) ? params.get('tab') : 'info'
+  const requested = params.get('tab')
+  const openId = SECTIONS.some((t) => t.id === requested) ? requested : null
   const isLeader = user.role === 'admin' || user.role === 'super_admin'
+
+  function openSection(id) {
+    setParams({ tab: id })
+  }
+  function closeSection() {
+    setParams({})
+  }
 
   if (!myCareGroup) {
     return (
@@ -448,10 +451,13 @@ export default function Komsel() {
           <p className="mt-1 text-sm text-ink-400">
             {user.role === 'super_admin'
               ? 'Kelola komsel lewat Panel Admin.'
+              : user.role === 'coach'
+              ? 'Kelola Care Group binaanmu lewat Panel Pembinaan.'
               : 'Kamu belum tergabung dengan Care Group. Berikut info umum sambil menunggu penempatan.'}
           </p>
         </div>
         <InfoUmumTab careGroups={careGroups} />
+        <JobdeskTab careGroup={null} />
       </div>
     )
   }
@@ -460,6 +466,7 @@ export default function Komsel() {
   const capacity = capacityStatus(careGroup.members.length)
   const avgAtt = avgAttendanceStatus(careGroup)
   const pengurusCount = careGroup.members.filter((m) => m.role === 'Pengurus CG').length
+  const openSectionDef = SECTIONS.find((t) => t.id === openId)
 
   return (
     <div className="flex flex-col gap-6">
@@ -491,27 +498,24 @@ export default function Komsel() {
         </div>
       </Card>
 
-      <div className="flex gap-1 overflow-x-auto rounded-lg border border-ink-200 bg-white p-1 scrollbar-thin">
-        {TABS.map((t) => (
-          <button
-            key={t.id}
-            onClick={() => setParams({ tab: t.id })}
-            className={`shrink-0 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-              tab === t.id ? 'bg-brand-500 text-white' : 'text-ink-500 hover:bg-ink-100'
-            }`}
-          >
-            {t.label}
-          </button>
-        ))}
-      </div>
+      <Card>
+        <ShortcutGrid
+          cols={3}
+          items={SECTIONS.map((t) => ({ label: t.label, icon: t.icon, onClick: () => openSection(t.id) }))}
+        />
+        <p className="mt-4 text-center text-xs text-ink-400">Ketuk ikon untuk melihat penjelasan lengkapnya.</p>
+      </Card>
 
-      {tab === 'info' && <InfoUmumTab careGroups={careGroups} />}
-      {tab === 'anggota' && <AnggotaTab careGroup={careGroup} />}
-      {tab === 'kehadiran' && (
-        <KehadiranTab careGroup={careGroup} isLeader={isLeader} toggleAttendance={toggleAttendance} />
-      )}
-      {tab === 'pertumbuhan' && <PertumbuhanTab careGroup={careGroup} user={user} />}
-      {tab === 'materi' && <MateriTab materi={materi} />}
+      <BottomSheet open={!!openSectionDef} onClose={closeSection} title={openSectionDef?.label} size="lg">
+        {openId === 'info' && <InfoUmumTab careGroups={careGroups} />}
+        {openId === 'jobdesk' && <JobdeskTab careGroup={careGroup} />}
+        {openId === 'anggota' && <AnggotaTab careGroup={careGroup} />}
+        {openId === 'kehadiran' && (
+          <KehadiranTab careGroup={careGroup} isLeader={isLeader} toggleAttendance={toggleAttendance} />
+        )}
+        {openId === 'pertumbuhan' && <PertumbuhanTab careGroup={careGroup} user={user} />}
+        {openId === 'materi' && <MateriTab materi={materi} />}
+      </BottomSheet>
     </div>
   )
 }

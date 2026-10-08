@@ -69,8 +69,18 @@ export function AppProvider({ children }) {
   const [pendingRegistrations, setPendingRegistrations] = useState(() =>
     loadJSON('cg_pending_registrations', pendingRegistrationSeed)
   )
+  // Perubahan akun yang dibuat dari aplikasi (nama, kode sandi, CG) — ditumpuk di atas akun bawaan.
+  const [userOverrides, setUserOverrides] = useState(() => loadJSON('cg_user_overrides', {}))
+  const [transferRequests, setTransferRequests] = useState(() => loadJSON('cg_transfer_requests', []))
+  const [fontScale, setFontScaleState] = useState(() => loadJSON('cg_font_scale', 1))
 
   useEffect(() => saveJSON('cg_pending_registrations', pendingRegistrations), [pendingRegistrations])
+  useEffect(() => saveJSON('cg_user_overrides', userOverrides), [userOverrides])
+  useEffect(() => saveJSON('cg_transfer_requests', transferRequests), [transferRequests])
+  useEffect(() => {
+    saveJSON('cg_font_scale', fontScale)
+    document.documentElement.style.fontSize = `${fontScale * 100}%`
+  }, [fontScale])
   useEffect(() => saveJSON('cg_invitations', invitations), [invitations])
   useEffect(() => saveJSON('cg_auth_user_id', authUserId), [authUserId])
   useEffect(() => saveJSON('cg_registered_users', registeredUsers), [registeredUsers])
@@ -87,7 +97,7 @@ export function AppProvider({ children }) {
   useEffect(() => saveJSON('cg_service_applications', serviceApplications), [serviceApplications])
   useEffect(() => saveJSON('cg_pelayanan_checkins', pelayananCheckins), [pelayananCheckins])
 
-  const allUsers = [...demoUsers, ...registeredUsers]
+  const allUsers = [...demoUsers, ...registeredUsers].map((u) => ({ ...u, ...(userOverrides[u.id] || {}) }))
   const authUser = allUsers.find((u) => u.id === authUserId) || null
   const user = authUser
     ? {
@@ -375,6 +385,14 @@ export function AppProvider({ children }) {
 
   function moveMember(memberId, fromGroupId, toGroupId) {
     if (fromGroupId === toGroupId) return
+    const linked = allUsers.filter((u) => u.memberId === memberId)
+    if (linked.length) {
+      setUserOverrides((prev) => {
+        const next = { ...prev }
+        linked.forEach((u) => { next[u.id] = { ...next[u.id], careGroupId: toGroupId } })
+        return next
+      })
+    }
     setCareGroups((prev) => {
       const fromGroup = prev.find((g) => g.id === fromGroupId)
       const member = fromGroup?.members.find((m) => m.id === memberId)
@@ -567,6 +585,87 @@ export function AppProvider({ children }) {
     )
   }
 
+  // Ubah profil sendiri (revisi v3). Nomor WA = identitas login, jadi tidak diubah di sini —
+  // lewat Leader → Admin.
+  function updateProfile({ name, address, university, birthDate }) {
+    if (!user || !name.trim()) return { ok: false, error: 'Nama tidak boleh kosong.' }
+    const cleanName = name.trim()
+    const initials = initialsOf(cleanName)
+    setUserOverrides((prev) => ({ ...prev, [user.id]: { ...prev[user.id], name: cleanName, initials } }))
+    if (user.memberId && user.careGroupId) {
+      setCareGroups((prev) =>
+        prev.map((g) =>
+          g.id !== user.careGroupId
+            ? g
+            : {
+                ...g,
+                leaderName: g.leaderId === user.memberId ? cleanName : g.leaderName,
+                members: g.members.map((m) =>
+                  m.id === user.memberId
+                    ? { ...m, name: cleanName, initials, address: address.trim(), university: university.trim(), birthDate: birthDate.trim() || null }
+                    : m
+                ),
+              }
+        )
+      )
+    }
+    return { ok: true }
+  }
+
+  function changePassword(current, next) {
+    if (!authUser) return { ok: false, error: 'Belum masuk.' }
+    if (authUser.password !== current) return { ok: false, error: 'Kode sandi saat ini salah.' }
+    if (next.length < 6) return { ok: false, error: 'Kode sandi baru minimal 6 karakter.' }
+    setUserOverrides((prev) => ({ ...prev, [authUser.id]: { ...prev[authUser.id], password: next } }))
+    return { ok: true }
+  }
+
+  function setFontScale(value) {
+    setFontScaleState(value)
+  }
+
+  // Leader meneruskan keinginan pindah CG seorang anggota ke Admin Utama (revisi v3, slide 1).
+  function requestMemberTransfer({ memberId, toGroupId, reason }) {
+    const from = careGroups.find((g) => g.id === user?.careGroupId)
+    const to = careGroups.find((g) => g.id === toGroupId)
+    const member = from?.members.find((m) => m.id === memberId)
+    if (!from || !to || !member) return { ok: false, error: 'Pilih anggota dan Care Group tujuan.' }
+    if (from.id === to.id) return { ok: false, error: 'Care Group tujuan harus berbeda.' }
+    if (transferRequests.some((r) => r.memberId === memberId && r.status === 'menunggu')) {
+      return { ok: false, error: `${member.name} sudah punya permintaan pindah yang menunggu Admin.` }
+    }
+    const entry = {
+      id: `tr${Date.now()}`,
+      memberId,
+      memberName: member.name,
+      fromGroupId: from.id,
+      fromGroupName: from.name,
+      toGroupId: to.id,
+      toGroupName: to.name,
+      reason: reason.trim(),
+      requestedBy: user.name,
+      date: TODAY,
+      status: 'menunggu',
+    }
+    setTransferRequests((prev) => [entry, ...prev])
+    return { ok: true }
+  }
+
+  function resolveTransferRequest(id, approve) {
+    const req = transferRequests.find((r) => r.id === id)
+    if (!req || req.status !== 'menunggu') return
+    if (approve) moveMember(req.memberId, req.fromGroupId, req.toGroupId)
+    setTransferRequests((prev) =>
+      prev.map((r) => (r.id === id ? { ...r, status: approve ? 'dipindahkan' : 'ditolak' } : r))
+    )
+  }
+
+  // Jobdesk Pengurus CG diedit Leader, satu butir per baris.
+  function setPengurusJobdesk(groupId, text) {
+    const items = text.split('\n').map((l) => l.trim()).filter(Boolean)
+    setCareGroups((prev) => prev.map((g) => (g.id !== groupId ? g : { ...g, pengurusJobdesk: items })))
+  }
+
   function addMateri({ week, title, verse, summary, questions }) {
     const entry = {
       id: `mat${Date.now()}`,
@@ -597,6 +696,14 @@ export function AppProvider({ children }) {
         createUser,
         allUsers,
         pendingRegistrations,
+        updateProfile,
+        changePassword,
+        fontScale,
+        setFontScale,
+        transferRequests,
+        requestMemberTransfer,
+        resolveTransferRequest,
+        setPengurusJobdesk,
         approvePendingRegistration,
         rejectPendingRegistration,
         careGroups,

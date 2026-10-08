@@ -12,6 +12,56 @@
 
 ---
 
+## 2026-10-08 (2) — Revisi sub menu dibangun di aplikasi (`src/`), tetap lo-fi
+
+Atas permintaan "update dulu lo-fi-nya berdasarkan dokumen tadi, belum mau
+full design": 13 butir dari PPTX revisi sub menu diterapkan ke aplikasi yang
+sebenarnya (yang di-deploy), memakai gaya lo-fi yang sudah ada. Mockup
+`full_design*/` tidak dipakai/diubah. Bentrokan dengan keputusan lama dan
+asumsinya: prd.md Decision Log #19, §5.12.
+
+- **Temu Firman**: `ProgramBacaAlkitab.jsx` → `TemuFirman.jsx`; route
+  `/temu-firman` (`/baca-alkitab` mengarah ke sana); nav "Temu Firman". Ayat
+  (`verseText` baru pada data renungan) dan renungan hari ini tampil langsung
+  di halaman, ditandai selesai setelah bagian akhir teks terlihat
+  (IntersectionObserver). Kartu "Saat Teduh" di Home diganti `TemuFirmanCard`,
+  ditaruh sebelum info Care Group.
+- **Faithful Journey** (`components/FaithfulJourney.jsx`,
+  `useJourneyProgress.js`, gambar `public/journey/*.svg`): menggantikan
+  `TierStatusCard`/`TierLadderCard` di Temu Firman dan Pertumbuhanku; juga di
+  Home. Berbuah = tahap peran menuju Leader. Ketuk kartu → bottom sheet
+  penjelasan + tangga.
+- **Header Home** (`components/HomeHeader.jsx`): sapaan kiri atas; lonceng
+  notifikasi (diturunkan dari data per peran), streak kehadiran dengan logo akar
+  (`components/icons.jsx`), ikon keluar dengan konfirmasi. Home Super Admin dan
+  Coach ikut memakainya (Coach sebelumnya jatuh ke tampilan "belum punya CG").
+- **Grid ikon** (`components/ShortcutGrid.jsx`) di Home; **Program CG** tidak
+  lagi tab melainkan ikon → bottom sheet (`BottomSheet` dapat prop `size`).
+  **Jobdesk Peran** jadi bagian sendiri + **Pengurus CG** (diedit Leader di
+  tab Profil CG, `setPengurusJobdesk`).
+- **Q&A** di bawah Contact Us (`components/QASection.jsx`).
+- **Pengaturan** (`pages/Pengaturan.jsx`, ikon di Profil): ubah profil, kode
+  sandi, ukuran font (`fontScale` → `font-size` akar, tersimpan). Akun diubah
+  lewat `userOverrides` sehingga akun demo pun bisa berubah. `Card` kini
+  meneruskan props tambahan (mis. `id`).
+- **Presensi**: bidang pelayanan baru dikelompokkan (`presensiPelayananGroups`);
+  seed presensi diganti ke bidang baru + ditambah agar rekap bermakna.
+- **Pindah CG**: Leader → "Teruskan ke Admin" (`requestMemberTransfer`),
+  Super Admin → Pindahkan/Tolak (`resolveTransferRequest`). **Perbaikan
+  terkait**: `moveMember` kini ikut memindahkan akun login anggota (dulu
+  akunnya tetap menunjuk CG lama).
+- **Rekap Pelayanan** (tab baru Super Admin + ringkasan di Home;
+  `utils/pelayanan.js`).
+- **Perbaikan sampingan**: tombol akun demo di Login memakai sandi akun saat
+  ini (sebelumnya `demo123` tetap, gagal setelah sandi diubah).
+
+Diuji di browser: Home, Program CG → Jobdesk, Temu Firman (redirect lama),
+alur pindah CG Leader → Admin (anggota dan akunnya pindah), Rekap Pelayanan,
+ubah profil/kode sandi (sandi salah ditolak)/ukuran font, notifikasi, dan
+keluar (data tetap tersimpan). Build dan lint bersih (2 peringatan lama).
+
+---
+
 ## 2026-10-08 — Desain versi 3 (`full_design_v3/`) dari PPTX revisi sub menu
 
 Dari berkas "Revisi penempatan susunan sub menu di beranda Aplikasi" (5

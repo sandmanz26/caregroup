@@ -4,7 +4,7 @@ import { useApp } from '../context/AppContext'
 import { demoUsers, roleLabels, journeyStages } from '../data/mockData'
 
 export default function Login() {
-  const { login } = useApp()
+  const { login, allUsers } = useApp()
   const navigate = useNavigate()
   const location = useLocation()
   const [phone, setPhone] = useState('')
@@ -23,7 +23,9 @@ export default function Login() {
   }
 
   function loginAsDemo(demoPhone) {
-    login(demoPhone, 'demo123')
+    // Pakai sandi akun saat ini — bisa sudah diubah lewat Pengaturan.
+    const account = allUsers.find((u) => u.phone === demoPhone)
+    login(demoPhone, account?.password)
     navigate('/', { replace: true })
   }
 

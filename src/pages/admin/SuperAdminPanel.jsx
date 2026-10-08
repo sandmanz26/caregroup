@@ -4,6 +4,7 @@ import { Plus, Phone, MapPin, GraduationCap, ArrowRightLeft } from 'lucide-react
 import { useApp } from '../../context/AppContext'
 import { Card, SectionTitle, Badge, Avatar, EmptyState } from '../../components/ui'
 import { careGroupCategories, eventCategories, roleLabels } from '../../data/mockData'
+import { computeServiceRecap } from '../../utils/pelayanan'
 import { formatShortDate, formatLongDate } from '../../utils/date'
 
 const TABS = [
@@ -12,6 +13,7 @@ const TABS = [
   { id: 'peserta', label: 'Peserta' },
   { id: 'user', label: 'Data User' },
   { id: 'pengajuan', label: 'Pengajuan Pelayanan' },
+  { id: 'rekap', label: 'Rekap Pelayanan' },
   { id: 'event', label: 'Event' },
   { id: 'coaching', label: 'Jadwal Coaching' },
 ]
@@ -188,6 +190,126 @@ function KomselTab() {
   )
 }
 
+// Rekapitulasi pelayanan member (revisi v3, slide 2): siapa saja yang melayani di tiap bidang dan berapa anggotanya.
+function RekapPelayananTab() {
+  const { pelayananCheckins } = useApp()
+  const recap = computeServiceRecap(pelayananCheckins)
+  const [filter, setFilter] = useState('')
+  const rows = filter ? recap.filter((r) => r.roleName === filter) : recap
+  const servingPeople = new Set(pelayananCheckins.map((c) => c.memberId)).size
+  const maxCount = Math.max(1, ...recap.map((r) => r.memberCount))
+
+  if (recap.length === 0) {
+    return <EmptyState title="Belum ada presensi pelayanan" body="Rekap muncul setelah member mengisi Presensi Pelayanan." />
+  }
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="grid grid-cols-2 gap-3">
+        <Card className="text-center">
+          <p className="text-2xl font-semibold text-ink-900">{servingPeople}</p>
+          <p className="text-xs text-ink-400">Member yang melayani</p>
+        </Card>
+        <Card className="text-center">
+          <p className="text-2xl font-semibold text-ink-900">{recap.length}</p>
+          <p className="text-xs text-ink-400">Bidang pelayanan aktif</p>
+        </Card>
+      </div>
+
+      <Card>
+        <div className="mb-3 flex items-center justify-between gap-2">
+          <SectionTitle>Per Bidang</SectionTitle>
+          <select
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="rounded-md border border-ink-200 px-2 py-1.5 text-sm outline-none focus:border-brand-400"
+          >
+            <option value="">Semua bidang</option>
+            {recap.map((r) => <option key={r.roleName} value={r.roleName}>{r.roleName}</option>)}
+          </select>
+        </div>
+        <p className="mb-3 text-xs text-ink-400">Jumlah anggota = orang yang berbeda yang pernah mencatat presensi di bidang itu. Ketuk bidang untuk melihat namanya.</p>
+        <ul className="flex flex-col divide-y divide-ink-100">
+          {rows.map((r) => (
+            <li key={r.roleName} className="py-3 first:pt-0 last:pb-0">
+              <details>
+                <summary className="cursor-pointer list-none">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-sm font-medium text-ink-900">{r.roleName}</span>
+                    <Badge color="brand">{r.memberCount} anggota</Badge>
+                  </div>
+                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-ink-200">
+                    <div className="h-full rounded-full bg-brand-500" style={{ width: `${(r.memberCount / maxCount) * 100}%` }} />
+                  </div>
+                </summary>
+                <ul className="mt-3 flex flex-col divide-y divide-ink-100">
+                  {r.members.map((m) => (
+                    <li key={m.memberId} className="flex items-center justify-between gap-2 py-2 first:pt-0 last:pb-0">
+                      <div>
+                        <p className="text-sm text-ink-800">{m.name}</p>
+                        <p className="text-xs text-ink-400">{m.careGroupName}</p>
+                      </div>
+                      <span className="text-xs text-ink-400">{m.count}× · terakhir {formatShortDate(m.last)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
+          ))}
+        </ul>
+      </Card>
+    </div>
+  )
+}
+
+function TransferRequestsCard() {
+  const { transferRequests, resolveTransferRequest } = useApp()
+  const waiting = transferRequests.filter((r) => r.status === 'menunggu')
+  const done = transferRequests.filter((r) => r.status !== 'menunggu')
+
+  return (
+    <Card>
+      <SectionTitle>Permintaan Pindah dari Leader</SectionTitle>
+      {waiting.length === 0 && done.length === 0 && (
+        <p className="text-sm text-ink-400">Belum ada permintaan. Leader meneruskan keinginan pindah CG anggotanya ke sini.</p>
+      )}
+      <ul className="flex flex-col divide-y divide-ink-100">
+        {waiting.map((r) => (
+          <li key={r.id} className="flex flex-col gap-2 py-3 first:pt-0 last:pb-0">
+            <div>
+              <p className="text-sm font-medium text-ink-900">{r.memberName}</p>
+              <p className="text-xs text-ink-500">{r.fromGroupName} → {r.toGroupName}</p>
+              <p className="text-xs text-ink-400">Diteruskan {r.requestedBy} · {formatShortDate(r.date)}{r.reason ? ` · ${r.reason}` : ''}</p>
+            </div>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => resolveTransferRequest(r.id, true)}
+                className="rounded-md bg-brand-500 px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-600"
+              >
+                Pindahkan
+              </button>
+              <button
+                type="button"
+                onClick={() => resolveTransferRequest(r.id, false)}
+                className="rounded-md border border-ink-200 px-3 py-1.5 text-xs font-medium text-ink-600 hover:bg-ink-100"
+              >
+                Tolak
+              </button>
+            </div>
+          </li>
+        ))}
+        {done.map((r) => (
+          <li key={r.id} className="flex items-center justify-between gap-2 py-2.5 first:pt-0 last:pb-0">
+            <p className="text-sm text-ink-600">{r.memberName} → {r.toGroupName}</p>
+            <Badge color={r.status === 'dipindahkan' ? 'good' : 'ink'}>{r.status}</Badge>
+          </li>
+        ))}
+      </ul>
+    </Card>
+  )
+}
+
 function PesertaTab() {
   const { careGroups, moveMember, addMemberToGroup } = useApp()
   const totalMembers = careGroups.reduce((sum, g) => sum + g.members.length, 0)
@@ -217,6 +339,8 @@ function PesertaTab() {
 
   return (
     <div className="flex flex-col gap-4">
+      <TransferRequestsCard />
+
       <Card>
         <p className="text-sm text-ink-500">Total peserta di semua Care Group</p>
         <p className="text-2xl font-semibold text-ink-900">{totalMembers}</p>
@@ -595,11 +719,12 @@ function EventTab({ fixedCategory, title }) {
 }
 
 export default function SuperAdminPanel() {
-  const { serviceApplications, pendingRegistrations } = useApp()
+  const { serviceApplications, pendingRegistrations, transferRequests } = useApp()
   const [params, setParams] = useSearchParams()
   const tab = TABS.some((t) => t.id === params.get('tab')) ? params.get('tab') : 'renungan'
   const pendingCount = serviceApplications.filter((a) => !a.reviewed).length
   const pendingUserCount = pendingRegistrations.length
+  const waitingTransfers = transferRequests.filter((r) => r.status === 'menunggu').length
 
   return (
     <div className="flex flex-col gap-6">
@@ -625,6 +750,13 @@ export default function SuperAdminPanel() {
                 {pendingCount}
               </span>
             )}
+            {t.id === 'peserta' && waitingTransfers > 0 && (
+              <span className={`flex size-5 items-center justify-center rounded-full text-[11px] font-semibold ${
+                tab === t.id ? 'bg-white text-brand-600' : 'bg-brand-500 text-white'
+              }`}>
+                {waitingTransfers}
+              </span>
+            )}
             {t.id === 'user' && pendingUserCount > 0 && (
               <span className={`flex size-5 items-center justify-center rounded-full text-[11px] font-semibold ${
                 tab === t.id ? 'bg-white text-brand-600' : 'bg-brand-500 text-white'
@@ -641,6 +773,7 @@ export default function SuperAdminPanel() {
       {tab === 'peserta' && <PesertaTab />}
       {tab === 'user' && <DataUserTab />}
       {tab === 'pengajuan' && <PengajuanTab />}
+      {tab === 'rekap' && <RekapPelayananTab />}
       {tab === 'event' && <EventTab title="Tambah Event" />}
       {tab === 'coaching' && <EventTab fixedCategory="Coaching" title="Tambah Jadwal Coaching" />}
     </div>

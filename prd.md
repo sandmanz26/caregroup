@@ -9,7 +9,7 @@
 > Companion file: [changes.md](changes.md) logs *what shipped* per request.
 > This file describes *what the product currently is and is meant to be*.
 
-Last updated: 2026-10-08 (revisi v3 dicatat — §5.12, Decision Log #19)
+Last updated: 2026-10-08 (revisi v3 sudah dibangun di `src/` secara lo-fi — §5.12, Decision Log #19)
 
 ---
 
@@ -98,7 +98,7 @@ that every account is created already-in-a-CG).
 Bottom nav / sidebar, in order:
 1. **Home**
 2. **Program CG** (Care Group)
-3. **Baca Alkitab**
+3. **Temu Firman** (dulu "Baca Alkitab"; `/temu-firman`, `/baca-alkitab` masih mengarah ke sini)
 4. **Presensi** (Pelayanan)
 5. **Profil**
 
@@ -132,29 +132,31 @@ Care Groups this Coach is assigned to, not every CG.
 ### 5.1 Home (`/`)
 Role-specific dashboard.
 
-- **Member view**: greeting, **Kehadiran Belum Lengkap** reminder (Ketua
-  Komsel only, §5.9 — links to the Kehadiran tab when a recent, still-
-  editable meeting isn't fully marked yet), journey stepper (see §5.7),
-  CG-attendance streak card, membership lock/unlock card, next-meeting card,
-  **Saat Teduh Hari Ini** card (today's Daily Shema renungan + done/not-done
-  status, links to `/baca-alkitab` — see below), quick links (Baca Alkitab +
-  Komsel Saya, same for both `jemaat` and Ketua Komsel — Pokok Doa isn't
-  nav-reachable for Ketua Komsel anymore, so its Home shortcut was dropped
-  too, Decision Log #15), announcements, then **Contact Us / Warta Jemaat /
-  Kegiatan CG Terbaru** (see below). The CG's own profile description
-  (§5.9) shows on `/komsel`, not Home — see Decision Log #16 for why that
-  moved off Home entirely.
-- **No-group member view**: welcome card, journey stepper, **Saat Teduh
-  Hari Ini** (Baca Alkitab doesn't require a CG per §5.3, so it works from
-  day one), announcements. No Contact Us/CG-photo section here since
-  there's no CG to source it from.
-- **Super Admin view**: org-wide stats (CG count, total peserta, upcoming
-  agenda count), link to Admin panel, list of all CGs, announcements.
-- **Saat Teduh Hari Ini** (`SaatTeduhCard`, member views only) reads the
-  actual Daily Shema state (`renunganList[0]` + `bibleReadingCheckins`) —
-  this replaced an earlier "Renungan Minggu Ini" card that confusingly
-  pulled from the unrelated Program CG weekly `materi` data, so completing
-  a day's Saat Teduh never showed up on Home. Fixed per explicit report.
+- **Member view** (susunan revisi v3, §5.12): **header** — sapaan di kiri atas;
+  kanan atas **lonceng notifikasi** (jumlah + daftar yang diturunkan dari data
+  yang ada), **streak kehadiran komsel berlogo akar** (ketuk → penjelasan), dan
+  **ikon keluar** (konfirmasi: keluar dari sesi, data tetap tersimpan). Lalu
+  **Kehadiran Belum Lengkap** (Ketua Komsel saja, §5.9), kartu **Temu
+  Firman** (diletakkan *sebelum* info Care Group), **grid ikon bulat** menu
+  (Temu Firman, Care Group, Presensi, Pelayanan/Jadwal, Profil/Panel Admin, Q&A,
+  Pengaturan, Tentang SDA), strip **Faithful Journey** bergambar (ketuk →
+  penjelasan + tangga), stepper Perjalanan Pelayanan, kartu member Care Group,
+  Pertemuan Berikutnya, Pengumuman, lalu **Warta Jemaat / Contact Us / Q&A /
+  Kegiatan CG Terbaru** (lihat di bawah). Kartu streak terpisah dan kartu
+  "Saat Teduh" lama sudah tidak ada. Pokok Doa tidak punya pintasan di Home
+  Ketua Komsel (Decision Log #15). Deskripsi profil CG tampil di `/komsel`,
+  bukan Home (Decision Log #16).
+- **No-group member view**: header, kartu Temu Firman, sambutan, ikon menu,
+  Faithful Journey, stepper, pengumuman (Baca Alkitab/Temu Firman tidak butuh CG).
+- **Super Admin view**: header (tanpa streak), Temu Firman, ikon menu, statistik
+  org (jumlah CG, peserta, agenda), kartu "Perlu tindakan" (pendaftar baru +
+  permintaan pindah CG), ringkasan **Rekap Pelayanan Member** (§5.10), daftar CG,
+  pengumuman.
+- **Coach view**: header, Temu Firman, ikon menu, ringkasan jumlah CG binaan
+  (sebelumnya jatuh ke tampilan "belum punya CG" yang tidak sesuai).
+- **Temu Firman di Home** (`TemuFirmanCard`) membaca `renunganList[0]` +
+  `bibleReadingCheckins` (ayat, judul, status selesai) — menggantikan
+  `SaatTeduhCard`.
 - **Contact Us / Warta Jemaat / Kegiatan CG Terbaru** (`ChurchInfoSection`,
   main member Home only): "Warta Jemaat" is an honestly-labeled "Segera
   hadir" row (no real destination exists, so no fake link); "Contact Us"
@@ -170,10 +172,10 @@ Role-specific dashboard.
   in the mockup; each is a labeled placeholder tile.
 
 ### 5.2 Program Care Group (`/komsel`) — "Sub Menu 3: Program Shema Care Group"
-Tabbed page, tabs: **Info Umum, Anggota, Kehadiran, Pertumbuhanku, Materi**.
+Sejak revisi v3 bukan lagi tab, melainkan **grid ikon** — **Info Umum, Jobdesk Peran, Anggota, Kehadiran, Pertumbuhanku, Materi** — dan penjelasan lengkap tiap bagian muncul di bottom sheet setelah ikon diketuk (`?tab=<id>` tetap bisa membuka bagian tertentu). **Jobdesk Peran** kini bagian sendiri dan memuat **Pengurus CG** yang isinya diatur Leader (`careGroup.pengurusJobdesk`, bawaan `defaultPengurusJobdesk`).
 
-**No-group view** (super admin, or a member not yet placed): shows only the
-Info Umum content, no tabs.
+**No-group view** (super admin, coach, or a member not yet placed): shows only
+the Info Umum and Jobdesk Peran content, no icon grid.
 
 - **Info Umum** *(Sub Menu 3a)* — static reference content: CG definition,
   capacity rule (min 4 / max 15, expected to split above that), naming rule
@@ -223,7 +225,8 @@ All three tier ladders (Baca Alkitab, Status Pertumbuhan, Beranting) share one
 generic engine: `computeTierStats()` (`src/utils/tiers.js`) and shared UI
 (`TierStatusCard` / `TierLadderCard` in `src/components/TierProgress.jsx`).
 
-### 5.3 Program Baca Alkitab Harian ("Daily Shema") (`/baca-alkitab`)
+### 5.3 Temu Firman / Word Encounter (`/temu-firman`) — dulu "Program Baca Alkitab Harian"
+*(Revisi v3: Saat Teduh + Baca Alkitab digabung dan diganti nama. Halaman kini membuka langsung dengan **ayat** lalu **renungan hari ini** (tampil di halaman, bukan lagi daftar → sheet); renungan sebelumnya tetap daftar → bottom sheet. "Tangga penghargaan" diganti **Faithful Journey** bergambar — lihat §5.12. Bagian di bawah ini sebagian besar masih berlaku.)*
 *(Sub Menu 2)*. Personal, **not** dependent on Care Group membership (a
 brand-new registrant can use this from day one).
 
@@ -248,7 +251,8 @@ brand-new registrant can use this from day one).
   enough to not require scrolling auto-unlocks on open. One self-check-in
   per calendar day, idempotent (button becomes a disabled "sudah selesai"
   state once used).
-- Running total of days read, plus the achievement ladder (`readingTiers`):
+- Running total of days read, plus the achievement ladder (`readingTiers`,
+  kini ditampilkan sebagai tangga di dalam kartu **Perjalanan Berakar**):
   Mulai Berakar (25/mo, coklat) → Berakar (75–90/3mo, kuning/merah) →
   Berakar Dalam (300–360/1yr) → Berakar Kuat (900–1080/3yr) → Berakar Kokoh
   (>1080/3yr, hijau) — thresholds and colors are exact per source spec.
@@ -257,7 +261,7 @@ brand-new registrant can use this from day one).
 
 ### 5.4 Presensi Pelayanan (`/presensi`)
 Self check-in for ministry service (distinct from CG meeting attendance).
-Member picks a pelayanan role (from `pelayananRoles`), a **date** (defaults
+Member picks a pelayanan **bidang** (dari `presensiPelayananGroups`: Ibadah KBU/Ekspresif/Inovatif/Impresif/Imersif; Leksionari, Usher, Tim Doa, Tim Bunga, Multimedia, E-ministry; Komisi Anak/Remaja/Pemuda/Dewasa Muda/Dewasa — revisi v3; "Ajukan Pelayanan" masih memakai `pelayananRoles` peran SDA), a **date** (defaults
 to today, capped at today — can't log service that hasn't happened yet), and
 an optional note, then submits. History list below. Requires CG membership
 (shows an empty-state otherwise). Mirrored read-only view in the Ketua Komsel
@@ -273,9 +277,12 @@ Church-wide event schedule (Ibadah, Care Group, Coaching, Training, Acara
 Khusus), filterable by category, grouped by date.
 
 ### 5.7 Profil (`/profil`)
-Presentation-only for member data — **no self-edit forms** (Decision Log #9).
-Anything the member wants changed goes through admin/Ketua Komsel, not an
-in-app form.
+Profil menampilkan data; **perubahan dilakukan lewat ikon pengaturan →
+`/pengaturan`** (revisi v3, **membalik sebagian Decision Log #9**): ubah profil
+(nama, alamat, universitas, tanggal lahir), ubah kode sandi, dan ukuran font
+(4 pilihan, berlaku di seluruh halaman, tersimpan di perangkat). Nomor WA
+(identitas login) dan penempatan CG **tidak** bisa diubah sendiri — lewat
+Leader → Admin (lihat Q&A di Home).
 
 - Photo (session-only preview via local file upload — not persisted across
   reload, clearly captioned as such).
@@ -392,6 +399,14 @@ sebagai Leader":
   tanpa akun login belum punya riwayat untuk dihitung sama sekali, bukan
   dianggap nol.
 
+- **Jobdesk Pengurus CG** ✅ *(revisi v3)* — tab **Profil CG**: Leader menulis
+  jobdesk Pengurus CG (satu butir per baris); tampil untuk semua anggota di
+  Program CG → Jobdesk Peran.
+- **Permintaan pindah CG ke Admin** ✅ *(revisi v3)* — tab **Peserta Komsel**:
+  anggota menyampaikan keinginan pindah ke Leader, Leader memilih anggota + CG
+  tujuan + alasan lalu **Teruskan ke Admin**; statusnya (Menunggu Admin /
+  dipindahkan / ditolak) terlihat di daftar dan di notifikasi.
+
 ### 5.10 Panel Super Admin (`/admin`, peran `super_admin`)
 
 Super Admin adalah peran dengan wewenang tertinggi — bisa mengurus semua
@@ -436,6 +451,15 @@ Utama":
   harian) atau berlabel "Segera hadir" tanpa isi (Warta Jemaat), dan belum
   ada halaman admin untuk mengelola keduanya.
 
+- **Rekap Pelayanan** ✅ *(revisi v3)* — tab baru: untuk tiap bidang pelayanan
+  (mis. Usher) ditampilkan **jumlah anggota** (orang berbeda yang pernah
+  mencatat presensi) dan namanya, bisa difilter per bidang; ringkasannya juga
+  ada di Home Super Admin. Dihitung dari data Presensi Pelayanan.
+- **Permintaan pindah dari Leader** ✅ *(revisi v3)* — di tab **Peserta**:
+  **Pindahkan** (memindahkan anggota dan ikut memindahkan akun loginnya) atau
+  **Tolak**. Memindahkan anggota dengan dropdown lama juga sekarang ikut
+  memindahkan akun login anggota itu (sebelumnya akunnya tetap menunjuk CG lama).
+
 ### 5.11 Panel Coach (`/admin`, peran `coach`)
 
 Coach adalah peran baru — "head of Leader", membina beberapa Care Group
@@ -464,36 +488,32 @@ sekaligus tapi bukan anggota dari CG manapun yang dibinanya. Per slide sumber
   (§5.9): Bertumbuh &amp; Beranting jujur untuk semua anggota, Berakar hanya
   untuk anggota yang punya akun login.
 
-### 5.12 Revisi v3 — susunan sub menu (🚧 permintaan, belum ada di `src/`)
+### 5.12 Revisi v3 — susunan sub menu (✅ sudah dibangun di `src/`, tampilan lo-fi)
 
 Sumber: PPTX "Revisi penempatan susunan sub menu di beranda Aplikasi" (5 slide).
-Sudah didesain di `full_design_v3/` (lihat `index.html` di folder itu untuk
-peta butir → halaman). **Belum dibangun di aplikasi sebenarnya.** Bentrokan
-dengan keputusan lama: Decision Log #19.
+Mockup hi-fi-nya ada di `full_design_v3/` (referensi saja, tidak terhubung ke
+app). Versi yang berjalan di `src/` tetap bergaya lo-fi — hanya susunan, fitur,
+dan istilahnya yang berubah. Bentrokan dengan keputusan lama dan asumsi yang
+dipakai: Decision Log #19.
 
-- **Temu Firman (Word Encounter)** 🚧 — "Saat teduh" digabung dengan "Baca
-  Alkitab" dan diganti nama. Di Home, kartu Temu Firman diletakkan **sebelum**
-  info Care Group. Di halamannya, bagian atas langsung ayat dan renungan.
-- **Faithful Journey** 🚧 — menggantikan istilah "tangga penghargaan", tiap
-  perjalanan diberi gambar: 🌱 Rooted/Berakar (baca Alkitab), 🌿 Branching/
-  Beranting (membawa orang lain), 🌳 Growing/Bertumbuh (Care Group dan baca
-  firman), 🍎 Fruitful/Berbuah (menjadi leader).
-- **Header Home** 🚧 — sapaan di kiri atas; kanan atas lonceng notifikasi,
-  streak kehadiran komsel dengan logo akar, dan ikon keluar (keluar dari
-  sesi tanpa menghilangkan data).
-- **Logo/ikon yang menjelaskan saat diklik** 🚧 — di Home dan Care Group,
-  penjelasan lengkap baru muncul setelah ikon diketuk; ditambah visual
-  (gambar) di sub menu.
-- **Profil → ikon pengaturan** 🚧 — ubah profil, kode sandi, ukuran font.
-- **Jobdesk Peran** 🚧 — ditambah **Pengurus CG**, isinya diedit oleh Leader.
-- **Pindah member CG / ubah data** 🚧 — disampaikan ke Leader, Leader
-  meneruskan ke Admin, Admin yang mengubah. **Q&A** ditambahkan di bawah
-  Contact Us (mengubah data, pindah member CG).
-- **Presensi — daftar pelayanan baru** 🚧 — Ibadah KBU, Ekspresif, Inovatif,
-  Impresif, Imersif; Leksionari, Usher, Tim Doa, Tim Bunga, Multimedia,
-  E-ministry; Komisi Anak, Remaja, Pemuda, Dewasa Muda, Dewasa.
-- **Rekap pelayanan di Admin Utama** 🚧 — siapa saja yang melayani di tiap
-  bidang (mis. Usher) dan jumlah anggotanya.
+- **Temu Firman (Word Encounter)** ✅ — Saat Teduh digabung dengan Baca Alkitab
+  dan diganti nama (§5.3); kartunya di Home ada *sebelum* info Care Group (§5.1).
+- **Faithful Journey** ✅ — menggantikan "tangga penghargaan", tiap perjalanan
+  bergambar (`public/journey/*.svg`): 🌱 Rooted/Berakar (baca Alkitab), 🌿
+  Branching/Beranting (membawa orang lain), 🌳 Growing/Bertumbuh (kehadiran
+  Care Group), 🍎 Fruitful/Berbuah (menjadi Leader — tahap `roleProgressionStages`).
+  Tampil di Home, Temu Firman, dan Care Group → Pertumbuhanku; mengetuk kartu
+  membuka penjelasan + tangganya. Ambang tingkat lama dipertahankan.
+- **Header Home** ✅ — sapaan kiri atas; kanan atas lonceng notifikasi, streak
+  kehadiran komsel berlogo akar, dan ikon keluar (§5.1).
+- **Logo/ikon → penjelasan lengkap** ✅ — grid ikon di Home dan Care Group; detail
+  muncul setelah diketuk.
+- **Profil → pengaturan** ✅ — ubah profil, kode sandi, ukuran font (§5.7).
+- **Jobdesk Peran + Pengurus CG yang diedit Leader** ✅ (§5.2, §5.9).
+- **Pindah member CG: member → Leader → Admin** ✅ (§5.9, §5.10); **Q&A** di
+  bawah Contact Us ✅ (mengubah data, pindah member CG).
+- **Presensi — daftar pelayanan baru** ✅ (§5.4).
+- **Rekap pelayanan di Admin Utama** ✅ (§5.10).
 
 ## 6. Data Model Summary
 
@@ -504,6 +524,16 @@ lives in `AppContext` (`src/context/AppContext.jsx`) and is persisted to
 (`2026-08-13`, `src/utils/date.js`) — the app does not use the real device
 clock for in-app "today" logic, so seeded relative dates (streaks, tiers,
 "upcoming" windows) stay consistent regardless of when it's actually opened.
+
+Tambahan revisi v3 (state di `AppContext`, disimpan di `localStorage`):
+`userOverrides` (`cg_user_overrides` — nama/kode sandi/CG akun yang diubah dari
+app, ditumpuk di atas akun bawaan sehingga akun demo pun bisa berubah),
+`transferRequests` (`cg_transfer_requests` — status `menunggu` →
+`dipindahkan`/`ditolak`), `fontScale` (`cg_font_scale`, mengatur ukuran font
+akar dokumen), `careGroup.pengurusJobdesk` (daftar butir; bawaan
+`defaultPengurusJobdesk`), `presensiPelayananGroups` (daftar bidang Presensi),
+`faithfulJourneys` (definisi 4 perjalanan), dan `renungan.verseText` (teks
+ayat). `utils/pelayanan.js` menghitung rekap pelayanan.
 
 Key entities: `careGroupsSeed` (groups + nested members + meetings +
 `description` — the CG's own profile description, §5.9 — + `coachId`/
@@ -566,7 +596,7 @@ asked, what was decided, why.
    exact "di atas itu semua" ceiling), the app fills the gap with the
    smallest defensible value one step above the last specified tier, and
    this PRD flags each such fill explicitly rather than silently guessing.
-9. **Profil is read-only for the member; edits go through admin.** The
+9. **Profil is read-only for the member; edits go through admin.** *(Sebagian dibalik oleh Decision #19: kini ada ikon pengaturan untuk ubah profil/kode sandi/ukuran font; Nomor WA dan penempatan CG tetap lewat admin.)* The
    initial build let members self-edit Shema Growth dates (date-picker
    inputs) and self-manage the "Training Gerejawi Lainnya" list (add/remove
    form). The user corrected this: both should be pure information display
@@ -712,9 +742,11 @@ asked, what was decided, why.
     non-conflict logic as above still holds: still `full_design/` only,
     still not wired to `src/`.
 19. **Revisi susunan sub menu (PPTX "Revisi penempatan susunan sub menu di
-    beranda Aplikasi") didesain sebagai versi 3 di `full_design_v3/` — kode
-    aplikasi (`src/`) dan `full_design/` (v1/v2) tidak diubah.** Permintaan
-    ini tercatat di §5.12 dengan status 🚧. Beberapa butir **bertabrakan
+    beranda Aplikasi") — mula-mula didesain di `full_design_v3/`, lalu
+    dibangun di `src/` secara lo-fi atas permintaan "update dulu lo-fi-nya,
+    belum mau full design".** `full_design/` (v1/v2) tidak diubah. Tercatat di
+    §5.12. Asumsi di bawah dipakai apa adanya karena tidak ada koreksi dari
+    pemilik produk — **masih bisa diubah**. Beberapa butir **bertabrakan
     dengan keputusan lama**, ditandai di sini supaya tidak diam-diam menimpa:
     (a) *Ikon pengaturan di Profil untuk mengubah profil/kode sandi/ukuran
     font* **membalik sebagian Decision #9** ("Profil read-only; edit lewat
@@ -773,7 +805,7 @@ daftar Leader CG sebagai halaman terpisah, data calon peserta Second
 Coaching, kirim piagam kelulusan (kemungkinan di luar cakupan mockup ini),
 dan tempat mengelola renungan harian + Warta Jemaat.
 
-**Menunggu keputusan untuk revisi v3 (§5.12, Decision Log #19):** streak
+**Masih perlu dikonfirmasi pada revisi v3 (§5.12, Decision Log #19; sudah dibangun dengan asumsi, bisa diubah):** streak
 berlogo akar — kehadiran komsel atau Temu Firman?; daftar pelayanan Presensi
 vs. "Ajukan Pelayanan" (dua taksonomi berbeda); definisi Bertumbuh baru dan
 ambang tingkat Berbuah; sejauh mana profil boleh diubah sendiri (membalik

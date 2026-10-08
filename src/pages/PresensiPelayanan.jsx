@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { CheckCircle2, HandHelping } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { Card, SectionTitle, Badge, EmptyState } from '../components/ui'
-import { pelayananRoles } from '../data/mockData'
+import { presensiPelayananGroups } from '../data/mockData'
 import { formatLongDate, TODAY } from '../utils/date'
 
 const inputClass = 'w-full rounded-md border border-ink-200 px-3 py-2 text-sm outline-none focus:border-brand-400'
@@ -65,8 +65,12 @@ export default function PresensiPelayanan() {
               className={inputClass}
             >
               <option value="" disabled>Pilih pelayanan yang kamu jalani</option>
-              {pelayananRoles.map((r) => (
-                <option key={r.id} value={r.name}>{r.name}</option>
+              {presensiPelayananGroups.map((g) => (
+                <optgroup key={g.group} label={g.group}>
+                  {g.items.map((name) => (
+                    <option key={name} value={name}>{name}</option>
+                  ))}
+                </optgroup>
               ))}
             </select>
           </div>
@@ -92,7 +96,7 @@ export default function PresensiPelayanan() {
                 setNote(e.target.value)
                 setJustCheckedIn(false)
               }}
-              placeholder="Ibadah Minggu pagi, dst."
+              placeholder="Ibadah pukul 07.00, dst."
               className={inputClass}
             />
           </div>
