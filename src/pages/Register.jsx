@@ -27,7 +27,7 @@ export default function Register() {
     <div className="flex min-h-screen items-center justify-center bg-ink-50 px-4">
       <div className="w-full max-w-sm">
         <div className="mb-6 flex flex-col items-center gap-2 text-center">
-          <img src="/logo-shema.png" alt="Shema · GKI Gejayan" className="h-20 w-20 object-contain" />
+          <img src={`${import.meta.env.BASE_URL}logo-shema.png`} alt="Shema · GKI Gejayan" className="h-20 w-20 object-contain" />
           <h1 className="text-xl font-semibold text-ink-900">Daftar Akun Baru</h1>
           <p className="text-sm text-ink-500">Isi data singkat ini untuk mulai bergabung di GKI Gejayan.</p>
         </div>

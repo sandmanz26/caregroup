@@ -823,6 +823,12 @@ asked, what was decided, why.
     beban, langkah berikutnya memindahkan data/context ke paket bersama.
     Mock `full_design_v3/` (HTML statis) tetap sebagai referensi visual.
 
+22. **URL utama = hi-fi React (`hifi/`), lo-fi di `/lofi/`** (2026-10-21).
+    Membalik anggapan lama bahwa yang di-deploy adalah lo-fi `src/`. Lo-fi tetap
+    dipertahankan sebagai referensi di `caregroup.vercel.app/lofi/`. Catatan:
+    Decision Log memuat dua entri bernomor #21 (hi-fi React dan hi-fi v3.2
+    mobile) dari dua sesi berbeda — perlu dirapikan.
+
 ## 8. Pages That Must Handle "No Care Group" Gracefully
 
 **No longer a normal onboarding path** as of Decision Log #12 — every

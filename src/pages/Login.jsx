@@ -33,7 +33,7 @@ export default function Login() {
     <div className="flex min-h-screen items-center justify-center bg-ink-50 px-4">
       <div className="w-full max-w-sm">
         <div className="mb-6 flex flex-col items-center text-center">
-          <img src="/logo-shema.png" alt="Shema · GKI Gejayan" className="h-28 w-28 object-contain" />
+          <img src={`${import.meta.env.BASE_URL}logo-shema.png`} alt="Shema · GKI Gejayan" className="h-28 w-28 object-contain" />
         </div>
 
         <div className="rounded-lg border border-ink-200 bg-white p-5">

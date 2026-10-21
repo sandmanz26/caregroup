@@ -12,6 +12,27 @@
 
 ---
 
+## 2026-10-21 — URL utama = hi-fi React, lo-fi pindah ke `/lofi`
+
+Permintaan: lo-fi ditaruh di URL khusus, URL utama diganti hi-fi. Hi-fi yang
+dipilih: **React `hifi/`** (bukan mock statis `full_design_v3/`).
+
+- `npm run build` kini membangun dua aplikasi: `hifi/` → `dist/` (root) lalu
+  `src/` → `dist/lofi/`. `build:lofi` = build lo-fi saja.
+- Lo-fi: `base: '/lofi/'` di `vite.config.js`, `BrowserRouter basename`, dan
+  path logo/gambar Faithful Journey memakai `import.meta.env.BASE_URL`.
+  Dev server lo-fi kini di `http://localhost:9500/lofi/`.
+- `vercel.json` baru: output `dist`, rewrite SPA untuk `/lofi/*` dan root.
+- `tools/serve-dist.mjs` + entri `prod-preview` (port 9900) untuk menguji
+  hasil build dengan aturan rewrite yang sama.
+- Hasil: `caregroup.vercel.app/` → hi-fi, `caregroup.vercel.app/lofi/` → lo-fi
+  (tautan lama seperti `/login` kini membuka hi-fi). Keduanya satu domain
+  sehingga berbagi `localStorage` (sesi login & data mock sama).
+- Diverifikasi lokal: `/login` (hi-fi) dan `/lofi/login` → demo masuk tetap di
+  `/lofi`, semua gambar termuat.
+
+---
+
 ## 2026-10-20 (2) — Hi-fi React (`hifi/`): aplikasi baru dengan tata letak lo-fi, gaya modern
 
 Atas permintaan "hi-fi dibangun dengan React, bukan hanya HTML, mock data jangan

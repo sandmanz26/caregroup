@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm --prefix hifi ci && npm --prefix hifi run build && vite build --outDir dist/lofi --emptyOutDir",
+    "build:lofi": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },

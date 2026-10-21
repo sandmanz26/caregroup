@@ -47,6 +47,14 @@
         "9800"
       ],
       "port": 9800
+    },
+    {
+      "name": "prod-preview",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "tools/serve-dist.mjs"
+      ],
+      "port": 9900
     }
   ]
 }

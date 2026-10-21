@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/lofi/:path*", "destination": "/lofi/index.html" },
+    { "source": "/:path*", "destination": "/index.html" }
+  ]
+}

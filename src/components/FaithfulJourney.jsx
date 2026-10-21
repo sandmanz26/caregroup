@@ -39,7 +39,7 @@ function JourneyDetail({ journey, progress }) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-4">
-        <img src={`/journey/${journey.id}.svg`} alt={journey.en} className="size-24 shrink-0 rounded-2xl" />
+        <img src={`${import.meta.env.BASE_URL}journey/${journey.id}.svg`} alt={journey.en} className="size-24 shrink-0 rounded-2xl" />
         <div>
           <p className="font-medium text-ink-900">{journey.en}</p>
           <p className="text-sm text-ink-500">Kesan: {journey.kesan}</p>
@@ -84,7 +84,7 @@ export default function FaithfulJourneyGrid() {
             onClick={() => setOpenId(j.id)}
             className="rounded-lg border border-ink-200 bg-white p-2.5 text-center hover:bg-ink-50"
           >
-            <img src={`/journey/${j.id}.svg`} alt={j.en} className="mb-2 aspect-square w-full rounded-xl" />
+            <img src={`${import.meta.env.BASE_URL}journey/${j.id}.svg`} alt={j.en} className="mb-2 aspect-square w-full rounded-xl" />
             <p className="text-sm font-medium text-ink-900">{j.emoji} {j.name.replace('Perjalanan ', '')}</p>
             <p className="text-[11px] italic text-ink-400">{j.en}</p>
             <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-ink-200">
