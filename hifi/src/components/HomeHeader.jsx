@@ -104,7 +104,7 @@ export default function HomeHeader({ streak = null, streakDetail = '' }) {
 
   return (
     <>
-      <div className="hero-surface flex items-start justify-between gap-3 rounded-[28px] px-5 pb-12 pt-5 shadow-lg sm:px-6">
+      <div className="hero-surface home-hero flex items-start justify-between gap-3 rounded-[28px] px-5 pb-12 pt-5 shadow-lg sm:px-6">
         <div className="min-w-0">
           <p className="text-sm text-white/80">{formatLongDate(today.toISOString())}</p>
           <h1 className="mt-1 text-[26px] font-extrabold leading-tight text-white sm:text-3xl">

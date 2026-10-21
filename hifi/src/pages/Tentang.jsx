@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronLeft, Lock, CheckCircle2 } from 'lucide-react'
+import { Lock, CheckCircle2 } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { Card, SectionTitle, Badge } from '../components/ui'
 import { sdaRoles, pelayananRoles, journeyStages } from '../data/mockData'
@@ -136,10 +136,6 @@ export default function Tentang() {
 
   return (
     <div className="flex flex-col gap-6">
-      <Link to="/profil" className="flex items-center gap-1 text-sm font-medium text-ink-500 hover:text-ink-800">
-        <ChevronLeft size={16} /> Kembali
-      </Link>
-
       <div>
         <h1 className="text-[28px] font-extrabold leading-tight text-ink-900">Tim Sumber Daya Aktifis (SDA)</h1>
         <p className="mt-1 text-sm text-ink-500">

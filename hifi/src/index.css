@@ -161,7 +161,7 @@ select:focus {
   to { opacity: 1; transform: none; }
 }
 .page-enter {
-  animation: fade-up 320ms var(--ease) both;
+  animation: fade-up 320ms var(--ease) backwards;
 }
 @media (prefers-reduced-motion: reduce) {
   .page-enter { animation: none; }
@@ -210,3 +210,115 @@ select:focus {
   background: var(--color-ink-300);
   border-radius: 4px;
 }
+
+/* =====================================================================
+   v3.2 · RASA APLIKASI MOBILE (target React Native)
+   - Selalu satu kolom selebar ponsel; di layar lebar tampil dalam bingkai ponsel.
+   - Tab bar 5 menu, nav bar "Kembali" untuk layar bertumpuk, large title.
+   - Target sentuh ≥ 44pt, input 16px (tanpa zoom iOS), efek tekan, tanpa hover-lift.
+   ===================================================================== */
+.device-stage { min-height: 100dvh; }
+.device { position: relative; min-height: 100dvh; background: var(--color-ink-50); }
+.device-status, .device-home { display: none; }
+.device-scroll { min-height: 100dvh; }
+
+@media (min-width: 768px) {
+  .device-stage {
+    height: 100dvh; display: flex; align-items: center; justify-content: center; padding: 24px;
+    background: radial-gradient(900px 600px at 15% 0%, #E3EEFB, transparent 60%), radial-gradient(700px 500px at 100% 100%, #FFF1DA, transparent 60%), #EEF2F8;
+  }
+  .device {
+    width: 390px; height: min(844px, calc(100dvh - 48px)); min-height: 0; border-radius: 54px; overflow: hidden;
+    transform: translateZ(0); /* elemen fixed menempel ke ponsel */
+    box-shadow: 0 0 0 11px #0B1020, 0 0 0 13px #2A3245, 0 40px 80px -20px rgba(10,27,64,.45);
+  }
+  .device-scroll { height: 100%; min-height: 0; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; padding-top: 50px; }
+  .device-scroll::-webkit-scrollbar { display: none; }
+  .device-status {
+    position: absolute; z-index: 70; top: 0; left: 0; right: 0; height: 50px; display: flex; align-items: center; justify-content: space-between;
+    padding: 6px 30px 0 34px; font-size: 15px; font-weight: 700; color: var(--color-ink-900); pointer-events: none;
+    background: linear-gradient(var(--color-ink-50) 75%, transparent);
+  }
+  .device-island { position: absolute; left: 50%; top: 11px; transform: translateX(-50%); width: 120px; height: 34px; border-radius: 20px; background: #000; }
+  .device-icons { display: flex; align-items: center; gap: 6px; }
+  .device-batt { width: 25px; height: 12px; border: 1.5px solid currentColor; border-radius: 4px; padding: 1.5px; } .device-batt i { display: block; height: 100%; width: 78%; background: currentColor; border-radius: 1.5px; }
+  .device-home { display: block; position: absolute; z-index: 70; bottom: 8px; left: 50%; transform: translateX(-50%); width: 134px; height: 5px; border-radius: 3px; background: var(--color-ink-900); pointer-events: none; }
+  .device .min-h-screen { min-height: 100%; }
+  .device .nav-bar { top: 50px; }
+  .device .tab-bar { padding-bottom: 26px; }
+  /* status bar putih di atas header biru Home */
+  .device:has(.hero-surface.home-hero) .device-status { color: #fff; background: none; }
+}
+
+/* Layar aplikasi */
+.app-screen { min-height: 100%; }
+.screen-body { padding: 12px 16px calc(96px + env(safe-area-inset-bottom)); }
+.screen-body.has-nav { padding-top: 64px; }
+
+/* Nav bar (layar bertumpuk) */
+.nav-bar {
+  position: fixed; z-index: 40; top: 0; left: 0; right: 0; height: 52px; padding: env(safe-area-inset-top) 8px 0;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  background: rgba(244, 247, 251, .86); backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: .5px solid var(--color-ink-200);
+}
+.nav-back { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-brand-600); font-size: 16px; font-weight: 600; background: none; border: 0; padding: 0 8px 0 0; }
+.nav-back:active { opacity: .5; }
+.nav-title { font-size: 16.5px; font-weight: 800; color: var(--color-ink-900); }
+
+/* Tab bar */
+.tab-bar {
+  position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; display: flex;
+  padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, .9); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-top: .5px solid var(--color-ink-200);
+}
+.tab-item { flex: 1; min-height: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 10.5px; font-weight: 600; color: var(--color-ink-400); -webkit-tap-highlight-color: transparent; }
+.tab-item.is-active { color: var(--color-brand-600); }
+.tab-icon { display: flex; align-items: center; justify-content: center; height: 28px; width: 56px; border-radius: 999px; transition: background 160ms var(--ease), transform 120ms var(--ease); }
+.tab-item.is-active .tab-icon { background: var(--color-brand-100); }
+.tab-item:active .tab-icon { transform: scale(.88); }
+
+/* Large title: judul halaman lebih besar & tegas seperti iOS */
+.screen-body h1.text-2xl { font-size: 30px; line-height: 1.12; font-weight: 800; letter-spacing: -.025em; }
+.screen-body h1.text-xl { font-size: 24px; font-weight: 800; }
+
+/* Kartu: tanpa garis tepi keras, sudut lebih bulat */
+.screen-body .rounded-lg.border.bg-white,
+.screen-body .rounded-lg.border-ink-200 { border-color: transparent; border-radius: 20px; box-shadow: 0 1px 2px rgba(10,27,64,.04), 0 4px 14px -10px rgba(10,27,64,.18); }
+.screen-body .gap-6 { gap: 18px; }
+
+/* Efek tekan (pengganti hover web) */
+.screen-body a, .screen-body button, .tab-item, .device a, .device button { -webkit-tap-highlight-color: transparent; }
+.screen-body a:active, .screen-body button:not(:disabled):active, .screen-body label:has(input[type="radio"]):active { transform: scale(.98); transition: transform 90ms var(--ease); }
+@media (hover: none) { button.bg-brand-500:hover:not(:disabled), a.bg-brand-500:hover { transform: none; filter: none; } }
+.device button.bg-brand-500:hover:not(:disabled), .device a.bg-brand-500:hover { transform: none; }
+
+/* Ukuran sentuh & input */
+.device input:not([type="checkbox"]):not([type="radio"]):not([type="file"]), .device select { font-size: 16px; min-height: 46px; border-radius: 12px; }
+.device textarea { font-size: 16px; border-radius: 12px; }
+.device button.bg-brand-500, .device a.bg-brand-500 { min-height: 46px; border-radius: 14px; }
+
+/* Tab di panel admin → chip geser */
+.chip-tabs { display: flex; gap: 8px; overflow-x: auto; margin: 0 -16px; padding: 2px 16px 4px; scrollbar-width: none; }
+.chip-tabs::-webkit-scrollbar { display: none; }
+.chip-tabs > button { flex-shrink: 0; min-height: 38px; border-radius: 999px !important; padding: 8px 15px !important; background: #fff; border: 1px solid var(--color-ink-200); color: var(--color-ink-600); }
+.chip-tabs > button.bg-brand-500 { background: var(--color-ink-900) !important; background-image: none !important; color: #fff; border-color: var(--color-ink-900); box-shadow: none; }
+
+/* Home: header menempel ke tepi atas & samping */
+.screen-body .home-hero { margin: -12px -16px 0; border-radius: 0 0 30px 30px; padding-top: 18px; }
+@media (min-width: 768px) { .screen-body .home-hero { margin-top: -62px; padding-top: 62px; } }
+
+/* Grid Faithful Journey → carousel geser */
+.journey-carousel { display: flex !important; gap: 10px; overflow-x: auto; margin: 0 -16px; padding: 2px 16px 6px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.journey-carousel::-webkit-scrollbar { display: none; }
+.journey-carousel > * { flex: 0 0 146px; scroll-snap-align: start; }
+
+/* Bottom sheet: sheet penuh lebar di ponsel */
+.device .fixed.inset-0 > .relative.z-10 { max-width: none; }
+/* iOS large title: judul besar ada di konten, nav bar cukup tombol kembali */
+.nav-title { opacity: 0; }
+.screen-body h1.text-\[28px\] { font-size: 30px; }
+.device .fixed.inset-0.z-50 > .relative.z-10 { max-height: 88%; padding-bottom: env(safe-area-inset-bottom); }
+@media (min-width: 768px) { .device .fixed.inset-0.z-50 > .relative.z-10 { max-height: calc(100% - 60px); } }
+.app-screen:has(.fixed.inset-0.z-50) .tab-bar { visibility: hidden; }

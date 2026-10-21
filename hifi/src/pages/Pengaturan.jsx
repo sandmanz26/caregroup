@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { ChevronLeft, CheckCircle2 } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { Card, SectionTitle } from '../components/ui'
 
@@ -170,9 +169,6 @@ export default function Pengaturan() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <Link to="/profil" className="mb-2 inline-flex items-center gap-1 text-sm font-medium text-brand-600">
-          <ChevronLeft size={16} /> Profil
-        </Link>
         <h1 className="text-[28px] font-extrabold leading-tight text-ink-900">Pengaturan</h1>
         <p className="mt-1 text-sm text-ink-500">Ubah profil, kode sandi, dan ukuran font.</p>
       </div>

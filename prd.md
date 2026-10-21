@@ -829,6 +829,13 @@ asked, what was decided, why.
     Decision Log memuat dua entri bernomor #21 (hi-fi React dan hi-fi v3.2
     mobile) dari dua sesi berbeda — perlu dirapikan.
 
+23. **Hi-fi React (`hifi/`) memakai pola aplikasi mobile.** Sama dengan arah
+    mock v3.2 (tab bar 5 menu, layar bertumpuk, bingkai ponsel di desktop) —
+    kini diterapkan ke aplikasi live di URL utama. **Bentrok dengan lo-fi:**
+    lo-fi menaruh hingga 8 menu di navigasi; hi-fi hanya 5 tab, sisanya lewat
+    ikon Home/Profil. Lo-fi `/lofi/` tidak diubah. Menunggu konfirmasi bahwa
+    susunan tab ini dipakai untuk build React Native.
+
 ## 8. Pages That Must Handle "No Care Group" Gracefully
 
 **No longer a normal onboarding path** as of Decision Log #12 — every

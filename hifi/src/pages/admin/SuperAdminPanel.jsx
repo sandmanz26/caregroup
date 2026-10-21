@@ -733,7 +733,7 @@ export default function SuperAdminPanel() {
         <h1 className="mt-1 text-[28px] font-extrabold leading-tight text-ink-900">Panel Admin</h1>
       </div>
 
-      <div className="flex gap-1 overflow-x-auto rounded-lg border border-ink-200/80 bg-white shadow-sm p-1 scrollbar-thin">
+      <div className="chip-tabs">
         {TABS.map((t) => (
           <button
             key={t.id}

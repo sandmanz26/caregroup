@@ -12,6 +12,33 @@
 
 ---
 
+## 2026-10-22 — Hi-fi React (`hifi/`, URL utama) terasa seperti aplikasi mobile
+
+Masukan: "UI masih kaku seperti apps dari website, mau lebih ke UI mobile apps".
+Hanya `hifi/` yang diubah; isi & logika halaman tetap sama dengan lo-fi.
+
+- **Selalu selebar ponsel.** Sidebar desktop dan bar logo atas dihapus. Di layar
+  ≥ 768px aplikasi tampil di bingkai ponsel 390×844 (`DeviceFrame.jsx`: status
+  bar, dynamic island, home indicator); di ponsel sungguhan penuh layar.
+- **Tab bar 5 menu**: Anggota = Home · Care Group · Firman · Presensi · Profil;
+  Leader/Super Admin/Coach = Home · Care Group · Firman · Admin · Profil.
+  Jadwal, Doa, Pengaturan, Tentang (dan Presensi untuk non-anggota) menjadi
+  layar bertumpuk dengan nav bar "‹ Kembali" (blur), dibuka dari ikon Home/Profil.
+  Tautan "‹ Profil/Kembali" di dalam halaman dihapus.
+- **Pola native**: large title 30px; header Home menempel ke tepi atas dengan
+  status bar putih; kartu tanpa garis tepi, sudut 20px; tab panel admin jadi
+  chip geser; Faithful Journey jadi carousel geser; bottom sheet di dalam
+  layar ponsel dan menutupi tab bar; layar baru mulai dari atas.
+- **Sentuhan**: efek tekan (scale) menggantikan hover, input 16px (tanpa zoom
+  iOS), tombol & input ≥ 46px, ikon tab membesar-kecil saat ditekan.
+- Perbaikan: animasi masuk halaman kini `fill-mode: backwards` supaya
+  `transform` tidak mengurung bottom sheet (`position: fixed`).
+- Diverifikasi di browser (bingkai desktop + 375px): Login → Home Anggota &
+  Ketua Komsel, Pengaturan, Program CG + sheet Anggota, Panel Leader
+  (Statistik). Build & lint bersih (2 peringatan lama).
+
+---
+
 ## 2026-10-21 — URL utama = hi-fi React, lo-fi pindah ke `/lofi`
 
 Permintaan: lo-fi ditaruh di URL khusus, URL utama diganti hi-fi. Hi-fi yang

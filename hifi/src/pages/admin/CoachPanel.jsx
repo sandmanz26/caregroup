@@ -279,7 +279,7 @@ export default function CoachPanel() {
         </p>
       </div>
 
-      <div className="flex gap-1 overflow-x-auto rounded-lg border border-ink-200/80 bg-white shadow-sm p-1 scrollbar-thin">
+      <div className="chip-tabs">
         {TABS.map((t) => (
           <button
             key={t.id}
