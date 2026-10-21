@@ -2,178 +2,114 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Home · Shema v3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0A2766" />
+<title>Home · Super Admin · Shema</title>
 <link rel="icon" type="image/png" href="assets/logo-shema.png" />
 <link rel="stylesheet" href="assets/styles.css" />
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script defer src="assets/app.js"></script>
 </head>
-<body>
-<div class="app-shell">
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <img src="assets/logo-shema.png" alt="Shema" />
-      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
+<body class="has-stage">
+<div class="stage">
+  <aside class="stage-info"><a href="index.html" class="stage-back">← Semua layar</a><img src="assets/logo-shema.png" alt="" /><div class="stage-title">Home · Super Admin</div><p>Pratinjau aplikasi mobile Shema (target React Native). Ketuk elemen di dalam ponsel seperti di aplikasi asli.</p></aside>
+  <div class="device">
+    <div class="statusbar"><span class="sb-time">9:41</span><span class="sb-island"></span><span class="sb-icons"><svg width="18" height="11" viewBox="0 0 18 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="6" rx="1"/><rect x="10" y="2.5" width="3" height="8.5" rx="1"/><rect x="15" y="0" width="3" height="11" rx="1"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .4 10.4 10.4 0 0 0 .8 3.3L2 4.6a8.6 8.6 0 0 1 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3L12.6 6a6.6 6.6 0 0 0-9.2 0l1.2 1.1C5.5 6.3 6.7 5.8 8 5.8zm0 3.5 1.9-1.9a2.7 2.7 0 0 0-3.8 0z"/></svg><span class="sb-batt"><i></i></span></span></div>
+    
+    <main class="screen"><div class="main-inner">
+
+
+<div class="home-header" data-reveal>
+  <div class="hh-top">
+    <div class="hh-greet">
+      <small>Kamis, 13 Agustus 2026</small>
+      <strong>Selamat pagi, Pdt. Budi</strong>
+      <span class="hh-meta">GKI Gejayan · Tim Sumber Daya Aktifis</span>
     </div>
-    <nav class="nav-list">
-      <a href="super-admin-home.html" class="nav-item active"><i data-lucide="home"></i>Home</a>
-      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
-      <a href="temu-firman.html" class="nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
-      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
-      <a href="jadwal.html" class="nav-item"><i data-lucide="calendar-days"></i>Jadwal</a>
-      <a href="doa.html" class="nav-item"><i data-lucide="heart-handshake"></i>Doa</a>
-      <a href="profil.html" class="nav-item"><i data-lucide="circle-user"></i>Profil</a>
-      <a href="super-admin-admin.html" class="nav-item"><i data-lucide="shield-check"></i>Admin</a></nav>
-    <div class="sidebar-user">
-      <span class="avatar-square">BS</span>
-      <div><div class="name">Pdt. Budi Santoso</div><div class="role">Super Admin</div></div>
+    <div class="hh-actions">
+      <button class="hh-btn" data-open-sheet="sh-notif" aria-label="Notifikasi"><i data-lucide="bell"></i><span class="count">3</span></button>
+      
+      <button class="hh-btn" data-open-sheet="sh-exit" aria-label="Keluar aplikasi"><i data-lucide="log-out"></i></button>
     </div>
-  </aside>
-  <header class="topbar">
-    <img src="assets/logo-shema.png" alt="Shema" />
-    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">BS</span>
-  </header>
-  <main class="main">
-    <div class="main-inner">
-
-
-      <div class="home-header" data-reveal>
-        <div class="hh-top">
-          <div class="hh-greet">
-            <small>Selamat pagi</small>
-            <strong>Budi</strong>
-            <span class="hh-meta">Kamis, 13 Agustus 2026</span>
-          </div>
-          <div class="hh-actions">
-            <button class="hh-btn" data-open-sheet="sheet-notif" aria-label="Notifikasi"><i data-lucide="bell"></i><span class="dot"></span></button>
-            
-            <button class="hh-btn" data-open-sheet="sheet-exit" aria-label="Keluar aplikasi"><i data-lucide="log-out"></i></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="float-card" data-reveal>
-        <div class="tf-body">
-          <div class="tf-label"><i data-lucide="sprout" style="width:14px;height:14px;"></i>Temu Firman · Word Encounter</div>
-          <p class="verse">&ldquo;Siapa setia dalam perkara-perkara kecil, ia setia juga dalam perkara-perkara besar.&rdquo;</p>
-          <p class="ref">Lukas 16:10 &middot; Setia dalam Perkara Kecil</p>
-        </div>
-        <div class="tf-cta">
-          <a href="temu-firman.html" class="btn btn-primary btn-sm">Baca renungan</a>
-          <small>Belum selesai hari ini</small>
-        </div>
-      </div>
-
-      <div class="card" data-reveal>
-        <div class="shortcuts">
-          <a class="shortcut" href="super-admin-admin.html"><span class="sc-ico g-purple"><i data-lucide="shield-check"></i></span>Panel Admin</a>
-          <a class="shortcut" href="program-cg.html"><span class="sc-ico g-blue"><i data-lucide="users"></i></span>Care Group</a>
-          <a class="shortcut" href="super-admin-admin.html"><span class="sc-ico g-orange"><i data-lucide="chart-no-axes-column"></i></span>Rekap Pelayanan</a>
-          <a class="shortcut" href="jadwal.html"><span class="sc-ico g-teal"><i data-lucide="calendar-days"></i></span>Jadwal</a>
-          <a class="shortcut" href="doa.html"><span class="sc-ico g-red"><i data-lucide="heart-handshake"></i></span>Doa</a>
-          <button class="shortcut" data-open-sheet="sheet-notif"><span class="sc-ico soft"><i data-lucide="bell"></i></span>Notifikasi</button>
-          <a class="shortcut" href="pengaturan.html"><span class="sc-ico soft"><i data-lucide="settings"></i></span>Pengaturan</a>
-        </div>
-      </div>
-
-      <div class="bento">
-        <div class="bento-tile bg-dark b-2" data-reveal><div class="deco-ring"></div><p class="tabular" style="font-family:var(--font-display);font-size:28px;font-weight:600;"><span data-count="3">0</span></p><p class="text-sm muted">Care Group</p></div>
-        <div class="bento-tile bg-brand b-2" data-reveal><div class="deco-ring"></div><p class="tabular" style="font-family:var(--font-display);font-size:28px;font-weight:600;"><span data-count="12">0</span></p><p class="text-sm muted">Peserta</p></div>
-        <div class="bento-tile b-2" data-reveal><p class="tabular" style="font-family:var(--font-display);font-size:28px;font-weight:600;"><span data-count="10">0</span></p><p class="text-sm muted">Agenda</p></div>
-      </div>
-
-      <div class="card" data-reveal>
-        <div class="section-title">Rekap pelayanan member <span class="new-tag">Baru</span></div>
-        <p class="text-sm muted" style="margin-bottom:6px;">Siapa saja yang melayani di tiap bidang, dan berapa anggotanya.</p>
-        <ul class="row-list">
-          <li class="row"><span class="avatar avatar-sm g-orange" style="color:#fff;"><i data-lucide="hand-helping" style="width:14px;height:14px;"></i></span><span class="row-title flex-1">Usher</span><span class="badge badge-brand">3 anggota</span></li><li class="row"><span class="avatar avatar-sm g-blue" style="color:#fff;"><i data-lucide="hand-helping" style="width:14px;height:14px;"></i></span><span class="row-title flex-1">Multimedia</span><span class="badge badge-brand">2 anggota</span></li><li class="row"><span class="avatar avatar-sm g-purple" style="color:#fff;"><i data-lucide="hand-helping" style="width:14px;height:14px;"></i></span><span class="row-title flex-1">Tim Doa</span><span class="badge badge-brand">2 anggota</span></li>
-        </ul>
-        <a href="super-admin-admin.html" class="link-accent" style="display:inline-block;margin-top:12px;">Lihat rekap lengkap →</a>
-      </div>
-
-
-      <div class="card" data-reveal>
-        <div class="section-title">Pengumuman</div>
-        <ul class="row-list">
-          <li class="row row-clickable" data-open-sheet="sheet-announce-1">
-            <img src="https://picsum.photos/seed/poster-training-coach/80/80" style="width:44px;height:44px;border-radius:12px;object-fit:cover;flex-shrink:0;" alt="" />
-            <div class="flex-1"><div class="flex items-center justify-between gap-2"><p class="row-title">Pendaftaran Coach baru dibuka</p><span class="badge badge-brand">10 Agu</span></div><p class="row-sub" style="margin-top:2px;">Bagi Leader Care Group yang sudah aktif minimal 6 bulan...</p></div>
-          </li>
-          <li class="row row-clickable">
-            <img src="https://picsum.photos/seed/sosialisasi-cg/80/80" style="width:44px;height:44px;border-radius:12px;object-fit:cover;flex-shrink:0;" alt="" />
-            <div class="flex-1"><div class="flex items-center justify-between gap-2"><p class="row-title">Target 20 Care Group di 2027</p><span class="badge badge-brand">5 Agu</span></div><p class="row-sub" style="margin-top:2px;">Tim SDA mengajak seluruh jemaat untuk ambil bagian.</p></div>
-          </li>
-          <li class="row row-clickable">
-            <img src="https://picsum.photos/seed/modul-second-coaching/80/80" style="width:44px;height:44px;border-radius:12px;object-fit:cover;flex-shrink:0;" alt="" />
-            <div class="flex-1"><div class="flex items-center justify-between gap-2"><p class="row-title">Modul Second Coaching tersedia</p><span class="badge badge-brand">28 Jul</span></div><p class="row-sub" style="margin-top:2px;">Diambil di sekretariat atau diunduh lewat aplikasi.</p></div>
-          </li>
-        </ul>
-      </div>
-
-      <div id="sheet-announce-1" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Pendaftaran Coach baru dibuka</h3>
-
-          <p class="page-date" style="margin:-8px 0 14px;">Senin, 10 Agustus 2026</p>
-          <img src="https://picsum.photos/seed/poster-training-coach/900/500" style="width:100%;border-radius:16px;margin-bottom:14px;" alt="Poster pendaftaran Training Coach" />
-          <p class="text-sm">Bagi Leader Care Group yang sudah aktif minimal 6 bulan, pendaftaran Training Coach dibuka sampai akhir Agustus. Daftar lewat admin CG masing-masing atau langsung ke sekretariat.</p>
-        </div>
-      </div>
-
-    </div>
-  </main>
-  <nav class="bottom-nav"><div class="bottom-nav-list">
-        <a href="super-admin-home.html" class="bottom-nav-item active"><i data-lucide="home"></i>Home</a>
-        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
-        <a href="temu-firman.html" class="bottom-nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
-        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
-        <a href="jadwal.html" class="bottom-nav-item"><i data-lucide="calendar-days"></i>Jadwal</a>
-        <a href="doa.html" class="bottom-nav-item"><i data-lucide="heart-handshake"></i>Doa</a>
-        <a href="profil.html" class="bottom-nav-item"><i data-lucide="circle-user"></i>Profil</a>
-        <a href="super-admin-admin.html" class="bottom-nav-item"><i data-lucide="shield-check"></i>Admin</a></div></nav>
+  </div>
 </div>
 
-      <div id="sheet-notif" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Terbaru</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Notifikasi</h3>
-
-          <div class="notif">
-            <span class="n-ico g-orange"><i data-lucide="user-plus"></i></span>
-            <div class="flex-1"><p class="n-title">2 pendaftar baru menunggu persetujuan</p><p class="n-sub">Rina Wijayanti, Yusuf Hartono</p></div>
-            <span class="unread"></span>
-          </div>
-          <div class="notif">
-            <span class="n-ico g-purple"><i data-lucide="repeat"></i></span>
-            <div class="flex-1"><p class="n-title">Permintaan pindah CG dari Leader "Kasih Setia"</p><p class="n-sub">Calvin Tanto → Care Group "Sukacita"</p></div>
-            <span class="unread"></span>
-          </div>
-          <div class="notif">
-            <span class="n-ico g-blue"><i data-lucide="hand-helping"></i></span>
-            <div class="flex-1"><p class="n-title">1 pengajuan pelayanan belum ditinjau</p><p class="n-sub">Felicia Halim · Greeter</p></div>
-            
-          </div>
-        </div>
-      </div>
-      <div id="sheet-exit" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Keluar dari aplikasi?</h3>
-
-          <p class="text-sm" style="margin-bottom:16px;">Kamu hanya keluar dari sesi ini. <strong>Data dan progresmu tetap tersimpan</strong> — masuk lagi kapan saja dengan Nomor WA dan kata sandimu.</p>
-          <div class="flex gap-2">
-            <button class="btn btn-ghost" style="flex:1;" data-close-sheet>Batal</button>
-            <a href="login.html" class="btn btn-primary" style="flex:1;"><i data-lucide="log-out"></i>Keluar</a>
-          </div>
-        </div>
-      </div>
-<script src="assets/app.js"></script>
+<div class="float-card" data-reveal>
+  <div class="tf-body">
+    <div class="tf-label"><span class="dot"><i data-lucide="book-open-text"></i></span>Temu Firman · Word Encounter</div>
+    <div class="row-title" style="font-size:16px">Setia dalam Perkara Kecil</div>
+    <p class="scripture" style="font-size:16px;margin-top:6px">&ldquo;Siapa setia dalam perkara-perkara kecil, ia setia juga dalam perkara-perkara besar.&rdquo;</p>
+    <div class="ref">Lukas 16:10</div>
+  </div>
+  <div class="tf-cta">
+    <span class="text-sm muted" style="max-width:190px;text-align:right">Ketuk untuk membaca ayat &amp; renungan, lalu tandai selesai.</span>
+    <a class="btn btn-primary btn-sm" href="temu-firman.html">Buka <i data-lucide="chevron-right"></i></a>
+  </div>
+</div>
+<div class="card" data-reveal><div class="shortcuts"><a class="shortcut" href="super-admin-admin.html"><span class="sc-ico g-purple"><i data-lucide="shield-check"></i></span><span>Panel Admin</span></a><a class="shortcut" href="program-cg-info.html"><span class="sc-ico g-blue"><i data-lucide="users"></i></span><span>Care Group</span></a><a class="shortcut" href="temu-firman.html"><span class="sc-ico g-green"><i data-lucide="book-open-text"></i></span><span>Temu Firman</span></a><a class="shortcut" href="jadwal.html"><span class="sc-ico g-teal"><i data-lucide="calendar-days"></i></span><span>Jadwal</span></a><a class="shortcut" href="doa.html"><span class="sc-ico g-magenta"><i data-lucide="heart-handshake"></i></span><span>Doa</span></a><a class="shortcut" href="profil.html"><span class="sc-ico g-navy"><i data-lucide="circle-user"></i></span><span>Profil</span></a><a class="shortcut" href="pengaturan.html"><span class="sc-ico g-slate"><i data-lucide="settings"></i></span><span>Pengaturan</span></a></div></div>
+<div class="grid-3" data-reveal><div class="card stat-tile stat-blue"><div class="num" data-count="3">3</div><div class="label">Care Group</div></div><div class="card stat-tile stat-green"><div class="num" data-count="12">12</div><div class="label">Peserta</div></div><div class="card stat-tile stat-teal"><div class="num" data-count="9">9</div><div class="label">Agenda</div></div></div>
+<a class="card hoverable link-row action-card" href="super-admin-admin.html#user" data-reveal><span class="ico-sq g-orange"><i data-lucide="bell"></i></span><div class="flex-1"><div class="row-title">Perlu tindakan</div><div class="row-sub">2 pendaftar baru · 0 permintaan pindah CG</div></div><i data-lucide="chevron-right" class="chev"></i></a>
+<div class="card" data-reveal><div class="section-title"><span>Rekap Pelayanan Member</span><a class="link text-sm" href="super-admin-admin.html#rekap" style="text-transform:none;letter-spacing:0">Rekap lengkap <i data-lucide="chevron-right" class="inl"></i></a></div><div class="row-list"><div class="row"><span class="flex-1 row-title">Usher</span><span class="badge b-blue">3 anggota</span></div><div class="row"><span class="flex-1 row-title">Komisi Pemuda</span><span class="badge b-blue">2 anggota</span></div><div class="row"><span class="flex-1 row-title">Multimedia</span><span class="badge b-blue">2 anggota</span></div><div class="row"><span class="flex-1 row-title">Tim Doa</span><span class="badge b-blue">2 anggota</span></div></div></div>
+<div class="card" data-reveal><div class="section-title"><span>Semua Care Group</span></div><div class="row-list"><div class="row"><span class="ico-sq g-blue sm"><i data-lucide="users"></i></span><div class="flex-1"><div class="row-title">Care Group "Kasih Setia"</div><div class="row-sub">Ketua: Andra Wijaya</div></div><span class="badge b-ink">7 orang</span></div><div class="row"><span class="ico-sq g-green sm"><i data-lucide="users"></i></span><div class="flex-1"><div class="row-title">Care Group "Sukacita"</div><div class="row-sub">Ketua: Hana Puspita</div></div><span class="badge b-ink">3 orang</span></div><div class="row"><span class="ico-sq g-orange sm"><i data-lucide="users"></i></span><div class="flex-1"><div class="row-title">Care Group "Damai Sejahtera"</div><div class="row-sub">Ketua: Kevin Halim</div></div><span class="badge b-ink">2 orang</span></div></div></div>
+<div class="card" data-reveal><div class="section-title"><span>Pengumuman</span></div><div class="row-list">
+    <button type="button" class="row row-clickable" data-open-sheet="sh-ann-a1" style="width:100%;background:none;border:none;text-align:left;align-items:flex-start;font:inherit;color:inherit">
+      <div class="flex-1"><div class="row-title">Pendaftaran Coach baru dibuka</div><div class="row-sub" style="margin-top:3px">Bagi Leader Care Group yang sudah aktif minimal 6 bulan, pendaftaran Training Coach dibuka sampai akhir Agus…</div></div>
+      <span class="badge b-blue">10 Agu</span>
+    </button>
+    <button type="button" class="row row-clickable" data-open-sheet="sh-ann-a2" style="width:100%;background:none;border:none;text-align:left;align-items:flex-start;font:inherit;color:inherit">
+      <div class="flex-1"><div class="row-title">Target 20 Care Group di 2027</div><div class="row-sub" style="margin-top:3px">Tim SDA mengajak seluruh jemaat untuk ambil bagian — 1 orang, 1 Care Group, 1 pelayanan. Berikut dokumentasi…</div></div>
+      <span class="badge b-blue">5 Agu</span>
+    </button>
+    <button type="button" class="row row-clickable" data-open-sheet="sh-ann-a3" style="width:100%;background:none;border:none;text-align:left;align-items:flex-start;font:inherit;color:inherit">
+      <div class="flex-1"><div class="row-title">Modul Second Coaching sudah tersedia</div><div class="row-sub" style="margin-top:3px">Modul dapat diambil di sekretariat atau diunduh lewat aplikasi ini.</div></div>
+      <span class="badge b-blue">28 Jul</span>
+    </button></div></div>
+    </div></main>
+    <nav class="tabbar"><a class="tab active" href="super-admin-home.html"><i data-lucide="house"></i><span>Home</span></a><a class="tab" href="program-cg-info.html"><i data-lucide="users"></i><span>Care Group</span></a><a class="tab" href="temu-firman.html"><i data-lucide="book-open-text"></i><span>Firman</span></a><a class="tab" href="super-admin-admin.html"><i data-lucide="shield-check"></i><span>Admin</span></a><a class="tab" href="profil.html"><i data-lucide="circle-user"></i><span>Profil</span></a></nav>
+    <div class="home-indicator"></div>
+    
+<div class="sheet-overlay" id="sh-notif" style="display:none">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Notifikasi</h3>
+    <div><a class="notif" href="super-admin-admin.html#user"><div style="flex:1;min-width:0"><div class="n-title">2 pendaftar baru menunggu persetujuan</div><div class="n-sub">Rina Wijayanti, Yusuf Hartono</div></div><i data-lucide="chevron-right" class="chev"></i></a><a class="notif" href="super-admin-admin.html#pengajuan"><div style="flex:1;min-width:0"><div class="n-title">1 pengajuan pelayanan belum ditinjau</div><div class="n-sub">Dari semua Care Group</div></div><i data-lucide="chevron-right" class="chev"></i></a><div class="notif"><div style="flex:1;min-width:0"><div class="n-title">Pengumuman: Pendaftaran Coach baru dibuka</div><div class="n-sub">10 Agu</div></div></div></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-exit" style="display:none">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Keluar dari aplikasi?</h3>
+    <p class="text-sm">Kamu hanya keluar dari sesi ini. <strong>Data dan progresmu tetap tersimpan</strong> — masuk lagi kapan saja dengan Nomor WA dan kata sandimu.</p>
+   <div class="flex gap-2" style="margin-top:18px"><button class="btn btn-ghost flex-1" data-close-sheet>Batal</button><a class="btn btn-primary flex-1" href="login.html"><i data-lucide="log-out"></i> Keluar</a></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-ann-a1" style="display:none">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Pendaftaran Coach baru dibuka</h3>
+    <p class="text-sm muted" style="margin-bottom:12px">Senin, 10 Agustus 2026</p><div class="hscroll" style="margin-bottom:14px"><div class="photo-card" style="width:230px;height:160px"><img src="https://picsum.photos/seed/a10/480/320" alt="" loading="lazy" onerror="this.remove()" /><div class="cap">Poster pendaftaran Training Coach</div></div></div><p class="text-sm">Bagi Leader Care Group yang sudah aktif minimal 6 bulan, pendaftaran Training Coach dibuka sampai akhir Agustus. Daftar lewat admin CG masing-masing atau langsung ke sekretariat.</p>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-ann-a2" style="display:none">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Target 20 Care Group di 2027</h3>
+    <p class="text-sm muted" style="margin-bottom:12px">Rabu, 5 Agustus 2026</p><div class="hscroll" style="margin-bottom:14px"><div class="photo-card" style="width:230px;height:160px"><img src="https://picsum.photos/seed/a20/480/320" alt="" loading="lazy" onerror="this.remove()" /><div class="cap">Sosialisasi di Care Group "Kasih Setia" · 1/3</div></div><div class="photo-card" style="width:230px;height:160px"><img src="https://picsum.photos/seed/a21/480/320" alt="" loading="lazy" onerror="this.remove()" /><div class="cap">Sosialisasi di Care Group "Sukacita" · 2/3</div></div><div class="photo-card" style="width:230px;height:160px"><img src="https://picsum.photos/seed/a22/480/320" alt="" loading="lazy" onerror="this.remove()" /><div class="cap">Antusiasme peserta First Coaching · 3/3</div></div></div><p class="text-sm">Tim SDA mengajak seluruh jemaat untuk ambil bagian — 1 orang, 1 Care Group, 1 pelayanan. Berikut dokumentasi sosialisasi program di beberapa Care Group.</p>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-ann-a3" style="display:none">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Modul Second Coaching sudah tersedia</h3>
+    <p class="text-sm muted" style="margin-bottom:12px">Selasa, 28 Juli 2026</p><p class="text-sm">Modul dapat diambil di sekretariat atau diunduh lewat aplikasi ini.</p>
+  </div>
+</div>
+  </div>
+</div>
 </body>
 </html>

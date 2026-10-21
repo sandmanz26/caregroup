@@ -33,6 +33,20 @@
         "9700"
       ],
       "port": 9700
+    },
+    {
+      "name": "hifi-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "hifi",
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "9800"
+      ],
+      "port": 9800
     }
   ]
 }

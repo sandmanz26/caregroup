@@ -2,85 +2,49 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Panel Coach · Shema v3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0A2766" />
+<title>Panel Pembinaan · Shema</title>
 <link rel="icon" type="image/png" href="assets/logo-shema.png" />
 <link rel="stylesheet" href="assets/styles.css" />
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script defer src="assets/app.js"></script>
 </head>
-<body>
-<div class="app-shell">
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <img src="assets/logo-shema.png" alt="Shema" />
-      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
-    </div>
-    <nav class="nav-list">
-      <a href="coach-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
-      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
-      <a href="temu-firman.html" class="nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
-      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
-      <a href="jadwal.html" class="nav-item"><i data-lucide="calendar-days"></i>Jadwal</a>
-      <a href="doa.html" class="nav-item"><i data-lucide="heart-handshake"></i>Doa</a>
-      <a href="profil.html" class="nav-item"><i data-lucide="circle-user"></i>Profil</a>
-      <a href="coach-admin.html" class="nav-item active"><i data-lucide="shield-check"></i>Admin</a></nav>
-    <div class="sidebar-user">
-      <span class="avatar-square">YS</span>
-      <div><div class="name">Pdt. Yohanes Setiawan</div><div class="role">Coach</div></div>
-    </div>
-  </aside>
-  <header class="topbar">
-    <img src="assets/logo-shema.png" alt="Shema" />
-    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">YS</span>
-  </header>
-  <main class="main">
-    <div class="main-inner wide">
+<body class="has-stage">
+<div class="stage">
+  <aside class="stage-info"><a href="index.html" class="stage-back">← Semua layar</a><img src="assets/logo-shema.png" alt="" /><div class="stage-title">Panel Pembinaan</div><p>Pratinjau aplikasi mobile Shema (target React Native). Ketuk elemen di dalam ponsel seperti di aplikasi asli.</p></aside>
+  <div class="device">
+    <div class="statusbar"><span class="sb-time">9:41</span><span class="sb-island"></span><span class="sb-icons"><svg width="18" height="11" viewBox="0 0 18 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="6" rx="1"/><rect x="10" y="2.5" width="3" height="8.5" rx="1"/><rect x="15" y="0" width="3" height="11" rx="1"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .4 10.4 10.4 0 0 0 .8 3.3L2 4.6a8.6 8.6 0 0 1 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3L12.6 6a6.6 6.6 0 0 0-9.2 0l1.2 1.1C5.5 6.3 6.7 5.8 8 5.8zm0 3.5 1.9-1.9a2.7 2.7 0 0 0-3.8 0z"/></svg><span class="sb-batt"><i></i></span></span></div>
+    
+    <main class="screen"><div class="main-inner">
 
 
-      <div class="page-hero" data-reveal>
-        <div>
-          <p class="hero-eyebrow"><i data-lucide="shield-check" style="width:13px;height:13px;"></i>Coach</p>
-          <h1>Panel Pembinaan</h1>
-          <p class="hero-sub">Membina 2 Care Group</p>
-        </div>
-        
-      </div>
-      <div class="tab-bar" data-tabs="coach">
-        <button class="tab-btn active" data-tab-btn="cg">CG Binaan</button>
-        <button class="tab-btn" data-tab-btn="jadwal">Jadwal Pembinaan</button>
-        <button class="tab-btn" data-tab-btn="statistik">Statistik</button>
-      </div>
-      <div class="tab-panel active" data-tab-panel="cg" data-tabs-for="coach">
-        <div class="card" data-reveal>
-          <div class="flex items-center gap-3" style="margin-bottom:8px;"><img src="https://picsum.photos/seed/kasih-setia-thumb/80/80" style="width:48px;height:48px;border-radius:12px;object-fit:cover;" alt="" /><div class="flex-1"><p class="row-title">0101 · Care Group "Kasih Setia"</p><p class="row-sub">Leader: Andra Wijaya · 7 anggota</p></div><span class="badge badge-ink">Persekutuan</span></div>
-          <details><summary class="link-accent text-sm" style="cursor:pointer;">Lihat semua anggota &amp; peran</summary><ul class="row-list" style="margin-top:10px;"><li class="row"><span class="avatar avatar-sm">AW</span><span class="row-title flex-1">Andra Wijaya</span><span class="badge badge-brand">Leader</span></li><li class="row"><span class="avatar avatar-sm">BL</span><span class="row-title flex-1">Bunga Lestari</span><span class="badge badge-good">Pengurus CG</span></li></ul></details>
-        </div>
-        <div class="card" data-reveal><div class="flex items-center gap-3"><img src="https://picsum.photos/seed/sukacita-thumb/80/80" style="width:48px;height:48px;border-radius:12px;object-fit:cover;" alt="" /><div class="flex-1"><p class="row-title">0201 · Care Group "Sukacita"</p><p class="row-sub">Leader: Hana Puspita · 3 anggota</p></div><span class="badge badge-ink">Kegiatan</span></div></div>
-      </div>
-      <div class="tab-panel" data-tab-panel="jadwal" data-tabs-for="coach">
-        <div class="card" data-reveal><div class="section-title">Buat jadwal pembinaan</div><div class="field" style="margin-bottom:12px;"><label>Judul</label><input class="input" placeholder="Pembinaan Leader Triwulan" /></div><button class="btn btn-primary" style="float:right;"><i data-lucide="plus"></i>Tambah</button><div style="clear:both;"></div></div>
-      </div>
-      <div class="tab-panel" data-tab-panel="statistik" data-tabs-for="coach">
-        <div class="bento">
-          <div class="bento-tile bg-dark b-3" data-reveal><div class="deco-ring"></div><p class="tabular" style="font-family:var(--font-display);font-size:30px;font-weight:600;"><span data-count="2">0</span></p><p class="text-sm muted">Care Group</p></div>
-          <div class="bento-tile bg-brand b-3" data-reveal><div class="deco-ring"></div><p class="tabular" style="font-family:var(--font-display);font-size:30px;font-weight:600;"><span data-count="10">0</span></p><p class="text-sm muted">Total anggota</p></div>
-        </div>
-        <div class="card" data-reveal><ul class="row-list"><li class="row"><span class="row-title flex-1">Care Group "Kasih Setia"</span><span class="badge badge-ink">Kehadiran 81%</span></li><li class="row"><span class="row-title flex-1">Care Group "Sukacita"</span><span class="badge badge-ink">Belum ada data</span></li></ul></div>
-      </div>
-
-    </div>
-  </main>
-  <nav class="bottom-nav"><div class="bottom-nav-list">
-        <a href="coach-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
-        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
-        <a href="temu-firman.html" class="bottom-nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
-        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
-        <a href="jadwal.html" class="bottom-nav-item"><i data-lucide="calendar-days"></i>Jadwal</a>
-        <a href="doa.html" class="bottom-nav-item"><i data-lucide="heart-handshake"></i>Doa</a>
-        <a href="profil.html" class="bottom-nav-item"><i data-lucide="circle-user"></i>Profil</a>
-        <a href="coach-admin.html" class="bottom-nav-item active"><i data-lucide="shield-check"></i>Admin</a></div></nav>
+<div class="page-hero" data-reveal><div><div class="hero-eyebrow">Coach</div><h1>Panel Pembinaan</h1><p class="hero-sub">Membina 2 Care Group.</p></div><span class="ico-sq g-purple hero-ico"><i data-lucide="compass"></i></span></div>
+<div class="tab-bar" data-tabs="cp"><button class="tab-btn active" data-tab-btn="cg">CG Binaan</button><button class="tab-btn" data-tab-btn="jadwal">Jadwal Pembinaan</button><button class="tab-btn" data-tab-btn="statistik">Statistik</button></div>
+<div class="tab-panel active" data-tab-panel="cg" data-tabs-for="cp"><div class="flex-col gap-3" style="display:flex"><div class="card "><div class="flex items-center justify-between gap-2"><div><div class="row-title" style="font-size:15px">0101 · Care Group "Kasih Setia"</div><div class="row-sub">Leader: Andra Wijaya · 7 anggota</div></div><span class="badge b-ink">Komunitas Persekutuan</span></div>
+    <details class="rekap" style="margin-top:12px"><summary class="link text-sm" style="cursor:pointer">Lihat semua anggota &amp; peran</summary><div class="row-list" style="margin-top:10px"><div class="row" style="padding:9px 0"><span class="avatar av-sm av-purple">AW</span><span class="flex-1 text-sm" style="font-weight:600;color:var(--navy-900)">Andra Wijaya</span><span class="badge b-blue">Leader</span></div><div class="row" style="padding:9px 0"><span class="avatar av-sm av-orange">BL</span><span class="flex-1 text-sm" style="font-weight:600;color:var(--navy-900)">Bunga Lestari</span><span class="badge b-green">Pengurus CG</span></div><div class="row" style="padding:9px 0"><span class="avatar av-sm av-red">CT</span><span class="flex-1 text-sm" style="font-weight:600;color:var(--navy-900)">Calvin Tanto</span><span class="badge b-ink">Anggota</span></div><div class="row" style="padding:9px 0"><span class="avatar av-sm av-red">DA</span><span class="flex-1 text-sm" style="font-weight:600;color:var(--navy-900)">Dinda Ayu</span><span class="badge b-ink">Anggota</span></div><div class="row" style="padding:9px 0"><span class="avatar av-sm av-green">ES</span><span class="flex-1 text-sm" style="font-weight:600;color:var(--navy-900)">Erik Susanto</span><span class="badge b-ink">Anggota</span></div><div class="row" style="padding:9px 0"><span class="avatar av-sm av-red">FH</span><span class="flex-1 text-sm" style="font-weight:600;color:var(--navy-900)">Felicia Halim</span><span class="badge b-ink">Anggota</span></div><div class="row" style="padding:9px 0"><span class="avatar av-sm av-orange">GP</span><span class="flex-1 text-sm" style="font-weight:600;color:var(--navy-900)">Gilbert Prakoso</span><span class="badge b-ink">Anggota Baru</span></div></div></details></div><div class="card "><div class="flex items-center justify-between gap-2"><div><div class="row-title" style="font-size:15px">0201 · Care Group "Sukacita"</div><div class="row-sub">Leader: Hana Puspita · 3 anggota</div></div><span class="badge b-ink">Komunitas Kegiatan</span></div>
+    <details class="rekap" style="margin-top:12px"><summary class="link text-sm" style="cursor:pointer">Lihat semua anggota &amp; peran</summary><div class="row-list" style="margin-top:10px"><div class="row" style="padding:9px 0"><span class="avatar av-sm av-red">HP</span><span class="flex-1 text-sm" style="font-weight:600;color:var(--navy-900)">Hana Puspita</span><span class="badge b-blue">Leader</span></div><div class="row" style="padding:9px 0"><span class="avatar av-sm av-orange">IK</span><span class="flex-1 text-sm" style="font-weight:600;color:var(--navy-900)">Indra Kusuma</span><span class="badge b-ink">Anggota</span></div><div class="row" style="padding:9px 0"><span class="avatar av-sm av-orange">JA</span><span class="flex-1 text-sm" style="font-weight:600;color:var(--navy-900)">Joyce Aritonang</span><span class="badge b-ink">Anggota</span></div></div></details></div></div></div><div class="tab-panel" data-tab-panel="jadwal" data-tabs-for="cp"><div class="flex-col gap-3" style="display:flex">
+    <div class="card "><div class="section-title"><span>Buat Jadwal Pembinaan</span></div><p class="text-sm muted" style="margin-bottom:14px">Untuk pertemuan pembinaan dengan Leader, Kandidat Leader, Calon Leader, atau Pengurus CG yang kamu bina.</p><form class="flex-col gap-3" style="display:flex" onsubmit="return false"><div class="field"><label>Judul</label><input class="input" value="" placeholder="Pembinaan Leader Triwulan"  /></div><div class="field-grid"><div class="field"><label>Tanggal</label><input class="input" type="date" /></div><div class="field"><label>Jam</label><input class="input" value="" placeholder="19:00"  /></div></div><div class="field"><label>Lokasi</label><input class="input" value="" placeholder=""  /></div><div class="field"><label>Untuk Siapa (opsional)</label><input class="input" value="" placeholder="Leader &amp; Kandidat Leader CG Kasih Setia"  /></div><div class="field"><label>Catatan (opsional)</label><input class="input" value="" placeholder=""  /></div><button type="button" class="btn btn-primary sp-end"><i data-lucide="plus"></i> Tambah</button></form></div>
+    <div class="flex-col gap-2" style="display:flex"><div class="card "><div class="row-title" style="font-size:15px">First Coaching</div><div class="row-sub">Rabu, 12 Agustus 2026, 18:00 · Ruang 2, GKI Gejayan</div><p class="text-sm" style="margin-top:6px">Tiap Selasa</p></div><div class="card "><div class="row-title" style="font-size:15px">First Coaching</div><div class="row-sub">Rabu, 19 Agustus 2026, 18:00 · Ruang 2, GKI Gejayan</div><p class="text-sm" style="margin-top:6px">Tiap Selasa</p></div><div class="card "><div class="row-title" style="font-size:15px">Second Coaching + Latihan Care Group</div><div class="row-sub">Kamis, 27 Agustus 2026, 19:00 · Ruang 3, GKI Gejayan</div></div></div></div></div><div class="tab-panel" data-tab-panel="statistik" data-tabs-for="cp"><div class="flex-col gap-3" style="display:flex">
+    <div class="card "><div class="section-title"><span>Ringkasan Semua CG Binaan</span></div><div class="grid-2"><div class="stat-tile"><div class="num" data-count="2">2</div><div class="label">Care Group</div></div><div class="stat-tile"><div class="num" data-count="10">10</div><div class="label">Total Anggota</div></div></div>
+    <div class="row-list" style="margin-top:16px"><div class="row"><span class="flex-1 flex items-center gap-2 text-sm" style="font-weight:600;color:var(--navy-900)"><i data-lucide="users" class="inl"></i> Care Group "Kasih Setia"</span><span class="badge b-blue">Kehadiran 81%</span></div><div class="row"><span class="flex-1 flex items-center gap-2 text-sm" style="font-weight:600;color:var(--navy-900)"><i data-lucide="users" class="inl"></i> Care Group "Sukacita"</span><span class="badge b-ink">Belum ada data</span></div></div></div>
+    <div class="card " data-reveal><div class="section-title"><span>Bertumbuh (Kehadiran CG) — Gabungan</span></div>
+  <div class="flex items-center gap-3"><span class="ico-sq g-orange"><i data-lucide="trending-up"></i></span><p class="text-sm" style="color:var(--ink-700)"><strong style="color:var(--navy-900);font-size:18px">0</strong> dari 10 anggota sudah mencapai minimal satu tingkat.</p></div>
+  
+  </div>
+    <div class="card " data-reveal><div class="section-title"><span>Beranting (Mengajak Orang Baru) — Gabungan</span></div>
+  <div class="flex items-center gap-3"><span class="ico-sq g-blue"><i data-lucide="user-plus"></i></span><p class="text-sm" style="color:var(--ink-700)"><strong style="color:var(--navy-900);font-size:18px">1</strong> dari 10 anggota sudah mencapai minimal satu tingkat.</p></div>
+  <div class="flex wrap gap-1" style="margin-top:12px"><span class="badge b-coklat">Mulai Beranting: 1</span></div>
+  </div>
+    <div class="card " data-reveal><div class="section-title"><span>Berakar (Baca Alkitab Harian) — Gabungan</span></div>
+  <div class="flex items-center gap-3"><span class="ico-sq g-green"><i data-lucide="book-marked"></i></span><p class="text-sm" style="color:var(--ink-700)"><strong style="color:var(--navy-900);font-size:18px">1</strong> dari 2 anggota (dari 10 total) sudah mencapai minimal satu tingkat.</p></div>
+  <div class="flex wrap gap-1" style="margin-top:12px"><span class="badge b-coklat">Mulai Berakar: 1</span></div>
+  <p class="hint" style="margin-top:10px">Hanya menghitung anggota yang sudah punya akun login (2 dari 10 anggota) — Baca Alkitab bersifat pribadi lewat akun masing-masing.</p></div></div></div>
+    </div></main>
+    <nav class="tabbar"><a class="tab" href="coach-home.html"><i data-lucide="house"></i><span>Home</span></a><a class="tab" href="program-cg-info.html"><i data-lucide="users"></i><span>Care Group</span></a><a class="tab" href="temu-firman.html"><i data-lucide="book-open-text"></i><span>Firman</span></a><a class="tab active" href="coach-admin.html"><i data-lucide="shield-check"></i><span>Admin</span></a><a class="tab" href="profil.html"><i data-lucide="circle-user"></i><span>Profil</span></a></nav>
+    <div class="home-indicator"></div>
+    
+  </div>
 </div>
-
-<script src="assets/app.js"></script>
 </body>
 </html>

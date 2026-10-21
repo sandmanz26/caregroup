@@ -2,300 +2,195 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Program Care Group · Shema v3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0A2766" />
+<title>Program CG · Shema</title>
 <link rel="icon" type="image/png" href="assets/logo-shema.png" />
 <link rel="stylesheet" href="assets/styles.css" />
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script defer src="assets/app.js"></script>
 </head>
-<body>
-<div class="app-shell">
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <img src="assets/logo-shema.png" alt="Shema" />
-      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
-    </div>
-    <nav class="nav-list">
-      <a href="member-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
-      <a href="program-cg.html" class="nav-item active"><i data-lucide="users"></i>Program CG</a>
-      <a href="temu-firman.html" class="nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
-      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
-      <a href="profil.html" class="nav-item"><i data-lucide="circle-user"></i>Profil</a></nav>
-    <div class="sidebar-user">
-      <span class="avatar-square">CT</span>
-      <div><div class="name">Calvin Tanto</div><div class="role">Anggota</div></div>
-    </div>
-  </aside>
-  <header class="topbar">
-    <img src="assets/logo-shema.png" alt="Shema" />
-    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">CT</span>
-  </header>
-  <main class="main">
-    <div class="main-inner">
+<body class="has-stage">
+<div class="stage">
+  <aside class="stage-info"><a href="index.html" class="stage-back">← Semua layar</a><img src="assets/logo-shema.png" alt="" /><div class="stage-title">Program CG</div><p>Pratinjau aplikasi mobile Shema (target React Native). Ketuk elemen di dalam ponsel seperti di aplikasi asli.</p></aside>
+  <div class="device">
+    <div class="statusbar"><span class="sb-time">9:41</span><span class="sb-island"></span><span class="sb-icons"><svg width="18" height="11" viewBox="0 0 18 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="6" rx="1"/><rect x="10" y="2.5" width="3" height="8.5" rx="1"/><rect x="15" y="0" width="3" height="11" rx="1"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .4 10.4 10.4 0 0 0 .8 3.3L2 4.6a8.6 8.6 0 0 1 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3L12.6 6a6.6 6.6 0 0 0-9.2 0l1.2 1.1C5.5 6.3 6.7 5.8 8 5.8zm0 3.5 1.9-1.9a2.7 2.7 0 0 0-3.8 0z"/></svg><span class="sb-batt"><i></i></span></span></div>
+    
+    <main class="screen"><div class="main-inner">
 
-
-      <div class="page-hero" data-reveal>
-        <div>
-          <p class="hero-eyebrow"><i data-lucide="users" style="width:13px;height:13px;"></i>Komunitas Persekutuan</p>
-          <h1>Care Group "Kasih Setia"</h1>
-          <p class="hero-sub">&ldquo;Bersekutu, melayani, bertumbuh — bersama selalu lebih baik.&rdquo;</p>
-        </div>
-        <div class="avatar-stack"><span class="avatar avatar-md avatar-brand">AW</span><span class="avatar avatar-md">BL</span><span class="avatar avatar-md">CT</span><span class="avatar avatar-md avatar-more">+4</span></div>
-      </div>
-
-      <div class="card" data-reveal>
-        <div class="shortcuts">
-          <button class="shortcut" data-open-sheet="sheet-cg-info"><span class="sc-ico g-blue"><i data-lucide="info"></i></span>Info Umum</button>
-          <button class="shortcut" data-open-sheet="sheet-cg-jobdesk"><span class="sc-ico g-purple"><i data-lucide="clipboard-list"></i></span>Jobdesk Peran</button>
-          <button class="shortcut" data-open-sheet="sheet-cg-anggota"><span class="sc-ico g-green"><i data-lucide="users"></i></span>Anggota</button>
-          <button class="shortcut" data-open-sheet="sheet-cg-kehadiran"><span class="sc-ico g-orange"><i data-lucide="calendar-check"></i></span>Kehadiran</button>
-          <button class="shortcut" data-open-sheet="sheet-cg-pertumbuhan"><span class="sc-ico g-red"><i data-lucide="trending-up"></i></span>Pertumbuhanku</button>
-          <button class="shortcut" data-open-sheet="sheet-cg-materi"><span class="sc-ico g-teal"><i data-lucide="book-open"></i></span>Materi</button>
-        </div>
-        <p class="text-sm muted" style="text-align:center;margin-top:16px;">Ketuk ikon untuk melihat penjelasan lengkapnya.</p>
-      </div>
-
-      <div class="bento">
-        <div class="bento-tile bg-brand b-3" data-reveal>
-          <div class="deco-ring"></div>
-          <p class="eyebrow" style="color:#FFD9A8;position:relative;">Pertemuan berikutnya</p>
-          <p class="row-title" style="color:#fff;position:relative;margin-top:4px;">Bertumbuh dalam Firman</p>
-          <p class="text-sm" style="position:relative;opacity:.9;margin-top:4px;">Hari ini, 19:00 · Rumah Kel. Santoso</p>
-        </div>
-        <div class="bento-tile b-3" data-reveal>
-          <p class="eyebrow">Kehadiran rata-rata CG</p>
-          <p style="font-family:var(--font-display);font-size:34px;font-weight:600;" class="tabular"><span data-count="81" data-suffix="%">0</span></p>
-          <div class="progress-track"><div class="progress-fill" style="width:81%"></div></div>
-        </div>
-      </div>
-
-    </div>
-  </main>
-  <nav class="bottom-nav"><div class="bottom-nav-list">
-        <a href="member-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
-        <a href="program-cg.html" class="bottom-nav-item active"><i data-lucide="users"></i>Program CG</a>
-        <a href="temu-firman.html" class="bottom-nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
-        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
-        <a href="profil.html" class="bottom-nav-item"><i data-lucide="circle-user"></i>Profil</a></div></nav>
+<div data-reveal><div class="eyebrow">Komunitas Persekutuan</div><h1 class="page-title">Care Group "Kasih Setia"</h1></div>
+<div class="cg-hero" data-reveal>
+  <p class="scripture" style="font-size:18px;color:#fff;position:relative;z-index:2">&ldquo;Bersekutu, melayani, bertumbuh — bersama selalu lebih baik.&rdquo;</p>
+  <div class="cg-facts">
+    <span><i data-lucide="users" class="inl"></i> Leader: <strong>Andra Wijaya</strong> · 1 pengurus</span>
+    <span><i data-lucide="calendar-days" class="inl"></i> Rabu, 19:00 · 2x per bulan</span>
+    <span><i data-lucide="map-pin" class="inl"></i> Rumah Kel. Santoso, Jl. Gejayan No. 12</span>
+  </div>
+  <div class="flex wrap gap-1" style="margin-top:14px;position:relative;z-index:2"><span class="badge b-glass">0101</span><span class="badge b-glass">Anggota cukup</span><span class="badge b-glass">Kehadiran rata-rata 81%</span></div>
 </div>
-
-
-      <div id="sheet-cg-info" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Care Group</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Info Umum</h3>
-
-          <div class="section-title">Apa itu Care Group?</div>
-          <p class="text-sm" style="margin-bottom:16px;">Care Group (CG) adalah komunitas hidup yang bersekutu, melayani, dan berjalan bersama dalam kehidupan sehari-hari. Setiap orang diharapkan masuk dalam salah satu Care Group.</p>
-          <div class="section-title">Aturan &amp; penamaan</div>
-          <ul class="text-sm" style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
-            <li>Satu CG beranggotakan minimal 4 dan maksimal 15 orang; setelah penuh, CG membelah menjadi dua.</li>
-            <li>Setiap CG mendapat kode &ldquo;KKNN&rdquo;: 2 digit kategori + 2 digit nomor urut.</li>
-            <li>First &amp; Second Coaching diadakan tiap minggu; training lain paling lambat 3 bulan sekali.</li>
-          </ul>
-          <div class="section-title">Daftar Care Group</div>
-          <ul class="row-list">
-            <li class="row"><img src="https://picsum.photos/seed/kasih-setia-thumb/72/72" style="width:38px;height:38px;border-radius:10px;object-fit:cover;" alt="" /><div class="flex-1"><p class="row-title">0101 · Care Group "Kasih Setia"</p><p class="row-sub">Leader: Andra Wijaya · 7 anggota</p></div><span class="badge badge-good">Anggota cukup</span></li>
-            <li class="row"><img src="https://picsum.photos/seed/sukacita-thumb/72/72" style="width:38px;height:38px;border-radius:10px;object-fit:cover;" alt="" /><div class="flex-1"><p class="row-title">0201 · Care Group "Sukacita"</p><p class="row-sub">Leader: Hana Puspita · 3 anggota</p></div><span class="badge badge-coklat">Kekurangan anggota</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="sheet-cg-jobdesk" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Care Group</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Jobdesk Peran</h3>
-
-          <ul class="row-list">
-            <li class="row"><div><p class="row-title">Anggota</p><p class="row-sub">Mengikuti pertemuan rutin CG dan bertumbuh bersama anggota lain.</p></div></li>
-            <li class="row"><div style="width:100%;">
-              <div class="flex items-center gap-2" style="margin-bottom:2px;"><p class="row-title">Pengurus CG</p><span class="new-tag">Baru</span><span class="badge badge-good"><i data-lucide="pencil" style="width:11px;height:11px;"></i>Diatur Leader</span></div>
-              <p class="row-sub">Membantu Leader menghidupkan Care Group dengan berbagai kegiatan CG-nya.</p>
-              <ul class="text-sm" style="margin:8px 0 0 16px;list-style:disc;color:var(--ink-700);display:flex;flex-direction:column;gap:4px;">
-                <li>Menyiapkan tempat dan konsumsi pertemuan</li><li>Mengingatkan jadwal &amp; menyambut anggota baru</li><li>Membantu mencatat kehadiran bersama Leader</li>
-              </ul>
-              <p class="text-sm muted" style="margin-top:8px;font-size:12px;">Isi jobdesk ini disusun dan bisa diedit oleh Leader CG-mu.</p>
-            </div></li>
-            <li class="row"><div><p class="row-title">Calon Leader</p><p class="row-sub">Anggota yang mulai dipersiapkan dan dibina untuk memimpin CG.</p></div></li>
-            <li class="row"><div><p class="row-title">Kandidat Leader</p><p class="row-sub">Calon leader yang sudah mengikuti training kepemimpinan dan siap ditempatkan.</p></div></li>
-            <li class="row"><div><p class="row-title">Leader</p><p class="row-sub">Memimpin satu CG — memelihara spiritualitas anggota dan menggerakkan pelayanan.</p></div></li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="sheet-cg-anggota" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Care Group</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">7 Anggota</h3>
-
-          <div class="section-title">Ulang tahun terdekat</div>
-          <ul class="row-list" style="margin-bottom:16px;"><li class="row"><span class="avatar avatar-sm">FH</span><span class="row-title flex-1">Felicia Halim</span><span class="text-sm muted flex items-center gap-1"><i data-lucide="cake" style="width:14px;height:14px;"></i>1 hari lagi</span></li></ul>
-          <ul class="row-list">
-            <li class="row"><span class="avatar avatar-sm">AW</span><span class="row-title flex-1">Andra Wijaya</span><span class="badge badge-brand">Leader</span></li>
-            <li class="row"><span class="avatar avatar-sm">BL</span><span class="row-title flex-1">Bunga Lestari</span><span class="badge badge-good">Pengurus CG</span></li>
-            <li class="row"><span class="avatar avatar-sm">CT</span><span class="row-title flex-1">Calvin Tanto</span><span class="badge badge-ink">Anggota</span></li>
-            <li class="row"><span class="avatar avatar-sm">DA</span><span class="row-title flex-1">Dinda Ayu</span><span class="badge badge-ink">Anggota</span></li>
-            <li class="row"><span class="avatar avatar-sm">ES</span><span class="row-title flex-1">Erik Susanto</span><span class="badge badge-ink">Anggota</span></li>
-            <li class="row"><span class="avatar avatar-sm">FH</span><span class="row-title flex-1">Felicia Halim</span><span class="badge badge-ink">Anggota</span></li>
-            <li class="row"><span class="avatar avatar-sm">GP</span><span class="row-title flex-1">Gilbert Prakoso</span><span class="badge badge-ink">Anggota Baru</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="sheet-cg-kehadiran" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Care Group</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Kehadiran</h3>
-
-          <p class="text-sm muted" style="margin-bottom:12px;">Diisi oleh Leader — kamu hanya bisa melihat.</p>
-          <div class="card" style="margin-bottom:10px;box-shadow:none;border:1px solid var(--cream-200);"><div class="flex items-center justify-between"><div><p class="row-title">Bertumbuh dalam Firman</p><p class="row-sub">Kamis, 13 Agustus 2026</p></div><span class="badge badge-ink">0/7 hadir</span></div></div>
-          <div class="card" style="margin-bottom:10px;box-shadow:none;border:1px solid var(--cream-200);"><div class="flex items-center justify-between"><div><p class="row-title">Doa &amp; Sharing Singkat</p><p class="row-sub">Minggu, 9 Agustus 2026</p></div><span class="badge badge-good"><i data-lucide="check" style="width:12px;height:12px;"></i>Kamu hadir</span></div></div>
-          <button class="btn btn-ghost btn-block">Tampilkan lebih banyak</button>
-        </div>
-      </div>
-
-      <div id="sheet-cg-pertumbuhan" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Care Group</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Pertumbuhanku</h3>
-
-          <div class="journey-row" style="grid-template-columns:repeat(2,1fr);margin-bottom:16px;">
-            <div class="j-card" data-open-sheet="sheet-j-growing"><img src="assets/journey-growing.svg" alt="" /><div class="j-name">🌳 Bertumbuh</div><div class="j-en">Growing Journey</div><div class="progress-track"><div class="progress-fill" style="width:50%"></div></div><div class="j-meta">Mulai Bertumbuh · 2/4 hadir</div></div>
-            <div class="j-card" data-open-sheet="sheet-j-branching"><img src="assets/journey-branching.svg" alt="" /><div class="j-name">🌿 Beranting</div><div class="j-en">Branching Journey</div><div class="progress-track"><div class="progress-fill" style="width:0%"></div></div><div class="j-meta">Belum dimulai · 0/2 orang</div></div>
-          </div>
-          <div class="section-title">Ajak orang baru</div>
-          <div class="flex gap-2"><input class="input" placeholder="Nama orang yang diajak" /><button class="btn btn-primary"><i data-lucide="user-plus"></i>Tambah</button></div>
-        </div>
-      </div>
-
-      <div id="sheet-cg-materi" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Care Group</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">Materi</h3>
-
-          <ul class="row-list">
-            <li class="row"><div><p class="row-sub">Minggu ke-1 Agustus</p><p class="row-title">Bertumbuh dalam Firman</p><p class="text-sm link-accent">Mazmur 1:2-3</p></div></li>
-            <li class="row"><div><p class="row-sub">Minggu ke-4 Juli</p><p class="row-title">Melayani Bersama</p><p class="text-sm link-accent">1 Petrus 4:10</p></div></li>
-            <li class="row"><div><p class="row-sub">Minggu ke-2 Juli</p><p class="row-title">Bersekutu dalam Kasih</p><p class="text-sm link-accent">Yohanes 13:34-35</p></div></li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="sheet-j-rooted" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Faithful Journey</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">🌱 Perjalanan Berakar</h3>
-
-          <div class="journey-hero">
-            <img src="assets/journey-rooted.svg" alt="Rooted Journey" />
-            <div>
-              <p class="row-title" style="font-size:16px;">Rooted Journey</p>
-              <p class="text-sm muted" style="margin-top:2px;">Kesan: kuat, kokoh, berakar dalam Kristus</p>
-              <p class="text-sm" style="margin-top:8px;font-weight:700;color:var(--brand-600);">Mulai Berakar · 5/25 hari</p>
-            </div>
-          </div>
-          <p class="text-sm" style="margin-bottom:14px;">Dihitung dari Temu Firman (membaca Alkitab) setiap hari.</p>
-          <div class="section-title" style="margin-bottom:10px;">Tangga perjalanan</div>
-          <div class="ladder-track">
-            <div class="ladder-item current"><p class="row-title">Mulai Berakar</p><p class="row-sub">25× / 1 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Berakar</p><p class="row-sub">75–90× / 3 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Berakar Dalam</p><p class="row-sub">300–360× / 1 tahun</p></div>
-            <div class="ladder-item "><p class="row-title">Berakar Kuat</p><p class="row-sub">900–1080× / 3 tahun</p></div>
-            <div class="ladder-item "><p class="row-title">Berakar Kokoh</p><p class="row-sub">>1080× / 3 tahun</p></div>
-          </div>
-        </div>
-      </div>
-      <div id="sheet-j-branching" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Faithful Journey</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">🌿 Perjalanan Beranting</h3>
-
-          <div class="journey-hero">
-            <img src="assets/journey-branching.svg" alt="Branching Journey" />
-            <div>
-              <p class="row-title" style="font-size:16px;">Branching Journey</p>
-              <p class="text-sm muted" style="margin-top:2px;">Kesan: berkembang dan membawa orang lain</p>
-              <p class="text-sm" style="margin-top:8px;font-weight:700;color:var(--brand-600);">Belum dimulai · 0/2 orang</p>
-            </div>
-          </div>
-          <p class="text-sm" style="margin-bottom:14px;">Dihitung dari orang yang kamu ajak bergabung ke Care Group.</p>
-          <div class="section-title" style="margin-bottom:10px;">Tangga perjalanan</div>
-          <div class="ladder-track">
-            <div class="ladder-item current"><p class="row-title">Mulai Beranting</p><p class="row-sub">2 orang / 3 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Beranting</p><p class="row-sub">4 orang / 6 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Beranting Lebat</p><p class="row-sub">8 orang / 1 tahun</p></div>
-            <div class="ladder-item "><p class="row-title">Beranting Sehat</p><p class="row-sub">9 orang / 3 tahun</p></div>
-          </div>
-        </div>
-      </div>
-      <div id="sheet-j-growing" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Faithful Journey</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">🌳 Perjalanan Bertumbuh</h3>
-
-          <div class="journey-hero">
-            <img src="assets/journey-growing.svg" alt="Growing Journey" />
-            <div>
-              <p class="row-title" style="font-size:16px;">Growing Journey</p>
-              <p class="text-sm muted" style="margin-top:2px;">Kesan: proses pertumbuhan pribadi</p>
-              <p class="text-sm" style="margin-top:8px;font-weight:700;color:var(--brand-600);">Mulai Bertumbuh · 2/4 hadir</p>
-            </div>
-          </div>
-          <p class="text-sm" style="margin-bottom:14px;">Dihitung dari kehadiran Care Group dan Temu Firman.</p>
-          <div class="section-title" style="margin-bottom:10px;">Tangga perjalanan</div>
-          <div class="ladder-track">
-            <div class="ladder-item current"><p class="row-title">Mulai Bertumbuh</p><p class="row-sub">4× / 3 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Bertumbuh</p><p class="row-sub">10–12× / 6 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Bertumbuh Kuat</p><p class="row-sub">20–24× / 1 tahun</p></div>
-            <div class="ladder-item "><p class="row-title">Bertumbuh Sehat</p><p class="row-sub">60–72× / 3 tahun</p></div>
-            <div class="ladder-item "><p class="row-title">Bertumbuh Kokoh</p><p class="row-sub">73× / 3 tahun</p></div>
-          </div>
-        </div>
-      </div>
-      <div id="sheet-j-fruitful" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Faithful Journey</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">🍎 Perjalanan Berbuah</h3>
-
-          <div class="journey-hero">
-            <img src="assets/journey-fruitful.svg" alt="Fruitful Journey" />
-            <div>
-              <p class="row-title" style="font-size:16px;">Fruitful Journey</p>
-              <p class="text-sm muted" style="margin-top:2px;">Kesan: menghasilkan buah nyata</p>
-              <p class="text-sm" style="margin-top:8px;font-weight:700;color:var(--brand-600);">Tahap 2 dari 6 · Member Aktif</p>
-            </div>
-          </div>
-          <p class="text-sm" style="margin-bottom:14px;">Terjadi saat kamu bertumbuh menjadi Leader.</p>
-          <div class="section-title" style="margin-bottom:10px;">Tangga perjalanan</div>
-          <div class="ladder-track">
-            <div class="ladder-item current"><p class="row-title">Member → Member Aktif</p></div>
-            <div class="ladder-item "><p class="row-title">Pengurus CG</p></div>
-            <div class="ladder-item "><p class="row-title">Calon Leader</p></div>
-            <div class="ladder-item "><p class="row-title">Kandidat Leader</p></div>
-            <div class="ladder-item "><p class="row-title">Leader</p></div>
-          </div>
-        </div>
-      </div>
-<script src="assets/app.js"></script>
+<div class="card" data-reveal>
+  <div class="shortcuts cols-3"><button type="button" class="shortcut" data-open-sheet="sh-info"><span class="sc-ico g-teal"><i data-lucide="info"></i></span><span>Info Umum</span></button><button type="button" class="shortcut" data-open-sheet="sh-jobdesk"><span class="sc-ico g-purple"><i data-lucide="clipboard-list"></i></span><span>Jobdesk Peran</span></button><button type="button" class="shortcut" data-open-sheet="sh-anggota"><span class="sc-ico g-blue"><i data-lucide="users"></i></span><span>Anggota</span></button><button type="button" class="shortcut" data-open-sheet="sh-kehadiran"><span class="sc-ico g-green"><i data-lucide="calendar-check"></i></span><span>Kehadiran</span></button><button type="button" class="shortcut" data-open-sheet="sh-pertumbuhan"><span class="sc-ico g-orange"><i data-lucide="trending-up"></i></span><span>Pertumbuhanku</span></button><button type="button" class="shortcut" data-open-sheet="sh-materi"><span class="sc-ico g-magenta"><i data-lucide="book-open"></i></span><span>Materi</span></button></div>
+  <p class="hint" style="text-align:center;margin-top:18px">Ketuk ikon untuk melihat penjelasan lengkapnya.</p>
+</div>
+    </div></main>
+    <nav class="tabbar"><a class="tab" href="member-home.html"><i data-lucide="house"></i><span>Home</span></a><a class="tab active" href="program-cg.html"><i data-lucide="users"></i><span>Care Group</span></a><a class="tab" href="temu-firman.html"><i data-lucide="book-open-text"></i><span>Firman</span></a><a class="tab" href="presensi.html"><i data-lucide="hand-helping"></i><span>Presensi</span></a><a class="tab" href="profil.html"><i data-lucide="circle-user"></i><span>Profil</span></a></nav>
+    <div class="home-indicator"></div>
+    
+<div class="sheet-overlay" id="sh-info" style="display:none">
+  <div class="sheet lg">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Info Umum</h3>
+    
+<div class="card "><div class="section-title"><span>Apa itu Care Group?</span></div><p class="text-sm">Care Group (CG) adalah komunitas hidup yang bersekutu, melayani, dan berjalan bersama dalam kehidupan sehari-hari. Setiap orang diharapkan masuk dalam salah satu Care Group.</p></div>
+<div class="card "><div class="section-title"><span>Aturan &amp; Penamaan</span></div><ul class="flex-col gap-2" style="display:flex;font-size:13.5px"><li>Satu Care Group beranggotakan minimal 4 dan maksimal 15 orang. Setelah mencapai batas maksimal, CG diharapkan membelah menjadi dua CG baru agar tetap bertumbuh secara sehat.</li><li>Penamaan CG bebas dan disetujui admin. Setiap CG mendapat kode "KKNN" — 2 digit pertama adalah kode kategori/badan pelayanan, 2 digit berikutnya adalah nomor urut terbentuknya CG dalam kategori tersebut.</li><li>First Coaching dan Second Coaching diadakan tiap minggu. Training gerejawi lainnya diadakan paling lambat 3 bulan sekali.</li></ul></div>
+<div class="card "><div class="section-title"><span>Cara Bergabung</span></div><ol class="flex-col gap-2" style="display:flex;font-size:13.5px"><li class="flex gap-2"><span class="step-num">1</span><span>Hubungi admin utama atau Ketua Komsel untuk menyatakan minat bergabung.</span></li><li class="flex gap-2"><span class="step-num">2</span><span>Pilih atau ditempatkan pada salah satu Care Group yang masih memiliki kuota.</span></li><li class="flex gap-2"><span class="step-num">3</span><span>Ikuti pertemuan CG beberapa kali sebagai peserta sebelum menjadi member resmi.</span></li></ol></div>
+<div class="card "><div class="section-title"><span>Daftar Care Group</span></div><div class="row-list"><div class="row"><div class="flex-1"><div class="row-title">0101 · Care Group "Kasih Setia"</div><div class="row-sub">Leader: Andra Wijaya · 7 anggota</div></div><span class="badge b-green">Anggota cukup</span></div><div class="row"><div class="flex-1"><div class="row-title">0201 · Care Group "Sukacita"</div><div class="row-sub">Leader: Hana Puspita · 3 anggota</div></div><span class="badge b-coklat">Kekurangan anggota</span></div><div class="row"><div class="flex-1"><div class="row-title">0301 · Care Group "Damai Sejahtera"</div><div class="row-sub">Leader: Kevin Halim · 2 anggota</div></div><span class="badge b-coklat">Kekurangan anggota</span></div></div></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-jobdesk" style="display:none">
+  <div class="sheet lg">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Jobdesk Peran</h3>
+    <div class="card "><div class="row-list"><div class="row" style="align-items:flex-start"><span class="ico-sq g-blue sm"><i data-lucide="user"></i></span><div class="flex-1"><div class="row-title flex items-center gap-2 wrap">Anggota</div><div class="row-sub" style="font-size:13.5px">Mengikuti pertemuan rutin CG dan bertumbuh bersama anggota lain.</div></div></div><div class="row" style="align-items:flex-start"><span class="ico-sq g-green sm"><i data-lucide="clipboard-list"></i></span><div class="flex-1"><div class="row-title flex items-center gap-2 wrap">Pengurus CG<span class="badge b-green"><i data-lucide="pencil"></i>Diatur Leader</span></div><ul class="bullets"><li>Membantu Leader menghidupkan Care Group dengan berbagai kegiatannya.</li><li>Menyiapkan tempat dan konsumsi pertemuan.</li><li>Mengingatkan jadwal dan menyambut anggota baru.</li></ul></div></div><div class="row" style="align-items:flex-start"><span class="ico-sq g-orange sm"><i data-lucide="sprout"></i></span><div class="flex-1"><div class="row-title flex items-center gap-2 wrap">Calon Leader</div><div class="row-sub" style="font-size:13.5px">Anggota yang mulai dipersiapkan dan dibina untuk memimpin CG.</div></div></div><div class="row" style="align-items:flex-start"><span class="ico-sq g-purple sm"><i data-lucide="badge-check"></i></span><div class="flex-1"><div class="row-title flex items-center gap-2 wrap">Kandidat Leader</div><div class="row-sub" style="font-size:13.5px">Calon leader yang sudah mengikuti training kepemimpinan dan siap ditempatkan.</div></div></div><div class="row" style="align-items:flex-start"><span class="ico-sq g-navy sm"><i data-lucide="crown"></i></span><div class="flex-1"><div class="row-title flex items-center gap-2 wrap">Leader</div><div class="row-sub" style="font-size:13.5px">Memimpin satu CG — memelihara spiritualitas anggota dan menggerakkan pelayanan.</div></div></div></div>
+  <p class="hint" style="margin-top:14px">Jobdesk Pengurus CG disusun dan diedit oleh Leader CG-mu.</p></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-anggota" style="display:none">
+  <div class="sheet lg">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Anggota</h3>
+    
+<div class="card "><div class="section-title"><span>Ulang Tahun Terdekat</span></div><div class="row-list"><div class="row"><span class="avatar av-sm av-red">FH</span><span class="flex-1 row-title">Felicia Halim</span><span class="badge b-orange"><i data-lucide="cake"></i>1 hari lagi</span></div><div class="row"><span class="avatar av-sm av-purple">AW</span><span class="flex-1 row-title">Andra Wijaya</span><span class="badge b-orange"><i data-lucide="cake"></i>7 hari lagi</span></div><div class="row"><span class="avatar av-sm av-red">CT</span><span class="flex-1 row-title">Calvin Tanto</span><span class="badge b-orange"><i data-lucide="cake"></i>12 hari lagi</span></div></div></div>
+<div class="card "><div class="section-title"><span>7 Anggota</span></div><div class="row-list"><div class="row"><span class="avatar av-md av-purple">AW</span><span class="flex-1 row-title">Andra Wijaya</span><span class="badge b-blue">Leader</span></div><div class="row"><span class="avatar av-md av-orange">BL</span><span class="flex-1 row-title">Bunga Lestari</span><span class="badge b-green">Pengurus CG</span></div><div class="row"><span class="avatar av-md av-red">CT</span><span class="flex-1 row-title">Calvin Tanto</span><span class="badge b-ink">Anggota</span></div><div class="row"><span class="avatar av-md av-red">DA</span><span class="flex-1 row-title">Dinda Ayu</span><span class="badge b-ink">Anggota</span></div><div class="row"><span class="avatar av-md av-green">ES</span><span class="flex-1 row-title">Erik Susanto</span><span class="badge b-ink">Anggota</span></div><div class="row"><span class="avatar av-md av-red">FH</span><span class="flex-1 row-title">Felicia Halim</span><span class="badge b-ink">Anggota</span></div><div class="row"><span class="avatar av-md av-orange">GP</span><span class="flex-1 row-title">Gilbert Prakoso</span><span class="badge b-ink">Anggota Baru</span></div></div></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-kehadiran" style="display:none">
+  <div class="sheet lg">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Kehadiran</h3>
+    <div class="flex-col gap-3" style="display:flex">
+<div class="flex items-center justify-between gap-2 wrap"><span></span><div style="min-width:170px"><select class="input"><option>Semua anggota</option><option>Andra Wijaya</option><option>Bunga Lestari</option><option>Calvin Tanto</option><option>Dinda Ayu</option><option>Erik Susanto</option><option>Felicia Halim</option><option>Gilbert Prakoso</option></select></div></div>
+<div class="card">
+    <div class="flex items-center justify-between gap-2"><div><div class="row-title" style="font-size:15px">Bertumbuh dalam Firman</div><div class="row-sub">Kamis, 13 Agustus 2026</div></div>
+    <div class="flex-col" style="display:flex;align-items:flex-end;gap:4px"><span class="badge b-ink">0/7 hadir</span></div></div>
+    
+    <div class="row-list" style="margin-top:12px"><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-purple">AW</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Andra Wijaya</span><span class="badge b-blue">Leader</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-orange">BL</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Bunga Lestari</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">CT</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Calvin Tanto</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">DA</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Dinda Ayu</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-green">ES</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Erik Susanto</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">FH</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Felicia Halim</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-orange">GP</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Gilbert Prakoso</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div></div></div></div><div class="card">
+    <div class="flex items-center justify-between gap-2"><div><div class="row-title" style="font-size:15px">Doa & Sharing Singkat</div><div class="row-sub">Minggu, 9 Agustus 2026</div></div>
+    <div class="flex-col" style="display:flex;align-items:flex-end;gap:4px"><span class="badge b-ink">6/7 hadir</span></div></div>
+    
+    <div class="row-list" style="margin-top:12px"><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-purple">AW</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Andra Wijaya</span><span class="badge b-blue">Leader</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-orange">BL</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Bunga Lestari</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">CT</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Calvin Tanto</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">DA</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Dinda Ayu</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-green">ES</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Erik Susanto</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">FH</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Felicia Halim</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div><p class="note-txt">Keterangan: Izin, ada acara keluarga</p></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-orange">GP</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Gilbert Prakoso</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div></div></div><div class="card" data-more="kh-more" hidden>
+    <div class="flex items-center justify-between gap-2"><div><div class="row-title" style="font-size:15px">Melayani Bersama</div><div class="row-sub">Kamis, 30 Juli 2026</div></div>
+    <div class="flex-col" style="display:flex;align-items:flex-end;gap:4px"><span class="badge b-ink">5/7 hadir</span></div></div>
+    
+    <div class="row-list" style="margin-top:12px"><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-purple">AW</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Andra Wijaya</span><span class="badge b-blue">Leader</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-orange">BL</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Bunga Lestari</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">CT</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Calvin Tanto</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div><p class="note-txt">Keterangan: Sakit</p></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">DA</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Dinda Ayu</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-green">ES</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Erik Susanto</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">FH</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Felicia Halim</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-orange">GP</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Gilbert Prakoso</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div></div></div><div class="card" data-more="kh-more" hidden>
+    <div class="flex items-center justify-between gap-2"><div><div class="row-title" style="font-size:15px">Bersekutu dalam Kasih</div><div class="row-sub">Kamis, 16 Juli 2026</div></div>
+    <div class="flex-col" style="display:flex;align-items:flex-end;gap:4px"><span class="badge b-ink">6/7 hadir</span></div></div>
+    
+    <div class="row-list" style="margin-top:12px"><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-purple">AW</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Andra Wijaya</span><span class="badge b-blue">Leader</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-orange">BL</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Bunga Lestari</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">CT</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Calvin Tanto</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">DA</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Dinda Ayu</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-green">ES</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Erik Susanto</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-red">FH</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Felicia Halim</span><span class="status-ok"><i data-lucide="check"></i> Hadir</span></div></div><div><div class="row" style="padding-top:11px;padding-bottom:11px"><span class="avatar av-sm av-orange">GP</span><span class="flex-1 text-sm" style="color:var(--navy-900);font-weight:600">Gilbert Prakoso</span><span class="row-sub flex items-center gap-1" style="font-weight:600"><i data-lucide="x" class="inl"></i> Tidak hadir</span></div></div></div></div>
+<button type="button" class="btn btn-ghost btn-block" data-show-more="kh-more">Tampilkan lebih banyak</button></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-pertumbuhan" style="display:none">
+  <div class="sheet lg">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Pertumbuhanku</h3>
+    <div class="flex-col gap-4" style="display:flex">
+<div class="chip-title">Faithful Journey</div>
+<div class="journey-row">
+  <button type="button" class="j-card jc-rooted" data-open-sheet="sh-j-rooted">
+    <img src="assets/journey-rooted.svg" alt="Rooted Journey" />
+    <div class="j-name">🌱 Berakar</div>
+    <div class="j-en">Rooted Journey</div>
+    <div class="progress-track"><div class="progress-fill" style="width:20%"></div></div>
+    <div class="j-meta">Belum dimulai · 5/25 hari</div>
+  </button>
+  <button type="button" class="j-card jc-branching" data-open-sheet="sh-j-branching">
+    <img src="assets/journey-branching.svg" alt="Branching Journey" />
+    <div class="j-name">🌿 Beranting</div>
+    <div class="j-en">Branching Journey</div>
+    <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
+    <div class="j-meta">Belum dimulai · 0/2 orang</div>
+  </button>
+  <button type="button" class="j-card jc-growing" data-open-sheet="sh-j-growing">
+    <img src="assets/journey-growing.svg" alt="Growing Journey" />
+    <div class="j-name">🌳 Bertumbuh</div>
+    <div class="j-en">Growing Journey</div>
+    <div class="progress-track"><div class="progress-fill" style="width:50%"></div></div>
+    <div class="j-meta">Belum dimulai · 2/4 kali hadir</div>
+  </button>
+  <button type="button" class="j-card jc-fruitful" data-open-sheet="sh-j-fruitful">
+    <img src="assets/journey-fruitful.svg" alt="Fruitful Journey" />
+    <div class="j-name">🍎 Berbuah</div>
+    <div class="j-en">Fruitful Journey</div>
+    <div class="progress-track"><div class="progress-fill" style="width:20%"></div></div>
+    <div class="j-meta">Tahap 2 dari 6 · Member Aktif</div>
+  </button></div>
+<div class="card "><div class="section-title"><span>Ajak Orang Baru</span></div><p class="text-sm muted" style="margin-bottom:12px">Catat setiap orang yang berhasil kamu ajak bergabung ke Care Group.</p><div class="flex gap-2"><input class="input" value="" placeholder="Nama orang yang diajak"  /><button type="button" class="btn btn-primary" style="flex-shrink:0"><i data-lucide="user-plus"></i> Tambah</button></div></div>
+<div class="card "><div class="section-title"><span>Peningkatan Peran</span></div><div class="stepper"><div class="step done"><div class="step-dot"><i data-lucide="check"></i></div><div class="step-label">Member</div></div><div class="step active"><div class="step-dot">2</div><div class="step-label">Member Aktif</div></div><div class="step"><div class="step-dot">3</div><div class="step-label">Melayani CG / Pengurus CG</div></div><div class="step"><div class="step-dot">4</div><div class="step-label">Calon Leader</div></div><div class="step"><div class="step-dot">5</div><div class="step-label">Kandidat Leader</div></div><div class="step"><div class="step-dot">6</div><div class="step-label">Leader</div></div></div><p class="text-sm muted" style="margin-top:14px">Tahap saat ini: <strong style="color:var(--navy-900)">Member Aktif</strong></p></div></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-materi" style="display:none">
+  <div class="sheet lg">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Materi</h3>
+    <div class="flex-col gap-3" style="display:flex"><div class="card qa" style="padding:6px 20px"><details><summary><span><span class="row-sub" style="display:block">Minggu ke-1 Agustus</span><span class="row-title" style="font-size:15px">Bertumbuh dalam Firman</span><span class="text-sm" style="color:var(--blue-600);font-weight:700">Mazmur 1:2-3</span></span></summary><div class="ans"><p>Renungan tentang kebiasaan merenungkan Firman setiap hari dan buah yang dihasilkannya.</p><div class="chip-title" style="margin-top:14px">Pertanyaan diskusi</div><ol class="flex-col gap-2" style="display:flex"><li class="flex gap-2"><span class="step-num">1</span><span>Apa kebiasaan rohani yang paling sulit kamu jaga konsistensinya?</span></li><li class="flex gap-2"><span class="step-num">2</span><span>Ceritakan satu momen ketika Firman Tuhan menguatkanmu minggu ini.</span></li><li class="flex gap-2"><span class="step-num">3</span><span>Apa satu langkah kecil yang bisa kamu ambil minggu ini untuk lebih dekat dengan Tuhan?</span></li></ol></div></details></div><div class="card qa" style="padding:6px 20px"><details><summary><span><span class="row-sub" style="display:block">Minggu ke-4 Juli</span><span class="row-title" style="font-size:15px">Melayani Bersama</span><span class="text-sm" style="color:var(--blue-600);font-weight:700">1 Petrus 4:10</span></span></summary><div class="ans"><p>Setiap orang menerima karunia yang berbeda-beda — bagaimana Care Group bisa menjadi tempat melayani bersama.</p><div class="chip-title" style="margin-top:14px">Pertanyaan diskusi</div><ol class="flex-col gap-2" style="display:flex"><li class="flex gap-2"><span class="step-num">1</span><span>Karunia apa yang kamu rasa Tuhan percayakan padamu?</span></li><li class="flex gap-2"><span class="step-num">2</span><span>Bagaimana Care Group ini bisa melayani jemaat/komunitas di sekitar?</span></li></ol></div></details></div><div class="card qa" style="padding:6px 20px"><details><summary><span><span class="row-sub" style="display:block">Minggu ke-2 Juli</span><span class="row-title" style="font-size:15px">Bersekutu dalam Kasih</span><span class="text-sm" style="color:var(--blue-600);font-weight:700">Yohanes 13:34-35</span></span></summary><div class="ans"><p>Kasih antar anggota Care Group adalah tanda pengenal murid Kristus.</p><div class="chip-title" style="margin-top:14px">Pertanyaan diskusi</div><ol class="flex-col gap-2" style="display:flex"><li class="flex gap-2"><span class="step-num">1</span><span>Bagaimana kamu bisa menunjukkan kasih pada anggota CG minggu ini?</span></li><li class="flex gap-2"><span class="step-num">2</span><span>Siapa dalam CG ini yang perlu kamu hubungi/kunjungi?</span></li></ol></div></details></div></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-j-rooted" style="display:none">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">🌱 Perjalanan Berakar</h3>
+    
+      <div class="journey-hero"><img src="assets/journey-rooted.svg" alt="Rooted Journey" /><div><div class="row-title" style="font-size:16px">Rooted Journey</div><div class="text-sm muted">Kesan: kuat, kokoh, berakar dalam Kristus</div><div class="text-sm" style="margin-top:6px;font-weight:700;color:var(--blue-600)">Belum dimulai · 5/25 hari</div></div></div>
+      <p class="text-sm">Dihitung dari Temu Firman (baca Alkitab) setiap hari.</p>
+      <div class="chip-title" style="margin-top:18px">Tangga perjalanan</div>
+      <div class="ladder"><div class="ladder-row"><span class="nm">Mulai Berakar</span><span class="flex items-center"><span class="th">25 hari / sebulan</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Berakar</span><span class="flex items-center"><span class="th">75 hari / 3 bulan</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Berakar</span><span class="flex items-center"><span class="th">90 hari / 3 bulan</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Berakar Dalam</span><span class="flex items-center"><span class="th">300 hari / 1 tahun</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Berakar Dalam</span><span class="flex items-center"><span class="th">360 hari / 1 tahun</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Berakar Kuat</span><span class="flex items-center"><span class="th">900 hari / 3 tahun</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Berakar Kuat</span><span class="flex items-center"><span class="th">1080 hari / 3 tahun</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Berakar Kokoh</span><span class="flex items-center"><span class="th">1090 hari / 3 tahun</span><span class="badge b-ink">–</span></span></div></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-j-branching" style="display:none">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">🌿 Perjalanan Beranting</h3>
+    
+      <div class="journey-hero"><img src="assets/journey-branching.svg" alt="Branching Journey" /><div><div class="row-title" style="font-size:16px">Branching Journey</div><div class="text-sm muted">Kesan: berkembang dan membawa orang lain</div><div class="text-sm" style="margin-top:6px;font-weight:700;color:var(--blue-600)">Belum dimulai · 0/2 orang</div></div></div>
+      <p class="text-sm">Dihitung dari orang yang kamu ajak bergabung ke Care Group.</p>
+      <div class="chip-title" style="margin-top:18px">Tangga perjalanan</div>
+      <div class="ladder"><div class="ladder-row"><span class="nm">Mulai Beranting</span><span class="flex items-center"><span class="th">2 orang / 3 bulan</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Beranting</span><span class="flex items-center"><span class="th">4 orang / 6 bulan</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Beranting Lebat</span><span class="flex items-center"><span class="th">8 orang / 1 tahun</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Beranting Sehat</span><span class="flex items-center"><span class="th">9 orang / 3 tahun</span><span class="badge b-ink">–</span></span></div></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-j-growing" style="display:none">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">🌳 Perjalanan Bertumbuh</h3>
+    
+      <div class="journey-hero"><img src="assets/journey-growing.svg" alt="Growing Journey" /><div><div class="row-title" style="font-size:16px">Growing Journey</div><div class="text-sm muted">Kesan: proses pertumbuhan pribadi</div><div class="text-sm" style="margin-top:6px;font-weight:700;color:var(--blue-600)">Belum dimulai · 2/4 kali hadir</div></div></div>
+      <p class="text-sm">Dihitung dari kehadiran Care Group (dan Temu Firman).</p>
+      <div class="chip-title" style="margin-top:18px">Tangga perjalanan</div>
+      <div class="ladder"><div class="ladder-row"><span class="nm">Mulai Bertumbuh</span><span class="flex items-center"><span class="th">4 kali hadir / 3 bulan</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Bertumbuh</span><span class="flex items-center"><span class="th">10 kali hadir / 6 bulan</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Bertumbuh</span><span class="flex items-center"><span class="th">12 kali hadir / 6 bulan</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Bertumbuh Kuat</span><span class="flex items-center"><span class="th">20 kali hadir / 1 tahun</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Bertumbuh Kuat</span><span class="flex items-center"><span class="th">24 kali hadir / 1 tahun</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Bertumbuh Sehat</span><span class="flex items-center"><span class="th">60 kali hadir / 3 tahun</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Bertumbuh Sehat</span><span class="flex items-center"><span class="th">72 kali hadir / 3 tahun</span><span class="badge b-ink">–</span></span></div><div class="ladder-row"><span class="nm">Bertumbuh Kokoh</span><span class="flex items-center"><span class="th">73 kali hadir / 3 tahun</span><span class="badge b-ink">–</span></span></div></div>
+  </div>
+</div>
+<div class="sheet-overlay" id="sh-j-fruitful" style="display:none">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">🍎 Perjalanan Berbuah</h3>
+    
+      <div class="journey-hero"><img src="assets/journey-fruitful.svg" alt="Fruitful Journey" /><div><div class="row-title" style="font-size:16px">Fruitful Journey</div><div class="text-sm muted">Kesan: menghasilkan buah nyata</div><div class="text-sm" style="margin-top:6px;font-weight:700;color:var(--blue-600)">Tahap 2 dari 6 · Member Aktif</div></div></div>
+      <p class="text-sm">Terjadi saat kamu bertumbuh menjadi Leader.</p>
+      <div class="chip-title" style="margin-top:18px">Tangga perjalanan</div>
+      <div class="ladder"><div class="ladder-row got"><span class="nm">Member</span><span class="badge b-green">Terlewati</span></div><div class="ladder-row got"><span class="nm">Member Aktif</span><span class="badge b-blue">Sekarang</span></div><div class="ladder-row"><span class="nm">Melayani CG / Pengurus CG</span><span class="badge b-ink">–</span></div><div class="ladder-row"><span class="nm">Calon Leader</span><span class="badge b-ink">–</span></div><div class="ladder-row"><span class="nm">Kandidat Leader</span><span class="badge b-ink">–</span></div><div class="ladder-row"><span class="nm">Leader</span><span class="badge b-ink">–</span></div></div>
+  </div>
+</div>
+  </div>
+</div>
 </body>
 </html>

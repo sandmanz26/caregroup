@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="c"><rect width="200" height="200" rx="34"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FCEFD9"/><stop offset="1" stop-color="#F8D8AE"/></linearGradient>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="200" height="200" fill="url(#bg)"/>
+    <circle cx="160" cy="40" r="18" fill="#F6BE4B"/>
+    <circle cx="160" cy="40" r="28" fill="#F6BE4B" opacity=".25"/>
+    <path d="M0 162C60 152 140 170 200 158V200H0Z" fill="#8CC063"/>
+    <path d="M0 178C70 170 130 186 200 176V200H0Z" fill="#74AE4F"/>
+    <path d="M92 168C95 142 95 118 90 96H110C105 118 105 142 108 168Z" fill="#7A5230"/>
+    <path d="M100 112C88 104 80 96 74 86" stroke="#7A5230" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M102 104C114 96 122 88 128 78" stroke="#7A5230" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <circle cx="100" cy="66" r="40" fill="#4C9A43"/>
+    <circle cx="68" cy="84" r="24" fill="#5BAA47"/>
+    <circle cx="132" cy="84" r="24" fill="#3F8F3A"/>
+    <circle cx="100" cy="46" r="22" fill="#68B552"/>
+    <g fill="#D8402B">
+      <circle cx="82" cy="64" r="8"/><circle cx="116" cy="54" r="8"/><circle cx="104" cy="82" r="8"/>
+      <circle cx="64" cy="90" r="7"/><circle cx="136" cy="88" r="7"/>
+    </g>
+    <g fill="#fff" opacity=".55">
+      <circle cx="79.5" cy="61.5" r="2.2"/><circle cx="113.5" cy="51.5" r="2.2"/><circle cx="101.5" cy="79.5" r="2.2"/>
+    </g>
+    <g fill="#D8402B"><circle cx="70" cy="172" r="7"/><circle cx="132" cy="176" r="7"/></g>
+    <g fill="#3F8F3A"><path d="M70 165c3-1 6 0 7 3-3 1-6 0-7-3Z"/><path d="M132 169c3-1 6 0 7 3-3 1-6 0-7-3Z"/></g>
+  </g>
+</svg>

@@ -2,75 +2,35 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tentang & Ajukan Pelayanan · Shema v3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0A2766" />
+<title>Tentang SDA · Shema</title>
 <link rel="icon" type="image/png" href="assets/logo-shema.png" />
 <link rel="stylesheet" href="assets/styles.css" />
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script defer src="assets/app.js"></script>
 </head>
-<body>
-<div class="app-shell">
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <img src="assets/logo-shema.png" alt="Shema" />
-      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
-    </div>
-    <nav class="nav-list">
-      <a href="member-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
-      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
-      <a href="temu-firman.html" class="nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
-      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
-      <a href="profil.html" class="nav-item active"><i data-lucide="circle-user"></i>Profil</a></nav>
-    <div class="sidebar-user">
-      <span class="avatar-square">CT</span>
-      <div><div class="name">Calvin Tanto</div><div class="role">Anggota</div></div>
-    </div>
-  </aside>
-  <header class="topbar">
-    <img src="assets/logo-shema.png" alt="Shema" />
-    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">CT</span>
-  </header>
-  <main class="main">
-    <div class="main-inner">
+<body class="has-stage">
+<div class="stage">
+  <aside class="stage-info"><a href="index.html" class="stage-back">← Semua layar</a><img src="assets/logo-shema.png" alt="" /><div class="stage-title">Tentang SDA</div><p>Pratinjau aplikasi mobile Shema (target React Native). Ketuk elemen di dalam ponsel seperti di aplikasi asli.</p></aside>
+  <div class="device">
+    <div class="statusbar"><span class="sb-time">9:41</span><span class="sb-island"></span><span class="sb-icons"><svg width="18" height="11" viewBox="0 0 18 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="6" rx="1"/><rect x="10" y="2.5" width="3" height="8.5" rx="1"/><rect x="15" y="0" width="3" height="11" rx="1"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .4 10.4 10.4 0 0 0 .8 3.3L2 4.6a8.6 8.6 0 0 1 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3L12.6 6a6.6 6.6 0 0 0-9.2 0l1.2 1.1C5.5 6.3 6.7 5.8 8 5.8zm0 3.5 1.9-1.9a2.7 2.7 0 0 0-3.8 0z"/></svg><span class="sb-batt"><i></i></span></span></div>
+    <header class="appbar"><a class="appbar-back" href="profil.html" aria-label="Kembali"><i data-lucide="chevron-left"></i><span>Profil</span></a><div class="appbar-title">Tentang SDA</div><span class="appbar-spacer"></span></header>
+    <main class="screen with-appbar"><div class="main-inner">
 
 
-      <div class="page-hero" data-reveal>
-        <div>
-          <p class="hero-eyebrow"><i data-lucide="info" style="width:13px;height:13px;"></i>Tentang</p>
-          <h1>Tentang Tim SDA</h1>
-          <p class="hero-sub">Kenali peran dan ajukan pelayananmu</p>
-        </div>
-        
-      </div>
-      <div class="card" data-reveal>
-        <div class="section-title">Glosarium peran</div>
-        <ul class="row-list">
-          <li class="row"><div><p class="row-title">Greeter</p><p class="row-sub">Menyambut, mendoakan, mengarahkan potensi jemaat.</p></div></li>
-          <li class="row"><div><p class="row-title">Pengurus Care Group</p><p class="row-sub">Membantu Leader menghidupkan CG dengan berbagai kegiatannya.</p></div></li>
-          <li class="row"><div><p class="row-title">Leader</p><p class="row-sub">Memimpin satu Care Group.</p></div></li>
-          <li class="row"><div><p class="row-title">Coach</p><p class="row-sub">Membina beberapa Leader / Care Group sekaligus.</p></div></li>
-        </ul>
-      </div>
-      <div class="card" data-reveal>
-        <div class="section-title">Ajukan pelayanan</div>
-        <div class="grid-2" style="margin-bottom:14px;">
-          <label class="card hoverable" style="padding:14px;display:flex;align-items:center;gap:10px;border-color:var(--brand-500);box-shadow:0 0 0 2px var(--brand-100);"><input type="radio" name="role" checked /><span class="row-title">Greeter</span></label>
-          <label class="card hoverable" style="padding:14px;display:flex;align-items:center;gap:10px;"><input type="radio" name="role" /><span class="row-title">Catcher</span></label>
-        </div>
-        <div class="field" style="margin-bottom:12px;"><label>Alasan &amp; motivasi</label><textarea class="input" rows="3"></textarea></div>
-        <button class="btn btn-primary btn-block">Kirim pengajuan</button>
-      </div>
-
-    </div>
-  </main>
-  <nav class="bottom-nav"><div class="bottom-nav-list">
-        <a href="member-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
-        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
-        <a href="temu-firman.html" class="bottom-nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
-        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
-        <a href="profil.html" class="bottom-nav-item active"><i data-lucide="circle-user"></i>Profil</a></div></nav>
+<div class="page-hero" data-reveal><div><div class="hero-eyebrow">Tentang</div><h1>Tim Sumber Daya Aktifis (SDA)</h1><p class="hero-sub">Sistem pemberdayaan, penggembalaan &amp; peningkatan peran aktifis GKI Gejayan — “1 orang, 1 Care Group, 1 pelayanan.”</p></div></div>
+<div class="card" data-reveal><div class="section-title"><span>Peran Pelayanan</span></div><div class="row-list"><div class="row" style="align-items:flex-start;flex-direction:column;gap:6px"><span class="badge b-blue">Greeter</span><p class="text-sm">Aktifis yang bertugas menyambut/greeting, mendoakan, dan mengarahkan potensi jemaat. Disebut juga seorang Catcher.</p></div><div class="row" style="align-items:flex-start;flex-direction:column;gap:6px"><span class="badge b-green">Catcher</span><p class="text-sm">Aktifis yang bertugas "menangkap" potensi aktifis baru — bisa jemaat lama atau baru yang belum melayani.</p></div><div class="row" style="align-items:flex-start;flex-direction:column;gap:6px"><span class="badge b-ink">Care Group (CG)</span><p class="text-sm">Komunitas hidup yang bersekutu, melayani, dan berjalan bersama dalam kehidupan sehari-hari. Setiap orang diharapkan masuk dalam salah satu Care Group.</p></div><div class="row" style="align-items:flex-start;flex-direction:column;gap:6px"><span class="badge b-orange">Leader</span><p class="text-sm">Pemimpin dari satu Care Group. Bertugas memelihara spiritualitas anggota, bersekutu, saling perhatian, saling berkunjung, dan menggerakkan untuk melayani & tumbuh bersama.</p></div><div class="row" style="align-items:flex-start;flex-direction:column;gap:6px"><span class="badge b-green">Pengurus Care Group</span><p class="text-sm">Aktifis yang membantu Leader menghidupkan Care Group dengan berbagai kegiatan CG-nya.</p></div><div class="row" style="align-items:flex-start;flex-direction:column;gap:6px"><span class="badge b-blue">Coach</span><p class="text-sm">Pemimpin dari berbagai pembinaan seperti First Coaching dan Second Coaching. Bisa juga menjadi pembimbing dari beberapa Leader.</p></div><div class="row" style="align-items:flex-start;flex-direction:column;gap:6px"><span class="badge b-ink">Shepherd</span><p class="text-sm">Pembimbing/pendamping dari beberapa Coach.</p></div></div></div>
+<div class="card" data-reveal><div class="section-title"><span>Ajukan Pelayanan</span></div><p class="text-sm muted" style="margin-bottom:14px">Pilih pelayanan yang ingin kamu ambil, lalu ceritakan alasanmu.</p>
+  <form class="flex-col gap-4" style="display:flex" onsubmit="return false"><div class="flex-col gap-2" style="display:flex"><label class="radio-card"><input type="radio" name="pel" /><span><span class="row-title" style="display:block">Greeter</span><span class="row-sub" style="font-size:12.5px">Aktifis yang bertugas menyambut/greeting, mendoakan, dan mengarahkan potensi jemaat. Disebut juga seorang Catcher.</span></span></label><label class="radio-card"><input type="radio" name="pel" /><span><span class="row-title" style="display:block">Catcher</span><span class="row-sub" style="font-size:12.5px">Aktifis yang bertugas "menangkap" potensi aktifis baru — bisa jemaat lama atau baru yang belum melayani.</span></span></label><label class="radio-card"><input type="radio" name="pel" /><span><span class="row-title" style="display:block">Leader</span><span class="row-sub" style="font-size:12.5px">Pemimpin dari satu Care Group. Bertugas memelihara spiritualitas anggota, bersekutu, saling perhatian, saling berkunjung, dan menggerakkan untuk melayani & tumbuh bersama.</span></span></label><label class="radio-card"><input type="radio" name="pel" /><span><span class="row-title" style="display:block">Pengurus Care Group</span><span class="row-sub" style="font-size:12.5px">Aktifis yang membantu Leader menghidupkan Care Group dengan berbagai kegiatan CG-nya.</span></span></label><label class="radio-card"><input type="radio" name="pel" /><span><span class="row-title" style="display:block">Coach</span><span class="row-sub" style="font-size:12.5px">Pemimpin dari berbagai pembinaan seperti First Coaching dan Second Coaching. Bisa juga menjadi pembimbing dari beberapa Leader.</span></span></label><label class="radio-card"><input type="radio" name="pel" /><span><span class="row-title" style="display:block">Shepherd</span><span class="row-sub" style="font-size:12.5px">Pembimbing/pendamping dari beberapa Coach.</span></span></label></div>
+  <div class="field"><label>Alasan &amp; Motivasi</label><textarea class="input" rows="3" placeholder="Mengapa kamu ingin mengambil pelayanan ini?"></textarea></div>
+  <div class="field"><label>Kesibukan Saat Ini</label><textarea class="input" rows="2" placeholder="Ceritakan jadwal/kesibukanmu supaya Leader bisa menyesuaikan."></textarea></div>
+  <div class="flex items-center justify-between"><span class="status-ok" id="ok-apply" hidden><i data-lucide="circle-check-big"></i> Pengajuan terkirim</span><span></span><button type="button" class="btn btn-primary" data-show="ok-apply">Kirim Pengajuan</button></div></form></div>
+    </div></main>
+    <nav class="tabbar"><a class="tab" href="member-home.html"><i data-lucide="house"></i><span>Home</span></a><a class="tab" href="program-cg.html"><i data-lucide="users"></i><span>Care Group</span></a><a class="tab" href="temu-firman.html"><i data-lucide="book-open-text"></i><span>Firman</span></a><a class="tab" href="presensi.html"><i data-lucide="hand-helping"></i><span>Presensi</span></a><a class="tab active" href="profil.html"><i data-lucide="circle-user"></i><span>Profil</span></a></nav>
+    <div class="home-indicator"></div>
+    
+  </div>
 </div>
-
-<script src="assets/app.js"></script>
 </body>
 </html>

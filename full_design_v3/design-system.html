@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design System · Shema</title>
+<link rel="icon" type="image/png" href="assets/logo-shema.png" />
+<link rel="stylesheet" href="assets/styles.css" /><script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script><script defer src="assets/app.js"></script>
+<style>
+.ds{max-width:1040px;margin:0 auto;padding:48px 24px 100px}
+.ds h2{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--blue-600);margin:46px 0 16px}
+.sw-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.sw-chip{height:76px;border-radius:16px;display:flex;align-items:flex-end;padding:10px 12px;font-size:12px;font-weight:800;box-shadow:var(--shadow-sm);border:1px solid rgba(10,27,64,.06)}
+.sw-name{font-weight:800;font-size:13.5px;color:var(--navy-900);margin-top:9px}.sw-use{font-size:12px;color:var(--ink-500);line-height:1.35}
+.ratio{display:flex;height:64px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.ratio div{display:flex;align-items:center;padding:0 16px;font-weight:800;font-size:13px}
+.map{width:100%;border-collapse:collapse;font-size:13.5px}.map th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-500);padding:8px 10px}.map td{padding:11px 10px;border-top:1px solid var(--line-soft);vertical-align:middle}
+.demo{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.logo-row{display:flex;align-items:center;gap:26px;flex-wrap:wrap}.logo-row img{width:150px;height:150px;object-fit:contain}
+.dots{display:flex;gap:8px;flex-wrap:wrap}.dots i{width:30px;height:30px;border-radius:50%;display:block;box-shadow:var(--shadow-xs)}
+</style></head><body>
+<div class="ds">
+  <a class="link text-sm" href="index.html">← Kembali ke ringkasan</a>
+  <div class="logo-row" style="margin-top:20px"><img src="assets/logo-shema.png" alt="Shema" /><div><p class="eyebrow">Design system · v3.1</p><h1 class="page-title" style="font-size:36px">Warna dari logo, ditata seimbang</h1><p class="muted" style="max-width:560px;margin-top:8px">Logo Shema punya sembilan warna sekaligus. Supaya tetap rapi, setiap warna diberi <strong>satu fungsi tetap</strong> dan porsinya diatur dengan aturan 60 / 30 / 10 — bukan ditebar rata.</p></div></div>
+
+  <h2>Aturan porsi 60 / 30 / 10</h2>
+  <div class="ratio"><div style="flex:60;background:var(--bg);color:var(--ink-700)">60% · Netral putih-kebiruan — permukaan &amp; kartu</div><div style="flex:30;background:var(--navy-900);color:#fff">30% · Navy — teks &amp; header</div><div style="flex:10;background:var(--ribbon);color:#fff;justify-content:center">10%</div></div>
+  <p class="text-sm muted" style="margin-top:10px">Sepuluh persen terakhir dibagi ke warna-warna logo. Biru memegang peran terbesar (aksi utama), warna lain hanya muncul sebagai ikon, lencana, atau garis aksen — tidak pernah sebagai latar kartu penuh.</p>
+
+  <h2>Palet logo (diambil langsung dari logo, lalu diturunkan sedikit saturasinya)</h2>
+  <div class="sw-row">
+    <div class="sw"><div class="sw-chip" style="background:#0A1B40;color:#fff">#0A1B40</div><div class="sw-name">Navy</div><div class="sw-use">Tulisan SHEMA di logo · teks, header</div></div>
+    <div class="sw"><div class="sw-chip" style="background:#0A74D9;color:#fff">#0A74D9</div><div class="sw-name">Biru</div><div class="sw-use">Aksi utama · Care Group · Beranting</div></div>
+    <div class="sw"><div class="sw-chip" style="background:#2F9E0B;color:#fff">#2F9E0B</div><div class="sw-name">Hijau</div><div class="sw-use">Temu Firman · sukses · Berakar</div></div>
+    <div class="sw"><div class="sw-chip" style="background:#F59B0A;color:var(--navy-900)">#F59B0A</div><div class="sw-name">Oranye</div><div class="sw-use">Sorotan · streak · Presensi · Bertumbuh</div></div>
+    <div class="sw"><div class="sw-chip" style="background:#E23B24;color:#fff">#E23B24</div><div class="sw-name">Merah</div><div class="sw-use">Pelayanan · peringatan · Berbuah</div></div>
+    <div class="sw"><div class="sw-chip" style="background:#7F23C6;color:#fff">#7F23C6</div><div class="sw-name">Ungu</div><div class="sw-use">Kepemimpinan: Leader, Admin, Coach</div></div>
+    <div class="sw"><div class="sw-chip" style="background:#0AA39F;color:#fff">#0AA39F</div><div class="sw-name">Teal</div><div class="sw-use">Jadwal &amp; informasi</div></div>
+    <div class="sw"><div class="sw-chip" style="background:#E6A100;color:var(--navy-900)">#E6A100</div><div class="sw-name">Kuning</div><div class="sw-use">Q&amp;A · pita logo</div></div>
+    <div class="sw"><div class="sw-chip" style="background:#A91F8F;color:#fff">#A91F8F</div><div class="sw-name">Magenta</div><div class="sw-use">Doa · Tentang SDA</div></div>
+  </div>
+  <p class="text-sm muted" style="margin-top:14px">Pita tipis kuning → hijau → teal → biru pada header dan sidebar meniru panah pertumbuhan di logo.</p>
+  <div style="height:6px;border-radius:6px;background:var(--ribbon);margin-top:12px"></div>
+
+  <h2>Peran tiap warna di aplikasi</h2>
+  <div class="card"><table class="map"><thead><tr><th>Warna</th><th>Fungsi tetap</th><th>Dipakai di</th></tr></thead><tbody>
+    <tr><td><span class="badge b-blue">Biru</span></td><td>Aksi utama &amp; navigasi aktif</td><td>Tombol utama, tab aktif, Care Group, Beranting</td></tr>
+    <tr><td><span class="badge b-green">Hijau</span></td><td>Firman &amp; keberhasilan</td><td>Temu Firman, status “Hadir / Selesai”, Berakar</td></tr>
+    <tr><td><span class="badge b-orange">Oranye</span></td><td>Sorotan &amp; pelayanan harian</td><td>Streak akar, notifikasi, Presensi, Bertumbuh</td></tr>
+    <tr><td><span class="badge b-red">Merah</span></td><td>Pelayanan &amp; perhatian</td><td>Pelayanan, Berbuah, tingkat “merah”</td></tr>
+    <tr><td><span class="badge b-purple">Ungu</span></td><td>Kepemimpinan</td><td>Panel Admin, Leader, Coach</td></tr>
+    <tr><td><span class="badge b-teal">Teal</span></td><td>Informasi &amp; waktu</td><td>Jadwal, Info Umum, Penuntun Doa</td></tr>
+  </tbody></table></div>
+
+  <h2>Faithful Journey — satu warna per perjalanan</h2>
+  <div class="journey-row"><div class="j-card jc-rooted"><img src="assets/journey-rooted.svg" alt="" /><div class="j-name">🌱 Berakar</div><div class="j-en">Rooted Journey</div><div class="progress-track"><div class="progress-fill" style="width:35%"></div></div></div><div class="j-card jc-branching"><img src="assets/journey-branching.svg" alt="" /><div class="j-name">🌿 Beranting</div><div class="j-en">Branching Journey</div><div class="progress-track"><div class="progress-fill" style="width:50%"></div></div></div><div class="j-card jc-growing"><img src="assets/journey-growing.svg" alt="" /><div class="j-name">🌳 Bertumbuh</div><div class="j-en">Growing Journey</div><div class="progress-track"><div class="progress-fill" style="width:75%"></div></div></div><div class="j-card jc-fruitful"><img src="assets/journey-fruitful.svg" alt="" /><div class="j-name">🍎 Berbuah</div><div class="j-en">Fruitful Journey</div><div class="progress-track"><div class="progress-fill" style="width:100%"></div></div></div></div>
+
+  <h2>Ikon bulat (ketuk → penjelasan lengkap)</h2>
+  <div class="card"><div class="shortcuts"><div class="shortcut"><span class="sc-ico g-green"><i data-lucide="book-open-text"></i></span><span>Temu Firman</span></div><div class="shortcut"><span class="sc-ico g-blue"><i data-lucide="users"></i></span><span>Care Group</span></div><div class="shortcut"><span class="sc-ico g-orange"><i data-lucide="hand-helping"></i></span><span>Presensi</span></div><div class="shortcut"><span class="sc-ico g-red"><i data-lucide="heart-handshake"></i></span><span>Pelayanan</span></div><div class="shortcut"><span class="sc-ico g-purple"><i data-lucide="shield-check"></i></span><span>Panel Admin</span></div><div class="shortcut"><span class="sc-ico g-teal"><i data-lucide="calendar-days"></i></span><span>Jadwal</span></div><div class="shortcut"><span class="sc-ico g-amber"><i data-lucide="circle-help"></i></span><span>Q&amp;A</span></div><div class="shortcut"><span class="sc-ico g-magenta"><i data-lucide="info"></i></span><span>Tentang SDA</span></div></div></div>
+
+  <h2>Komponen</h2>
+  <div class="card flex-col gap-4" style="display:flex">
+    <div class="demo"><button class="btn btn-primary"><i data-lucide="plus"></i> Tombol utama</button><button class="btn btn-ghost">Sekunder</button><button class="btn btn-primary btn-sm">Kecil</button><button class="btn btn-primary" disabled>Nonaktif</button></div>
+    <div class="demo"><span class="badge b-blue">Leader</span><span class="badge b-green">Hadir</span><span class="badge b-orange">Pending</span><span class="badge b-red">Siap membelah</span><span class="badge b-purple">Super Admin</span><span class="badge b-teal">Ibadah</span><span class="badge b-coklat">Mulai Berakar</span><span class="badge b-ink">Segera hadir</span></div>
+    <div class="demo"><span class="avatar av-md av-blue">AW</span><span class="avatar av-md av-green">BL</span><span class="avatar av-md av-orange">CT</span><span class="avatar av-md av-purple">DA</span><span class="avatar av-md av-teal">ES</span><span class="avatar av-md av-red">FH</span><span class="text-sm muted">Avatar diwarnai otomatis dari kelima warna logo.</span></div>
+    <div class="chips" data-chips="ds"><button class="chip active">Semua</button><button class="chip">Ibadah</button><button class="chip">Care Group</button><button class="chip">Coaching</button></div>
+    <div class="grid-2"><div class="field"><label>Nomor WA</label><input class="input" placeholder="0812-3456-7890" /></div><div class="field"><label>Kata Sandi</label><input class="input" type="password" value="demo123" /></div></div>
+    <div class="stepper"><div class="step done"><div class="step-dot"><i data-lucide="check"></i></div><div class="step-label">New Comer</div></div><div class="step active"><div class="step-dot">2</div><div class="step-label">First Coaching</div></div><div class="step"><div class="step-dot">3</div><div class="step-label">Second Coaching</div></div></div>
+  </div>
+
+  <h2>Tipografi</h2>
+  <div class="card"><p class="eyebrow">Fraunces · ayat &amp; kutipan</p><p class="scripture" style="font-size:24px;margin:6px 0 18px">&ldquo;Siapa setia dalam perkara-perkara kecil, ia setia juga dalam perkara-perkara besar.&rdquo;</p>
+  <p class="eyebrow">Plus Jakarta Sans · antarmuka</p><h1 style="font-size:30px;margin:6px 0">Selamat pagi, Calvin</h1><p>Teks isi 15px — nyaman dibaca, dan ikut membesar lewat Pengaturan → Ukuran Font (0.9× sampai 1.3×).</p></div>
+
+  <h2>Header: matahari terbit di atas biru logo</h2>
+  <div class="page-hero"><div><div class="hero-eyebrow">Contoh</div><h1>Temu Firman</h1><p class="hero-sub">Gradasi navy → biru, cahaya oranye dari kanan atas, siluet kota, dan pita logo di tepi bawah.</p></div></div>
+</div></body></html>

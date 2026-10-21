@@ -2,219 +2,49 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Profil · Shema v3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0A2766" />
+<title>Profil · Shema</title>
 <link rel="icon" type="image/png" href="assets/logo-shema.png" />
 <link rel="stylesheet" href="assets/styles.css" />
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script defer src="assets/app.js"></script>
 </head>
-<body>
-<div class="app-shell">
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <img src="assets/logo-shema.png" alt="Shema" />
-      <div><div class="org">GKI Gejayan</div><div class="kicker">Shema</div></div>
-    </div>
-    <nav class="nav-list">
-      <a href="member-home.html" class="nav-item"><i data-lucide="home"></i>Home</a>
-      <a href="program-cg.html" class="nav-item"><i data-lucide="users"></i>Program CG</a>
-      <a href="temu-firman.html" class="nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
-      <a href="presensi.html" class="nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
-      <a href="profil.html" class="nav-item active"><i data-lucide="circle-user"></i>Profil</a></nav>
-    <div class="sidebar-user">
-      <span class="avatar-square">CT</span>
-      <div><div class="name">Calvin Tanto</div><div class="role">Anggota</div></div>
-    </div>
-  </aside>
-  <header class="topbar">
-    <img src="assets/logo-shema.png" alt="Shema" />
-    <span class="avatar-square avatar-brand" style="width:34px;height:34px;">CT</span>
-  </header>
-  <main class="main">
-    <div class="main-inner">
+<body class="has-stage">
+<div class="stage">
+  <aside class="stage-info"><a href="index.html" class="stage-back">← Semua layar</a><img src="assets/logo-shema.png" alt="" /><div class="stage-title">Profil</div><p>Pratinjau aplikasi mobile Shema (target React Native). Ketuk elemen di dalam ponsel seperti di aplikasi asli.</p></aside>
+  <div class="device">
+    <div class="statusbar"><span class="sb-time">9:41</span><span class="sb-island"></span><span class="sb-icons"><svg width="18" height="11" viewBox="0 0 18 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="6" rx="1"/><rect x="10" y="2.5" width="3" height="8.5" rx="1"/><rect x="15" y="0" width="3" height="11" rx="1"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .4 10.4 10.4 0 0 0 .8 3.3L2 4.6a8.6 8.6 0 0 1 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3L12.6 6a6.6 6.6 0 0 0-9.2 0l1.2 1.1C5.5 6.3 6.7 5.8 8 5.8zm0 3.5 1.9-1.9a2.7 2.7 0 0 0-3.8 0z"/></svg><span class="sb-batt"><i></i></span></span></div>
+    
+    <main class="screen"><div class="main-inner">
 
-      <div class="page-hero" data-reveal>
-        <div class="flex items-center gap-3">
-          <span class="avatar avatar-lg" style="background:rgba(255,255,255,.2);color:#fff;font-size:22px;border:2px solid rgba(255,255,255,.5);">CT</span>
-          <div><h1 style="font-size:24px;">Calvin Tanto</h1><p class="hero-sub">Anggota · Care Group "Kasih Setia"</p></div>
-        </div>
-        <a href="pengaturan.html" class="hh-btn" aria-label="Pengaturan" title="Pengaturan"><i data-lucide="settings"></i></a>
-      </div>
-
-      <div data-reveal>
-        <div class="section-title" style="margin-bottom:12px;">Faithful Journey</div>
-        <div class="journey-row">
-        <div class="j-card" data-open-sheet="sheet-j-rooted" data-reveal>
-          <img src="assets/journey-rooted.svg" alt="Rooted Journey" />
-          <div class="j-name">🌱 Berakar</div>
-          <div class="j-en">Rooted Journey</div>
-          <div class="progress-track"><div class="progress-fill" style="width:20%"></div></div>
-          <div class="j-meta">Mulai Berakar · 5/25 hari</div>
-        </div>
-        <div class="j-card" data-open-sheet="sheet-j-branching" data-reveal>
-          <img src="assets/journey-branching.svg" alt="Branching Journey" />
-          <div class="j-name">🌿 Beranting</div>
-          <div class="j-en">Branching Journey</div>
-          <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
-          <div class="j-meta">Belum dimulai · 0/2 orang</div>
-        </div>
-        <div class="j-card" data-open-sheet="sheet-j-growing" data-reveal>
-          <img src="assets/journey-growing.svg" alt="Growing Journey" />
-          <div class="j-name">🌳 Bertumbuh</div>
-          <div class="j-en">Growing Journey</div>
-          <div class="progress-track"><div class="progress-fill" style="width:50%"></div></div>
-          <div class="j-meta">Mulai Bertumbuh · 2/4 hadir</div>
-        </div>
-        <div class="j-card" data-open-sheet="sheet-j-fruitful" data-reveal>
-          <img src="assets/journey-fruitful.svg" alt="Fruitful Journey" />
-          <div class="j-name">🍎 Berbuah</div>
-          <div class="j-en">Fruitful Journey</div>
-          <div class="progress-track"><div class="progress-fill" style="width:33%"></div></div>
-          <div class="j-meta">Tahap 2 dari 6 · Member Aktif</div>
-        </div></div>
-      </div>
-
-      <div class="card" data-reveal>
-        <div class="section-title">Perjalanan Pelayananmu</div>
-        <div class="stepper">
-          <div class="step done"><div class="step-dot"><i data-lucide="check" style="width:12px;height:12px;"></i></div><div class="step-label">New Comer</div></div>
-          <div class="step done"><div class="step-dot"><i data-lucide="check" style="width:12px;height:12px;"></i></div><div class="step-label">First Coaching</div></div>
-          <div class="step done"><div class="step-dot"><i data-lucide="check" style="width:12px;height:12px;"></i></div><div class="step-label">Second Coaching</div></div>
-          <div class="step active"><div class="step-dot">4</div><div class="step-label">Member Care Group</div></div>
-          <div class="step"><div class="step-dot">5</div><div class="step-label">Training Leader</div></div>
-          <div class="step"><div class="step-dot">6</div><div class="step-label">Training Coach</div></div>
-        </div>
-      </div>
-
-      <div class="card" data-reveal>
-        <div class="section-title">Shema Growth</div>
-        <ul class="row-list">
-          <li class="row"><div class="flex-1"><p class="row-title">First Coaching</p></div><span class="badge badge-good">Selesai 10 Mei 2025</span></li>
-          <li class="row"><div class="flex-1"><p class="row-title">Second Coaching</p></div><span class="badge badge-good">Selesai 22 Jul 2025</span></li>
-          <li class="row"><div class="flex-1"><p class="row-title">Third Coaching</p></div><span class="badge badge-ink">Belum ada jadwal</span></li>
-        </ul>
-      </div>
-
-      <div class="flex-col gap-2">
-        <a href="pengaturan.html" class="card hoverable flex items-center justify-between" data-reveal><span class="flex items-center gap-2 row-title"><i data-lucide="settings" style="width:17px;height:17px;color:var(--brand-500);"></i>Pengaturan</span><i data-lucide="chevron-right" style="width:16px;height:16px;color:var(--taupe-500);"></i></a>
-        <a href="tentang.html" class="card hoverable flex items-center justify-between" data-reveal><span class="row-title">Tentang &amp; Ajukan Pelayanan</span><i data-lucide="chevron-right" style="width:16px;height:16px;color:var(--taupe-500);"></i></a>
-        <a href="login.html" class="card hoverable flex items-center justify-between" data-reveal><span class="row-title" style="color:var(--danger-500);">Keluar</span><i data-lucide="log-out" style="width:16px;height:16px;color:var(--danger-500);"></i></a>
-      </div>
-      <p class="text-sm muted" style="text-align:center;">Shema App · v0.3 (desain)</p>
-
-    </div>
-  </main>
-  <nav class="bottom-nav"><div class="bottom-nav-list">
-        <a href="member-home.html" class="bottom-nav-item"><i data-lucide="home"></i>Home</a>
-        <a href="program-cg.html" class="bottom-nav-item"><i data-lucide="users"></i>Program CG</a>
-        <a href="temu-firman.html" class="bottom-nav-item"><i data-lucide="book-open-text"></i>Temu Firman</a>
-        <a href="presensi.html" class="bottom-nav-item"><i data-lucide="hand-helping"></i>Presensi</a>
-        <a href="profil.html" class="bottom-nav-item active"><i data-lucide="circle-user"></i>Profil</a></div></nav>
+<div class="profile-hero" data-reveal>
+  <button type="button" class="profile-photo" aria-label="Ganti foto">CT<span class="cam"><i data-lucide="camera"></i></span></button>
+  <div class="flex-1" style="min-width:0;position:relative;z-index:2"><h1 style="color:#fff;font-size:23px">Calvin Tanto</h1><div class="hero-sub" style="margin-top:2px">Anggota</div><div class="hero-sub flex items-center gap-1" style="font-size:12.5px;margin-top:4px"><i data-lucide="phone" class="inl"></i> 0812-1111-2222</div></div>
+  <div class="flex gap-2" style="position:relative;z-index:2"><button type="button" class="hh-btn" data-toggle="fullinfo" aria-label="Lihat informasi lengkap"><i data-lucide="eye"></i></button><a class="hh-btn" href="pengaturan.html" aria-label="Pengaturan"><i data-lucide="settings"></i></a></div>
 </div>
-
-      <div id="sheet-j-rooted" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Faithful Journey</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">🌱 Perjalanan Berakar</h3>
-
-          <div class="journey-hero">
-            <img src="assets/journey-rooted.svg" alt="Rooted Journey" />
-            <div>
-              <p class="row-title" style="font-size:16px;">Rooted Journey</p>
-              <p class="text-sm muted" style="margin-top:2px;">Kesan: kuat, kokoh, berakar dalam Kristus</p>
-              <p class="text-sm" style="margin-top:8px;font-weight:700;color:var(--brand-600);">Mulai Berakar · 5/25 hari</p>
-            </div>
-          </div>
-          <p class="text-sm" style="margin-bottom:14px;">Dihitung dari Temu Firman (membaca Alkitab) setiap hari.</p>
-          <div class="section-title" style="margin-bottom:10px;">Tangga perjalanan</div>
-          <div class="ladder-track">
-            <div class="ladder-item current"><p class="row-title">Mulai Berakar</p><p class="row-sub">25× / 1 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Berakar</p><p class="row-sub">75–90× / 3 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Berakar Dalam</p><p class="row-sub">300–360× / 1 tahun</p></div>
-            <div class="ladder-item "><p class="row-title">Berakar Kuat</p><p class="row-sub">900–1080× / 3 tahun</p></div>
-            <div class="ladder-item "><p class="row-title">Berakar Kokoh</p><p class="row-sub">>1080× / 3 tahun</p></div>
-          </div>
-        </div>
-      </div>
-      <div id="sheet-j-branching" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Faithful Journey</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">🌿 Perjalanan Beranting</h3>
-
-          <div class="journey-hero">
-            <img src="assets/journey-branching.svg" alt="Branching Journey" />
-            <div>
-              <p class="row-title" style="font-size:16px;">Branching Journey</p>
-              <p class="text-sm muted" style="margin-top:2px;">Kesan: berkembang dan membawa orang lain</p>
-              <p class="text-sm" style="margin-top:8px;font-weight:700;color:var(--brand-600);">Belum dimulai · 0/2 orang</p>
-            </div>
-          </div>
-          <p class="text-sm" style="margin-bottom:14px;">Dihitung dari orang yang kamu ajak bergabung ke Care Group.</p>
-          <div class="section-title" style="margin-bottom:10px;">Tangga perjalanan</div>
-          <div class="ladder-track">
-            <div class="ladder-item current"><p class="row-title">Mulai Beranting</p><p class="row-sub">2 orang / 3 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Beranting</p><p class="row-sub">4 orang / 6 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Beranting Lebat</p><p class="row-sub">8 orang / 1 tahun</p></div>
-            <div class="ladder-item "><p class="row-title">Beranting Sehat</p><p class="row-sub">9 orang / 3 tahun</p></div>
-          </div>
-        </div>
-      </div>
-      <div id="sheet-j-growing" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Faithful Journey</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">🌳 Perjalanan Bertumbuh</h3>
-
-          <div class="journey-hero">
-            <img src="assets/journey-growing.svg" alt="Growing Journey" />
-            <div>
-              <p class="row-title" style="font-size:16px;">Growing Journey</p>
-              <p class="text-sm muted" style="margin-top:2px;">Kesan: proses pertumbuhan pribadi</p>
-              <p class="text-sm" style="margin-top:8px;font-weight:700;color:var(--brand-600);">Mulai Bertumbuh · 2/4 hadir</p>
-            </div>
-          </div>
-          <p class="text-sm" style="margin-bottom:14px;">Dihitung dari kehadiran Care Group dan Temu Firman.</p>
-          <div class="section-title" style="margin-bottom:10px;">Tangga perjalanan</div>
-          <div class="ladder-track">
-            <div class="ladder-item current"><p class="row-title">Mulai Bertumbuh</p><p class="row-sub">4× / 3 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Bertumbuh</p><p class="row-sub">10–12× / 6 bulan</p></div>
-            <div class="ladder-item "><p class="row-title">Bertumbuh Kuat</p><p class="row-sub">20–24× / 1 tahun</p></div>
-            <div class="ladder-item "><p class="row-title">Bertumbuh Sehat</p><p class="row-sub">60–72× / 3 tahun</p></div>
-            <div class="ladder-item "><p class="row-title">Bertumbuh Kokoh</p><p class="row-sub">73× / 3 tahun</p></div>
-          </div>
-        </div>
-      </div>
-      <div id="sheet-j-fruitful" class="sheet-overlay" style="display:none;">
-        <div class="sheet">
-          <div class="sheet-handle"></div>
-          <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
-          <p class="eyebrow">Faithful Journey</p>
-          <h3 style="font-size:21px;margin:4px 40px 14px 0;">🍎 Perjalanan Berbuah</h3>
-
-          <div class="journey-hero">
-            <img src="assets/journey-fruitful.svg" alt="Fruitful Journey" />
-            <div>
-              <p class="row-title" style="font-size:16px;">Fruitful Journey</p>
-              <p class="text-sm muted" style="margin-top:2px;">Kesan: menghasilkan buah nyata</p>
-              <p class="text-sm" style="margin-top:8px;font-weight:700;color:var(--brand-600);">Tahap 2 dari 6 · Member Aktif</p>
-            </div>
-          </div>
-          <p class="text-sm" style="margin-bottom:14px;">Terjadi saat kamu bertumbuh menjadi Leader.</p>
-          <div class="section-title" style="margin-bottom:10px;">Tangga perjalanan</div>
-          <div class="ladder-track">
-            <div class="ladder-item current"><p class="row-title">Member → Member Aktif</p></div>
-            <div class="ladder-item "><p class="row-title">Pengurus CG</p></div>
-            <div class="ladder-item "><p class="row-title">Calon Leader</p></div>
-            <div class="ladder-item "><p class="row-title">Kandidat Leader</p></div>
-            <div class="ladder-item "><p class="row-title">Leader</p></div>
-          </div>
-        </div>
-      </div>
-<script src="assets/app.js"></script>
+<p class="hint" style="margin-top:-12px">Foto pratinjau untuk sesi ini saja.</p>
+<div class="card" id="fullinfo" hidden><div class="section-title"><span>Informasi Lengkap</span></div><div class="row-list"><div class="row" style="justify-content:space-between"><span class="text-sm muted">Nama Lengkap</span><span class="text-sm" style="font-weight:700;color:var(--navy-900);text-align:right">Calvin Tanto</span></div><div class="row" style="justify-content:space-between"><span class="text-sm muted">Nomor WA</span><span class="text-sm" style="font-weight:700;color:var(--navy-900);text-align:right">0812-1111-2222</span></div><div class="row" style="justify-content:space-between"><span class="text-sm muted">Peran</span><span class="text-sm" style="font-weight:700;color:var(--navy-900);text-align:right">Anggota</span></div><div class="row" style="justify-content:space-between"><span class="text-sm muted">Care Group</span><span class="text-sm" style="font-weight:700;color:var(--navy-900);text-align:right">Care Group "Kasih Setia"</span></div><div class="row" style="justify-content:space-between"><span class="text-sm muted">Alamat</span><span class="text-sm" style="font-weight:700;color:var(--navy-900);text-align:right">Jl. Kaliurang Km 6, Sleman</span></div><div class="row" style="justify-content:space-between"><span class="text-sm muted">Universitas</span><span class="text-sm" style="font-weight:700;color:var(--navy-900);text-align:right">UAJY</span></div><div class="row" style="justify-content:space-between"><span class="text-sm muted">Tanggal Lahir</span><span class="text-sm" style="font-weight:700;color:var(--navy-900);text-align:right">25 Agustus</span></div></div><p class="hint" style="margin-top:12px">Ubah nama, alamat, universitas, dan tanggal lahir lewat ikon pengaturan. Nomor WA &amp; penempatan Care Group diubah lewat Leader → Admin.</p></div>
+<div class="card" data-reveal><div class="section-title"><span>Perjalanan Pelayanan</span></div><div class="stepper"><div class="step done"><div class="step-dot"><i data-lucide="check"></i></div><div class="step-label">New Comer</div></div><div class="step done"><div class="step-dot"><i data-lucide="check"></i></div><div class="step-label">First Coaching</div></div><div class="step done"><div class="step-dot"><i data-lucide="check"></i></div><div class="step-label">Second Coaching</div></div><div class="step active"><div class="step-dot">4</div><div class="step-label">Member Care Group</div></div><div class="step"><div class="step-dot">5</div><div class="step-label">Training Leader</div></div><div class="step"><div class="step-dot">6</div><div class="step-label">Training Coach</div></div></div><p class="text-sm muted" style="margin-top:14px">Tahap saat ini: <strong style="color:var(--navy-900)">Member Care Group</strong></p></div>
+<div class="card" data-reveal><div class="section-title"><span>Shema Growth</span></div><div class="row-list"><div class="row"><span class="check-dot"><i data-lucide="check"></i></span><span class="flex-1 row-title" style="font-weight:700;color:var(--navy-900)">First Coaching</span><span class="row-sub">Selesai 10 Mei</span></div><div class="row"><span class="check-dot"><i data-lucide="check"></i></span><span class="flex-1 row-title" style="font-weight:700;color:var(--navy-900)">Second Coaching</span><span class="row-sub">Selesai 22 Jul</span></div><div class="row"><span class="dash-dot"></span><span class="flex-1 row-title" style="font-weight:600;color:var(--ink-500)">Third Coaching</span><span class="row-sub">Berikutnya 5 Sep</span></div><div class="row"><span class="dash-dot"></span><span class="flex-1 row-title" style="font-weight:600;color:var(--ink-500)">CG Leader Training</span><span class="row-sub">Berikutnya 22 Agu</span></div><div class="row"><span class="dash-dot"></span><span class="flex-1 row-title" style="font-weight:600;color:var(--ink-500)">CG Coach Training</span><span class="row-sub">Berikutnya 12 Sep</span></div></div></div>
+<a class="card hoverable link-row" href="presensi.html" data-reveal><span class="ico-sq g-orange"><i data-lucide="hand-helping"></i></span><div class="flex-1"><div class="row-title">Presensi Pelayanan</div><div class="row-sub">1 kali tercatat · diisi sendiri</div></div><i data-lucide="chevron-right" class="chev"></i></a>
+<a class="card hoverable link-row" href="tentang.html" data-reveal><span class="ico-sq g-red"><i data-lucide="heart-handshake"></i></span><div class="flex-1"><div class="row-title">Tentang Tim SDA &amp; Care Group</div><div class="row-sub">Peran pelayanan &amp; ajukan pelayananmu</div></div><i data-lucide="chevron-right" class="chev"></i></a>
+<button type="button" class="card hoverable link-row" data-open-sheet="sh-exit" data-reveal style="width:100%;text-align:left;font:inherit"><span class="ico-sq g-slate"><i data-lucide="log-out"></i></span><div class="flex-1"><div class="row-title">Keluar</div></div></button>
+<div class="card" data-reveal style="background:var(--surface-2)"><p class="text-sm muted">GKI Gejayan · Tim Sumber Daya Aktifis (SDA)</p><p class="text-sm muted" style="margin-top:2px">Shema App · v0.3 (prototype)</p></div>
+    </div></main>
+    <nav class="tabbar"><a class="tab" href="member-home.html"><i data-lucide="house"></i><span>Home</span></a><a class="tab" href="program-cg.html"><i data-lucide="users"></i><span>Care Group</span></a><a class="tab" href="temu-firman.html"><i data-lucide="book-open-text"></i><span>Firman</span></a><a class="tab" href="presensi.html"><i data-lucide="hand-helping"></i><span>Presensi</span></a><a class="tab active" href="profil.html"><i data-lucide="circle-user"></i><span>Profil</span></a></nav>
+    <div class="home-indicator"></div>
+    
+<div class="sheet-overlay" id="sh-exit" style="display:none">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="icon-btn sheet-close" data-close-sheet aria-label="Tutup"><i data-lucide="x"></i></button>
+    <h3 style="font-size:19px;margin-bottom:16px;padding-right:44px">Keluar dari aplikasi?</h3>
+    <p class="text-sm">Kamu hanya keluar dari sesi ini. <strong>Data dan progresmu tetap tersimpan</strong> — masuk lagi kapan saja dengan Nomor WA dan kata sandimu.</p>
+   <div class="flex gap-2" style="margin-top:18px"><button class="btn btn-ghost flex-1" data-close-sheet>Batal</button><a class="btn btn-primary flex-1" href="login.html"><i data-lucide="log-out"></i> Keluar</a></div>
+  </div>
+</div>
+  </div>
+</div>
 </body>
 </html>

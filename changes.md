@@ -12,6 +12,111 @@
 
 ---
 
+## 2026-10-20 (2) — Hi-fi React (`hifi/`): aplikasi baru dengan tata letak lo-fi, gaya modern
+
+Atas permintaan "hi-fi dibangun dengan React, bukan hanya HTML, mock data jangan
+lupa, tata letak sama dengan lo-fi, client sudah oke tapi style harus lebih
+modern". Lokasi dan gaya dikonfirmasi dulu karena bentrok dengan prd.md
+Decision #18/#20 (src/ tetap lo-fi): **app baru di folder terpisah**, **palet
+logo v3.1**. `src/` dan `full_design*/` tidak disentuh. Lihat Decision Log #21.
+
+- `hifi/` = salinan `src/` + `public/` + Vite sendiri (`package.json`
+  `shema-hifi`, `npm ci` di dalam `hifi/`). **Seluruh halaman, rute, context,
+  `mockData.js`, dan logika sama persis** dengan lo-fi — hanya tampilan yang
+  diganti. Preview: entri `hifi-dev` di `.claude/launch.json` (port 9800).
+- **Token tema** (`hifi/src/index.css`): nama token lama (`ink`, `brand`, `good`,
+  `warn`, `tier-*`) dipetakan ulang ke palet logo (netral dingin navy, biru
+  logo, hijau, oranye), plus `lead` (ungu) dan `info` (teal). Font Plus Jakarta
+  Sans, sudut lebih bulat, bayangan bernuansa navy. Karena token yang dipakai
+  halaman tetap, semua halaman dan panel ikut berganti rupa tanpa diubah
+  susunannya.
+- **Komponen dasar**: `Card` (bayangan lembut), `SectionTitle` (penanda biru),
+  `Badge`, `Avatar` (gradien dari warna logo), `IconTile` baru.
+- **Shell**: sidebar putih + pita warna logo + indikator menu aktif; bar atas
+  dan bar bawah mobile berlapis blur dengan pil aktif dan label pendek
+  ("CG", "Firman"); transisi halaman halus.
+- **Home**: header jadi hero gradien (matahari terbit + siluet gereja + pita),
+  tombol lonceng/streak/keluar translusen; **grid ikon bergradien** satu warna
+  per fungsi; kartu Faithful Journey diberi rona per perjalanan.
+- Tombol utama (`bg-brand-500`) bergradien + bayangan biru, kolom isian dengan
+  cincin fokus biru, Login/Register berlatar gradien lembut, BottomSheet lebih
+  bulat dengan latar blur, judul halaman lebih tegas.
+- Diverifikasi di browser (desktop + mobile 375px): Login, Home Anggota & Ketua
+  Komsel, Program CG, Temu Firman, Profil, Panel Ketua Komsel. Build bersih,
+  lint 2 peringatan lama.
+- Ditinjau kemudian (desktop): Home & Panel Super Admin (tab Data User), Panel
+  Coach, Jadwal, Doa, Tentang, Pengaturan — semua memakai token baru dengan
+  benar, tanpa perubahan kode tambahan. Catatan: tangkapan layar yang diambil
+  tepat setelah berpindah halaman tampak pudar karena animasi masuk halaman
+  (320 ms) belum selesai di panel preview; opasitas akhirnya 1.
+
+---
+
+## 2026-10-20 (2) — Hi-fi v3.2: tampilan aplikasi mobile native (target React Native)
+
+Permintaan: hi-fi dibuat lebih rapi dan benar-benar terasa seperti aplikasi
+mobile karena akan dibangun dengan React Native. Hanya `full_design_v3/` dan
+`tools/hifi-v3/` yang berubah. Keputusan: prd.md Decision Log #21.
+
+- **Bingkai ponsel**: tiap layar dirender di perangkat 390×844 (status bar,
+  dynamic island, home indicator); sidebar web dihapus. Di ponsel sungguhan
+  tampil penuh layar dengan safe-area.
+- **Tab bar 5 menu** (konvensi iOS/Android/React Navigation): Anggota =
+  Home · Care Group · Firman · Presensi · Profil; Leader/Super Admin/Coach =
+  Home · Care Group · Firman · Admin · Profil. Jadwal, Doa, Presensi (non-anggota)
+  dibuka dari ikon Home sebagai layar tumpukan dengan tombol kembali.
+- **Pola native**: large title menggantikan banner gradasi di halaman dalam;
+  app bar "‹ Kembali" di Pengaturan, Tentang, Jadwal, Doa; header Home penuh
+  sampai tepi atas dengan status bar putih; tab panel admin menjadi chip
+  geser; Faithful Journey menjadi carousel geser; bottom sheet muncul di dalam
+  layar ponsel; isi sheet berupa grup lembut (bukan kartu bertumpuk).
+- **Ergonomi**: target sentuh ≥ 44pt, tombol 48pt, input 16px (tidak memicu
+  zoom iOS), tanpa efek hover; umpan balik tekan (scale) pada kartu/ikon.
+  Animasi fade per kartu dihapus — hanya transisi masuk layar.
+
+---
+
+## 2026-10-20 — Hi-fi v3.1: `full_design_v3/` disamakan dengan lo-fi `src/`, warna dari logo
+
+Atas permintaan "prototype user sudah oke, sekarang buatkan yang high fidelity
+(update sesuai lo-fi yang sudah dibuat), warna pakai warna logo, balance tapi
+tetap rapi dan clean". Hanya `full_design_v3/` yang diubah (dan folder alat
+baru `tools/hifi-v3/`); `src/` dan `full_design/` (v1/v2) tidak disentuh.
+Keputusan desain: prd.md Decision Log #20.
+
+- **Isi = lo-fi.** Semua halaman dibuat ulang dari kode & data `src/` (via
+  `tools/hifi-v3/build.sh`), jadi angka streak, tingkat Faithful Journey,
+  rekap pelayanan, statistik Leader/Coach, notifikasi, dan urutan
+  kartu sama dengan aplikasi. Perbedaan lama yang dihapus: banner di Home,
+  Faithful Journey di Profil, tangga yang disederhanakan, 6 tab Leader dengan
+  kartu "permintaan masuk" (kini 8 tab + formulir Permintaan Pindah CG),
+  ukuran font 1.12/1.25 (kini 0.9/1/1.15/1.3).
+- **Halaman baru/ditambah:** `design-system.html` (palet logo, aturan 60/30/10,
+  komponen, tipografi), `program-cg-leader.html` (Program CG dengan
+  kehadiran bisa diedit), `program-cg-info.html` (Program CG tanpa CG sendiri
+  — Super Admin/Coach/akun baru), `index.html` disusun ulang sebagai hub.
+- **Warna dari logo (60/30/10).** Netral putih-kebiruan + navy (warna tulisan
+  SHEMA) mendominasi; sembilan warna logo diambil dengan color-picker lalu
+  diturunkan sedikit saturasinya. Tiap warna satu fungsi tetap: biru = aksi &
+  Care Group, hijau = Temu Firman/sukses, oranye = streak/notifikasi/Presensi,
+  merah = Pelayanan/Berbuah, ungu = kepemimpinan (Leader/Admin/Coach), teal =
+  jadwal & informasi. Header Home/hero: gradasi navy→biru + cahaya oranye +
+  siluet + pita kuning→hijau→teal→biru (meniru panah logo). Faithful Journey:
+  satu warna per perjalanan (hijau/biru/oranye/merah). Avatar diwarnai dari
+  kelima warna logo. Terracotta/cokelat tua lama dibuang seluruhnya.
+- **Interaksi statis:** tab (bisa dibuka lewat `#hash`), bottom sheet, filter
+  Jadwal, "Doakan", tampil/sembunyi formulir, ukuran font Pengaturan
+  (tersimpan), hitung-naik angka.
+- **Mobile:** bar bawah padat (7–8 menu) memakai label pendek ("CG", "Firman");
+  tidak ada scroll horizontal di 375px.
+- **Alat:** `tools/hifi-v3/` (`build.sh` + generator `.mjs`) — menghasilkan
+  ulang semua `.html` di `full_design_v3/` dari `src/`.
+- Diverifikasi di browser: 22 halaman, tidak ada tautan/jangkar/id ganda yang
+  rusak, ikon Lucide terbaca, tidak ada error konsol, angka cocok dengan
+  perhitungan lo-fi.
+
+---
+
 ## 2026-10-08 (2) — Revisi sub menu dibangun di aplikasi (`src/`), tetap lo-fi
 
 Atas permintaan "update dulu lo-fi-nya berdasarkan dokumen tadi, belum mau

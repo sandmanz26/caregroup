@@ -9,7 +9,7 @@
 > Companion file: [changes.md](changes.md) logs *what shipped* per request.
 > This file describes *what the product currently is and is meant to be*.
 
-Last updated: 2026-10-08 (revisi v3 sudah dibangun di `src/` secara lo-fi — §5.12, Decision Log #19)
+Last updated: 2026-10-20 (hi-fi React di `hifi/` — Decision Log #21)
 
 ---
 
@@ -49,8 +49,11 @@ Design direction: intentionally lo-fi/wireframe — warm neutral palette + one
 terracotta accent, minimal decoration, functional over polished. Responsive:
 sidebar nav on desktop, bottom tab bar + top bar on mobile. (A separate,
 static hi-fi visual exploration of every screen below exists in
-`full_design/` — Decision Log #18 — but the app itself, described
-throughout the rest of this document, stays lo-fi.)
+`full_design/` — Decision Log #18 — and a second one, matched 1:1 to the
+current lo-fi app and using the logo palette, in `full_design_v3/` — Decision
+Log #20 — and a React hi-fi build of the same app, with the same layout and
+data, in `hifi/` — Decision Log #21. The app in `src/`, described throughout
+the rest of this document, stays lo-fi.)
 
 ## 2. Roles
 
@@ -492,7 +495,8 @@ sekaligus tapi bukan anggota dari CG manapun yang dibinanya. Per slide sumber
 
 Sumber: PPTX "Revisi penempatan susunan sub menu di beranda Aplikasi" (5 slide).
 Mockup hi-fi-nya ada di `full_design_v3/` (referensi saja, tidak terhubung ke
-app). Versi yang berjalan di `src/` tetap bergaya lo-fi — hanya susunan, fitur,
+app; sejak 2026-10-20 isinya disamakan dengan `src/` — Decision Log #20).
+Versi yang berjalan di `src/` tetap bergaya lo-fi — hanya susunan, fitur,
 dan istilahnya yang berubah. Bentrokan dengan keputusan lama dan asumsi yang
 dipakai: Decision Log #19.
 
@@ -771,6 +775,53 @@ asked, what was decided, why.
     Admin yang bisa memindahkan (§5.10); desain menambah langkah "permintaan
     dari Leader" sebelum Admin memindahkan. (g) Slide 5 menulis "Ibadah
     Imersif" dua kali — dianggap salah ketik.
+
+20. **Hi-fi v3.1 — `full_design_v3/` dibuat ulang agar identik dengan lo-fi
+    yang sudah disetujui, dan memakai warna logo.** Permintaan: "prototype
+    user sudah oke, buatkan yang high fidelity; kalau sudah ada, update sesuai
+    lo-fi; warna pakai warna logo, balance tapi tetap rapi dan clean".
+    Tidak ada bentrokan dengan keputusan sebelumnya; hal-hal berikut perlu
+    diketahui supaya tidak mengejutkan: (a) **Aturan visual hi-fi
+    sekarang**: 60% netral putih-kebiruan, 30% navy, 10% warna logo — tiap
+    warna punya satu fungsi tetap (biru aksi/CG, hijau Firman/sukses, oranye
+    streak/Presensi, merah Pelayanan, ungu kepemimpinan, teal informasi).
+    Ini menggantikan palet terracotta di mock v3 lama dan palet "warm neutral
+    + one terracotta accent" yang tertulis di §1 **hanya untuk lo-fi**;
+    **aplikasi di `src/` belum memakai warna logo** — kalau mau, itu langkah
+    terpisah (belum diminta). (b) Mock hi-fi memperlihatkan halaman bersama
+    dari satu sudut pandang (Calvin; Jadwal dari Leader; Doa dari Super
+    Admin) agar tidak menggandakan 20+ file — bukan perubahan perilaku.
+    (c) Foto kegiatan/poster/ilustrasi renungan memakai gambar placeholder;
+    aset asli menunggu dari gereja. (d) Mock ini statis; angka dihasilkan oleh
+    `tools/hifi-v3/build.sh` dari `src/`, jadi **bila lo-fi berubah, mock
+    perlu dibangun ulang** (satu perintah).
+
+21. **Hi-fi v3.2 — tampilan mengikuti aplikasi mobile native (target React
+    Native).** Permintaan: "akan dibuild di mobile (React Native), tampilan
+    harus layaknya aplikasi mobile". **Bentrok dengan lo-fi/§1:** lo-fi `src/`
+    adalah web responsif dengan sidebar dan bottom nav berisi semua menu
+    (hingga 8 untuk Super Admin/Coach). Hi-fi kini memakai **tab bar maksimal
+    5** (Anggota: Home, Care Group, Firman, Presensi, Profil; peran lain:
+    Home, Care Group, Firman, Admin, Profil); Jadwal, Doa, dan Presensi untuk
+    non-anggota dipindah ke ikon Home sebagai layar bertumpuk dengan tombol
+    kembali. Isi tiap layar tidak berubah. Ini **asumsi untuk build React
+    Native** — lo-fi `src/` tidak diubah; perlu konfirmasi apakah susunan tab
+    ini dipakai di aplikasi final.
+
+21. **Hi-fi React dibangun sebagai app terpisah (`hifi/`), tata letak = lo-fi.**
+    Permintaan: hi-fi dengan React (bukan HTML statis), mock data tetap ada,
+    tata letak sama dengan lo-fi yang sudah disetujui client, gaya lebih
+    modern. Ini menyentuh Decision #18/#20 (aplikasi `src/` tetap lo-fi dan
+    membawa gaya hi-fi ke app harus diputuskan eksplisit), jadi ditanyakan
+    dulu; jawaban pemilik produk: **folder terpisah** (`src/` lo-fi tetap
+    utuh sebagai referensi client) dan **palet logo v3.1** (60/30/10, satu
+    fungsi per warna — Decision #20a). `hifi/` adalah salinan `src/` dengan
+    Vite sendiri; halaman, rute, context, dan `mockData.js` identik, hanya
+    tampilan yang berubah, lewat pemetaan ulang token Tailwind + komponen dasar.
+    **Konsekuensi**: perubahan fitur kini harus diterapkan ke **dua** app
+    (`src/` dan `hifi/`) — belum ada mekanisme berbagi kode; kalau ini jadi
+    beban, langkah berikutnya memindahkan data/context ke paket bersama.
+    Mock `full_design_v3/` (HTML statis) tetap sebagai referensi visual.
 
 ## 8. Pages That Must Handle "No Care Group" Gracefully
 

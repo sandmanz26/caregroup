@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/*
+  Shema — hi-fi (v3.1 · palet logo). Tata letak sama dengan lo-fi; yang berubah hanya token & tampilan.
+  Aturan 60/30/10: 60% netral putih-kebiruan, 30% navy, 10% warna logo.
+  Nama token lama (ink / brand / good / warn …) dipertahankan supaya seluruh halaman ikut berganti rupa
+  tanpa mengubah susunannya:
+    ink   = netral dingin berbasis navy logo
+    brand = biru logo (aksi utama & Care Group)
+    good  = hijau logo (Temu Firman, sukses)
+    warn  = oranye logo (sorotan, streak)
+*/
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* netral dingin (navy logo) */
+  --color-ink-50: #F4F7FB;
+  --color-ink-100: #EDF1F7;
+  --color-ink-200: #E2E7F0;
+  --color-ink-300: #B3BCCF;
+  --color-ink-400: #7A87A1;
+  --color-ink-500: #5B6985;
+  --color-ink-600: #46536E;
+  --color-ink-700: #33425F;
+  --color-ink-800: #1B2A4A;
+  --color-ink-900: #0A1B40;
+
+  /* biru logo */
+  --color-brand-50: #F1F7FE;
+  --color-brand-100: #DCEBFB;
+  --color-brand-200: #B4D5F6;
+  --color-brand-400: #3B9BEF;
+  --color-brand-500: #0A74D9;
+  --color-brand-600: #075FB6;
+  --color-brand-700: #054A91;
+
+  /* semantik */
+  --color-good-500: #2A8F0A;
+  --color-good-100: #DDF0D3;
+  --color-warn-500: #F59B0A;
+  --color-warn-100: #FFEBC4;
+
+  /* tingkat pencapaian — coklat / kuning (warn) / merah / hijau (good) */
+  --color-tier-coklat: #8A5A36;
+  --color-tier-coklat-100: #F1E4D5;
+  --color-tier-merah: #C42E18;
+  --color-tier-merah-100: #FBDAD3;
+  --color-hijau-muda: #3C9A1B;
+  --color-hijau-muda-100: #E6F5DD;
+
+  /* fungsi warna tambahan */
+  --color-lead-500: #7F23C6;
+  --color-lead-100: #F0E1FA;
+  --color-info-500: #08807D;
+  --color-info-100: #D5F1EF;
+
+  /* sudut lebih lembut */
+  --radius-md: 0.875rem;
+  --radius-lg: 1.125rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 1.75rem;
+
+  /* bayangan bernuansa navy */
+  --shadow-xs: 0 1px 2px rgba(10, 27, 64, .05);
+  --shadow-sm: 0 1px 2px rgba(10, 27, 64, .04), 0 6px 18px -10px rgba(10, 27, 64, .16);
+  --shadow-md: 0 2px 4px rgba(10, 27, 64, .05), 0 16px 34px -16px rgba(10, 27, 64, .26);
+  --shadow-lg: 0 4px 10px rgba(10, 27, 64, .06), 0 28px 56px -22px rgba(10, 27, 64, .36);
+  --shadow-xl: 0 8px 18px rgba(10, 27, 64, .08), 0 40px 80px -24px rgba(10, 27, 64, .45);
+}
+
+:root {
+  --g-blue: linear-gradient(145deg, #3B9BEF, #0A62C4);
+  --g-green: linear-gradient(145deg, #62C23A, #2A8F0A);
+  --g-orange: linear-gradient(145deg, #FFB432, #EE8800);
+  --g-red: linear-gradient(145deg, #F2644E, #C42E18);
+  --g-purple: linear-gradient(145deg, #A64FE2, #6A1FB4);
+  --g-teal: linear-gradient(145deg, #2FC8C2, #0A8A86);
+  --g-magenta: linear-gradient(145deg, #C84CB0, #92207A);
+  --g-navy: linear-gradient(145deg, #37508A, #0A1B40);
+  --g-slate: linear-gradient(145deg, #8190AD, #4B5B7C);
+  --g-amber: linear-gradient(145deg, #F2BC1E, #D58E00);
+  /* pita "panah pertumbuhan" dari logo */
+  --ribbon: linear-gradient(90deg, #FBCA03 0%, #8BC12F 33%, #24B08C 62%, #0180D0 100%);
+  --shadow-blue: 0 12px 24px -10px rgba(10, 116, 217, .55);
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-ink-50);
+  color: var(--color-ink-700);
+  line-height: 1.55;
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--color-brand-100);
+  color: var(--color-brand-700);
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* ---- Tombol utama (kelas bg-brand-500 pada <button>/<a>) → gradien biru + bayangan ---- */
+button.bg-brand-500,
+a.bg-brand-500 {
+  background-image: var(--g-blue);
+  box-shadow: var(--shadow-blue);
+  font-weight: 700;
+  transition: filter 140ms var(--ease), transform 140ms var(--ease), box-shadow 140ms var(--ease);
+}
+button.bg-brand-500:hover:not(:disabled),
+a.bg-brand-500:hover {
+  filter: brightness(.95);
+  transform: translateY(-1px);
+}
+button.bg-brand-500:active:not(:disabled) {
+  transform: scale(.98);
+}
+button:disabled {
+  box-shadow: none;
+}
+
+/* ---- Kolom isian ---- */
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+textarea,
+select {
+  background-color: #fff;
+  border-color: var(--color-ink-200);
+  color: var(--color-ink-900);
+  transition: border-color 140ms var(--ease), box-shadow 140ms var(--ease);
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-ink-300);
+}
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-brand-500);
+  box-shadow: 0 0 0 4px var(--color-brand-100);
+}
+
+/* ---- Gerak: halaman masuk halus ---- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.page-enter {
+  animation: fade-up 320ms var(--ease) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-enter { animation: none; }
+  * { transition-duration: 0.01ms !important; }
+}
+
+/* ---- Hero bergradien: matahari terbit di atas biru logo ---- */
+.hero-surface {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(420px 250px at 94% -12%, rgba(255, 161, 3, .7), transparent 62%),
+    radial-gradient(320px 220px at -4% 112%, rgba(2, 174, 171, .38), transparent 62%),
+    linear-gradient(135deg, #0A2766 0%, #0A55BD 56%, #1D84E5 100%);
+}
+.hero-surface::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .15;
+  background: url('/skyline.svg') right bottom / auto 76% no-repeat;
+}
+.hero-surface::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background: var(--ribbon);
+  z-index: 3;
+}
+.hero-surface > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* thin scrollbars for chip rows */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-ink-300);
+  border-radius: 4px;
+}

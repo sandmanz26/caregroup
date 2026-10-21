@@ -122,6 +122,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---- Show / hide / toggle (simple state demos) ----
+  document.querySelectorAll('[data-toggle]').forEach((el) => el.addEventListener('click', () => {
+    const t = document.getElementById(el.dataset.toggle); if (t) t.hidden = !t.hidden;
+  }));
+  document.querySelectorAll('[data-show]').forEach((el) => el.addEventListener('click', () => {
+    const t = document.getElementById(el.dataset.show); if (t) t.hidden = false;
+  }));
+  document.querySelectorAll('[data-hide]').forEach((el) => el.addEventListener('click', () => {
+    const t = document.getElementById(el.dataset.hide); if (t) t.hidden = true;
+  }));
+  document.querySelectorAll('[data-show-more]').forEach((btn) => btn.addEventListener('click', () => {
+    document.querySelectorAll(`[data-more="${btn.dataset.showMore}"]`).forEach((n) => { n.hidden = false; });
+    btn.hidden = true;
+  }));
+
+  // ---- "Doakan" counter ----
+  document.querySelectorAll('[data-pray]').forEach((btn) => btn.addEventListener('click', () => {
+    if (btn.classList.contains('active')) return;
+    btn.classList.add('active');
+    btn.querySelector('.lbl').textContent = 'Sudah didoakan';
+    btn.querySelector('.n').textContent = String(parseInt(btn.dataset.count, 10) + 1);
+  }));
+
+  // ---- Category filter (Jadwal) ----
+  document.querySelectorAll('[data-filter-chips]').forEach((wrap) => wrap.addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip'); if (!chip) return;
+    wrap.querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
+    chip.classList.add('active');
+    const f = chip.dataset.filter;
+    document.querySelectorAll('[data-cat]').forEach((c) => { c.hidden = !(f === 'Semua' || c.dataset.cat === f); });
+    let any = false;
+    document.querySelectorAll('[data-group]').forEach((g) => {
+      const vis = g.querySelectorAll('[data-cat]:not([hidden])').length > 0; g.hidden = !vis; any = any || vis;
+    });
+    const empty = document.getElementById('jadwal-empty'); if (empty) empty.hidden = any;
+  }));
+
+  // ---- Open a tab from the URL hash (e.g. leader-admin.html#kehadiran) ----
+  if (location.hash.length > 1) {
+    const btn = document.querySelector(`[data-tab-btn="${location.hash.slice(1)}"]`);
+    if (btn) btn.click();
+  }
+
   // ---- Button ripple ----
   document.querySelectorAll('.btn').forEach((btn) => {
     btn.addEventListener('click', (e) => {
